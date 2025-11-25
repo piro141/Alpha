@@ -6,13 +6,13 @@
     <title>株式会社Alpha | Alpha Inc.</title>
     
     <!-- タブ（ブラウザ）のアイコン設定 -->
-    <link rel="icon" href="meisi.jpg">
+    <link rel="icon" href="meisi.png">
     
     <!-- Tailwind CSS & Icons (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Fonts -->
+    <!-- Fonts: Elegant Serif for Headings, Clean Sans for Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,600;1,700&family=Shippori+Mincho:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
@@ -203,7 +203,7 @@
                     <!-- 画像を円形に切り抜いて配置 (rounded-full) -->
                     <div class="relative z-10 w-40 h-40 md:w-64 md:h-64 animate-float">
                         <!-- ここにロゴ画像が入ります -->
-                        <img src="meisi.jpg" alt="Alpha Inc. Logo" class="w-full h-full object-cover rounded-full shadow-[0_0_30px_rgba(0,232,255,0.3)] border border-brand-cyan/30">
+                        <img src="meisi.png" alt="Alpha Inc. Logo" class="w-full h-full object-cover rounded-full shadow-[0_0_30px_rgba(0,232,255,0.3)] border border-brand-cyan/30">
                     </div>
 
                     <!-- Orbiting Particle -->
@@ -305,7 +305,7 @@
                     <div class="relative w-full max-w-xs group mb-8">
                         <div class="absolute -inset-1 bg-gradient-to-br from-brand-magenta via-brand-purple to-brand-cyan rounded-sm blur opacity-40 group-hover:opacity-100 transition-opacity duration-700 animate-pulse-glow"></div>
                         <div class="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-[#0f1218] border border-brand-coolBlue/30 group-hover:border-brand-cyan/50 transition-colors duration-500">
-                            <!-- ここに写真が入ります -->
+                            <!-- Place 'pro.jpg' in the same folder -->
                             <img src="pro.jpg" alt="Hiroki Shimada" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-500">
                         </div>
                     </div>
@@ -389,7 +389,7 @@
         </div>
     </section>
 
-    <!-- Recruit Section -->
+    <!-- Recruit Section (Balanced Layout) -->
     <section id="recruit" class="py-40 px-6 md:px-12 relative overflow-hidden">
         <!-- Subtle Glow Divider Background -->
         <div class="absolute inset-0 flex justify-center pointer-events-none">
@@ -488,13 +488,15 @@
         </div>
     </footer>
 
-    <!-- Script for Scroll Reveal -->
+    <!-- Custom JS (Logic) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
+
             const revealOnScroll = () => {
                 const windowHeight = window.innerHeight;
                 const elementVisible = 100;
+
                 reveals.forEach((reveal) => {
                     const elementTop = reveal.getBoundingClientRect().top;
                     if (elementTop < windowHeight - elementVisible) {
@@ -502,7 +504,10 @@
                     }
                 });
             };
+
             window.addEventListener('scroll', revealOnScroll);
+            
+            // Initial check to trigger animations for elements already in view
             setTimeout(revealOnScroll, 100); 
         });
     </script>
