@@ -1,407 +1,1003 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta name="google-site-verification" content="zDJbOC0sXGMiwVKMPyb7sLdUPesDh-PB2zHxSnpcwtA" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社Alpha | Alpha Inc.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社Alpha | Alpha Inc. — ビジネス・ストラテジーパートナー</title>
+<meta name="description" content="株式会社Alphaは、マーケティング支援とキャリア支援を軸に、事業の非連続な成長を支えるビジネス・ストラテジーパートナーです。大阪・梅田。">
+<meta property="og:title" content="株式会社Alpha | Alpha Inc.">
+<meta property="og:description" content="領域を越境し、非連続な成長へ。マーケティング支援・キャリア支援のビジネス・ストラテジーパートナー。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.alpha-a.net/">
+<meta property="og:image" content="https://www.alpha-a.net/meisi.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070D;
+    --bg2:#0A0F1E;
+    --ink:#E8EDF6;
+    --muted:#96A2B8;
+    --faint:#5C6880;
+    --c1:#67E8F9;   /* aurora cyan   */
+    --c2:#A78BFA;   /* aurora violet */
+    --c3:#F472B6;   /* aurora pink   */
+    --grad:linear-gradient(92deg,var(--c1) 0%,var(--c2) 48%,var(--c3) 100%);
+    --hairline:rgba(150,168,200,.16);
+    --hairline-soft:rgba(150,168,200,.08);
+    --en:"Cormorant Garamond",serif;
+    --mincho:"Shippori Mincho",serif;
+    --gothic:"Zen Kaku Gothic New",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--gothic);
+    font-weight:300;
+    font-size:15px;
+    line-height:2;
+    letter-spacing:.04em;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--c2);color:var(--bg)}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
 
-    <!-- タブ（ブラウザ）のアイコン設定：透過なしのjpgを使用 -->
-    <link rel="icon" href="meisi.jpg">
+  .wrap{max-width:1160px;margin:0 auto;padding:0 48px;position:relative;z-index:2}
+  @media(max-width:720px){.wrap{padding:0 24px}}
 
-    <!-- 外部CSSファイルの読み込み -->
-    <link rel="stylesheet" href="styles.css">
+  .gtx{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-    <!-- Tailwind CSS & Icons (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+  /* ---------- intro (初回のみ) ---------- */
+  .intro{
+    position:fixed;inset:0;z-index:300;background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .intro-line{
+    position:absolute;left:0;right:0;top:50%;height:1px;
+    background:var(--grad);transform:scaleX(0);transform-origin:left;
+  }
+  .intro-a{
+    font-family:var(--en);font-style:italic;font-weight:500;font-size:110px;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 30px rgba(167,139,250,.5));
+    opacity:0;transform:scale(.86);
+    position:relative;padding:0 34px;
+  }
+  .intro-a::before{
+    content:"";position:absolute;inset:-10px 0;background:var(--bg);z-index:-1;
+  }
+  .intro.play .intro-line{animation:lineDraw .55s cubic-bezier(.7,0,.2,1) forwards}
+  .intro.play .intro-a{animation:aPop .7s .3s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes lineDraw{to{transform:scaleX(1)}}
+  @keyframes aPop{to{opacity:1;transform:scale(1)}}
+  .intro.done{opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s .55s}
 
-    <!-- Fonts: Elegant Serif for Headings, Clean Sans for Body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,600;1,700&family=Shippori+Mincho:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+  /* ---------- sky (スクロールで色相が旅する背景) ---------- */
+  .sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .sky-l{position:absolute;inset:-15%;opacity:0;will-change:opacity}
+  .sky-cyan{background:
+    radial-gradient(42% 46% at 18% 30%,rgba(103,232,249,.15),transparent 70%),
+    radial-gradient(40% 44% at 84% 72%,rgba(167,139,250,.09),transparent 70%)}
+  .sky-violet{background:
+    radial-gradient(44% 48% at 78% 24%,rgba(167,139,250,.17),transparent 70%),
+    radial-gradient(38% 42% at 20% 78%,rgba(244,114,182,.08),transparent 70%)}
+  .sky-pink{background:
+    radial-gradient(44% 48% at 68% 62%,rgba(244,114,182,.16),transparent 70%),
+    radial-gradient(40% 44% at 26% 26%,rgba(167,139,250,.1),transparent 70%)}
 
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
-                        serif: ['"Shippori Mincho"', 'serif'],
-                        english: ['"Cormorant Garamond"', 'serif'],
-                    },
-                    colors: {
-                        // Cyberpunk Neon Palette
-                        brand: {
-                            base: '#001427',      // Deep Night Blue (Shadows)
-                            sky: '#021B36',       // Deep Night Blue (Background)
-                            cyan: '#00E8FF',      // Neon Cyan
-                            cyanLight: '#4DF3FF', // Light Trails
-                            purple: '#C400FF',    // Neon Purple
-                            magenta: '#FF2BC8',   // Glowing Highlight
-                            coolBlue: '#4AA9F9',  // Skyscrapers lit
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'blob': "blob 10s infinite",
-                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 30s linear infinite',
-                        'spin-reverse-slow': 'spin 25s linear infinite reverse',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        blob: {
-                            "0%": { transform: "translate(0px, 0px) scale(1)" },
-                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                            "100%": { transform: "translate(0px, 0px) scale(1)" },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '1', filter: 'brightness(1) blur(0px)' },
-                            '50%': { opacity: '0.8', filter: 'brightness(1.3) blur(1px)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    },
-                }
-            }
-        }
-    </script>
+  /* ---------- grain ---------- */
+  .grain{
+    position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- custom cursor ---------- */
+  @media(pointer:fine){
+    .has-cursor,.has-cursor a,.has-cursor button{cursor:none}
+  }
+  .cur-dot,.cur-ring{
+    position:fixed;top:0;left:0;z-index:400;pointer-events:none;border-radius:50%;
+    opacity:0;transition:opacity .3s;
+  }
+  .has-cursor .cur-dot,.has-cursor .cur-ring{opacity:1}
+  .cur-dot{width:6px;height:6px;background:var(--ink);margin:-3px 0 0 -3px}
+  .cur-ring{
+    width:36px;height:36px;margin:-18px 0 0 -18px;
+    border:1px solid rgba(150,168,200,.45);
+    transition:opacity .3s,border-color .3s,background .3s;
+  }
+  .cur-ring.on-link{
+    border:1px solid transparent;
+    background:
+      linear-gradient(rgba(5,7,13,0),rgba(5,7,13,0)) padding-box,
+      var(--grad) border-box;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(5,7,13,.66);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--hairline-soft);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;z-index:2}
+  .brand{display:flex;flex-direction:column;gap:1px}
+  .brand .en{font-family:var(--en);font-size:21px;font-weight:600;letter-spacing:.06em}
+  .brand .ja{font-size:10px;color:var(--faint);letter-spacing:.32em}
+  .menu{display:flex;align-items:center;gap:40px}
+  .menu a{
+    font-family:var(--en);font-size:13.5px;letter-spacing:.22em;color:var(--muted);
+    transition:color .3s;
+  }
+  .menu a:hover{color:var(--ink)}
+  .menu a.cta{
+    position:relative;color:var(--bg);
+    background:var(--grad);
+    padding:11px 28px;letter-spacing:.2em;font-weight:500;
+    transition:filter .3s,transform .3s;
+  }
+  .menu a.cta:hover{filter:brightness(1.15);transform:translateY(-1px)}
+  @media(max-width:860px){.menu a:not(.cta){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;
+    border-bottom:1px solid var(--hairline-soft);
+    overflow:hidden;
+  }
+  .aurora{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+  .aurora.a1{width:640px;height:640px;right:-140px;top:-120px;background:radial-gradient(circle,rgba(167,139,250,.38),transparent 65%);animation:drift1 16s ease-in-out infinite alternate}
+  .aurora.a2{width:560px;height:560px;right:120px;bottom:-220px;background:radial-gradient(circle,rgba(244,114,182,.26),transparent 65%);animation:drift2 20s ease-in-out infinite alternate}
+  .aurora.a3{width:520px;height:520px;left:-200px;bottom:-140px;background:radial-gradient(circle,rgba(103,232,249,.18),transparent 65%);animation:drift1 24s ease-in-out infinite alternate-reverse}
+  .aurora.sv1{width:680px;height:680px;right:-240px;top:22%;background:radial-gradient(circle,rgba(167,139,250,.16),transparent 65%)}
+  .aurora.pf1{width:600px;height:600px;left:-240px;top:10%;background:radial-gradient(circle,rgba(103,232,249,.13),transparent 65%)}
+  .aurora.pf2{width:560px;height:560px;right:-200px;bottom:-8%;background:radial-gradient(circle,rgba(244,114,182,.13),transparent 65%)}
+  .aurora.rc1{width:640px;height:640px;left:50%;top:40%;transform:translateX(-50%);background:radial-gradient(circle,rgba(167,139,250,.13),transparent 65%)}
+  .aurora.cp1{width:560px;height:560px;right:-180px;top:30%;background:radial-gradient(circle,rgba(103,232,249,.1),transparent 65%)}
+  .aurora.ct1{width:800px;height:800px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(167,139,250,.2),transparent 62%)}
+  @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,50px) scale(1.12)}}
+  @keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(50px,-40px) scale(1.08)}}
+  @media(prefers-reduced-motion:reduce){.aurora{animation:none}}
+
+  .hero-glow{
+    position:absolute;z-index:0;width:460px;height:460px;border-radius:50%;
+    background:radial-gradient(circle,rgba(167,139,250,.16),rgba(103,232,249,.07) 45%,transparent 70%);
+    filter:blur(60px);pointer-events:none;
+    top:0;left:0;opacity:0;transition:opacity .8s;
+  }
+  .hero:hover .hero-glow{opacity:1}
+
+  .emblem{
+    position:absolute;z-index:1;
+    right:2%;top:54%;transform:translateY(-50%);
+    width:min(28vw,400px);aspect-ratio:1;
+    border:1px solid rgba(150,168,200,.22);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .emblem::before{
+    content:"";position:absolute;inset:-24px;border-radius:50%;
+    border:1px dashed rgba(150,168,200,.1);
+    animation:spin 60s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .emblem img{
+    width:60%;height:auto;
+    filter:drop-shadow(0 0 40px rgba(167,139,250,.45));
+    animation:bob 7s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @media(max-width:960px){.emblem{opacity:.3;right:-10%}}
+
+  .hero-label{
+    display:flex;align-items:center;gap:16px;
+    font-family:var(--en);font-size:12.5px;letter-spacing:.34em;
+    margin-bottom:44px;color:var(--c1);
+  }
+  .hero-label::before{content:"";width:56px;height:1px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+  h1.hero-title{
+    font-family:var(--mincho);font-weight:600;
+    font-size:clamp(31px,6.4vw,84px);
+    line-height:1.5;letter-spacing:.06em;
+  }
+  h1.hero-title .nb{white-space:nowrap}
+  h1.hero-title .en{
+    font-family:var(--en);font-style:italic;font-weight:500;letter-spacing:.02em;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    margin-top:48px;max-width:560px;
+    color:var(--muted);font-size:14.5px;line-height:2.3;letter-spacing:.1em;
+  }
+  .hero-foot{position:absolute;bottom:0;left:0;right:0;z-index:2}
+  .hero-foot .wrap{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    padding-bottom:36px;
+  }
+  .scroll-cue{
+    font-family:var(--en);font-size:11px;letter-spacing:.4em;color:var(--faint);
+    display:flex;align-items:center;gap:14px;
+  }
+  .scroll-cue::after{content:"";width:1px;height:56px;background:linear-gradient(var(--c1),transparent);animation:drop 2.4s ease-in-out infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  .hero-place{font-family:var(--en);font-size:11.5px;letter-spacing:.26em;color:var(--faint);text-align:right;line-height:2}
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:150px 0;border-bottom:1px solid var(--hairline-soft);position:relative;overflow:hidden}
+  .sec-head{margin-bottom:88px}
+  .sec-no{
+    font-family:var(--en);font-size:12.5px;letter-spacing:.3em;
+    display:flex;align-items:center;gap:14px;margin-bottom:22px;
+  }
+  .sec-no::after{content:"";flex:0 0 40px;height:1px;background:var(--hairline)}
+  .sec-title{
+    font-family:var(--en);font-weight:500;
+    font-size:clamp(40px,5vw,62px);line-height:1.1;letter-spacing:.015em;
+  }
+  .sec-title-ja{margin-top:14px;font-size:13px;color:var(--muted);letter-spacing:.3em}
+
+  /* ---------- services ---------- */
+  .svc{border-top:1px solid var(--hairline);display:grid;grid-template-columns:110px 1fr 1.15fr;gap:48px;padding:64px 0;align-items:baseline;position:relative;transition:background .4s}
+  .svc:last-of-type{border-bottom:1px solid var(--hairline)}
+  .svc:hover{background:rgba(150,168,200,.03)}
+  .svc-no{font-family:var(--en);font-size:17px;color:var(--faint);letter-spacing:.14em}
+  .svc h3{font-family:var(--mincho);font-weight:600;font-size:clamp(22px,2.6vw,30px);letter-spacing:.08em;line-height:1.7}
+  .svc-lead{font-family:var(--mincho);font-size:15.5px;letter-spacing:.1em;margin-bottom:18px}
+  .svc.m1 .svc-lead{color:var(--c1)}
+  .svc.m2 .svc-lead{color:var(--c3)}
+  .svc-body{color:var(--muted);font-size:14px;line-height:2.2}
+  @media(max-width:860px){.svc{grid-template-columns:1fr;gap:18px;padding:52px 0}}
+
+  /* ---------- proof strip ---------- */
+  .proof{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    margin-top:96px;position:relative;
+    background:rgba(150,168,200,.03);
+    border:1px solid var(--hairline);
+  }
+  .proof::before{
+    content:"";position:absolute;top:-1px;left:0;right:0;height:1px;
+    background:var(--grad);
+  }
+  .proof>div{padding:44px 40px;border-right:1px solid var(--hairline)}
+  .proof>div:last-child{border-right:none}
+  .proof .k{font-family:var(--en);font-size:11.5px;letter-spacing:.28em;color:var(--faint);margin-bottom:14px}
+  .proof .v{
+    font-family:var(--en);font-weight:500;font-size:clamp(30px,3.4vw,44px);line-height:1.1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .proof .v small{font-family:var(--mincho);font-size:15px;letter-spacing:.1em;margin-left:6px;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+  @media(max-width:720px){.proof{grid-template-columns:1fr}.proof>div{border-right:none;border-bottom:1px solid var(--hairline)}.proof>div:last-child{border-bottom:none}}
+
+  /* ---------- profile ---------- */
+  .prof{display:grid;grid-template-columns:400px 1fr;gap:96px;align-items:start}
+  @media(max-width:960px){.prof{grid-template-columns:1fr;gap:64px}}
+  .prof-photo{position:relative;padding:1px;background:var(--grad)}
+  .prof-photo img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;
+    filter:saturate(.85) contrast(1.03) brightness(.97);
+  }
+  .prof-photo::after{
+    content:"";position:absolute;inset:16px -16px -16px 16px;
+    border:1px solid var(--hairline-soft);z-index:-1;
+  }
+  .prof-name-en{font-family:var(--en);font-weight:500;font-size:34px;letter-spacing:.03em;margin-top:38px}
+  .prof-name-ja{margin-top:6px;font-size:13px;color:var(--muted);letter-spacing:.22em}
+  .prof-name-ja span{
+    margin-left:14px;font-size:11.5px;letter-spacing:.26em;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .prof-copy{
+    font-family:var(--mincho);font-weight:600;
+    font-size:clamp(24px,3vw,34px);line-height:1.9;letter-spacing:.08em;
+    margin-bottom:64px;
+  }
+  .prof-copy em{
+    font-style:normal;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .career-label{font-family:var(--en);font-size:12px;letter-spacing:.3em;color:var(--faint);margin-bottom:36px}
+  .career{border-left:1px solid var(--hairline);list-style:none}
+  .career li{position:relative;padding:0 0 44px 40px}
+  .career li:last-child{padding-bottom:0}
+  .career li::before{
+    content:"";position:absolute;left:-3.5px;top:12px;
+    width:6px;height:6px;background:var(--bg);border:1px solid var(--faint);border-radius:50%;
+  }
+  .career li.now::before{
+    background:var(--c2);border-color:var(--c2);
+    box-shadow:0 0 12px rgba(167,139,250,.7);
+  }
+  .career .yr{font-family:var(--en);font-size:12.5px;letter-spacing:.2em;color:var(--c1)}
+  .career h4{font-family:var(--mincho);font-weight:600;font-size:17px;letter-spacing:.08em;margin:8px 0 8px}
+  .career p{color:var(--muted);font-size:13.5px;line-height:2.1}
+
+  /* ---------- recruit ---------- */
+  .rec{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--hairline);background:rgba(150,168,200,.03);position:relative}
+  .rec::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:var(--grad)}
+  @media(max-width:860px){.rec{grid-template-columns:1fr}}
+  .rec>div{padding:64px 56px}
+  .rec>div:first-child{border-right:1px solid var(--hairline)}
+  @media(max-width:860px){.rec>div{padding:48px 28px}.rec>div:first-child{border-right:none;border-bottom:1px solid var(--hairline)}}
+  .rec .k{
+    font-family:var(--en);font-size:12px;letter-spacing:.3em;margin-bottom:10px;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .rec h3{font-family:var(--mincho);font-weight:600;font-size:22px;letter-spacing:.1em;margin-bottom:36px}
+  .rec ul{list-style:none}
+  .rec ul li{
+    padding:20px 0 20px 34px;position:relative;
+    border-bottom:1px solid var(--hairline-soft);
+    font-size:14.5px;letter-spacing:.08em;
+  }
+  .rec ul li:last-child{border-bottom:none}
+  .rec ul li::before{
+    content:"";position:absolute;left:2px;top:50%;
+    width:14px;height:1px;background:linear-gradient(90deg,var(--c1),var(--c2));
+  }
+  .rec .value-en{font-family:var(--en);font-size:26px;font-weight:500;line-height:1.5;margin-bottom:28px}
+  .rec .value-body{color:var(--muted);font-size:13.5px;line-height:2.2}
+
+  /* ---------- company ---------- */
+  .co-table{border-top:1px solid var(--hairline);max-width:840px;margin:0 auto}
+  .co-row{
+    display:grid;grid-template-columns:220px 1fr;
+    border-bottom:1px solid var(--hairline-soft);
+    padding:30px 8px;align-items:baseline;
+  }
+  @media(max-width:640px){.co-row{grid-template-columns:1fr;gap:6px}}
+  .co-row dt{font-size:12.5px;letter-spacing:.24em;color:var(--faint)}
+  .co-row dd{font-size:14.5px;letter-spacing:.06em}
+
+  /* ---------- contact ---------- */
+  .contact{text-align:center;padding:170px 0}
+  .contact .sec-no{justify-content:center}
+  .contact .sec-no::after{display:none}
+  .contact .sec-no::before{content:"";flex:0 0 40px;height:1px;background:var(--hairline)}
+  .contact h2{
+    font-family:var(--en);font-weight:500;
+    font-size:clamp(44px,6vw,76px);letter-spacing:.02em;line-height:1.1;
+    margin-bottom:36px;
+  }
+  .contact h2 .dot{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .contact p{color:var(--muted);font-size:14px;line-height:2.3;letter-spacing:.08em;max-width:520px;margin:0 auto 56px}
+  .btn{
+    position:relative;display:inline-flex;align-items:center;gap:18px;
+    font-family:var(--en);font-size:14px;letter-spacing:.26em;
+    color:var(--ink);
+    padding:21px 59px;
+    background:
+      linear-gradient(var(--bg),var(--bg)) padding-box,
+      var(--grad) border-box;
+    border:1px solid transparent;
+    transition:color .35s,box-shadow .35s;
+  }
+  .btn::after{content:"→";transition:transform .35s}
+  .btn:hover{box-shadow:0 0 42px rgba(167,139,250,.35);color:#fff}
+  .btn:hover::after{transform:translateX(6px)}
+
+  /* ---------- footer ---------- */
+  footer{padding:44px 0}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center}
+  footer .en{font-family:var(--en);font-size:16px;letter-spacing:.08em}
+  footer small{font-family:var(--en);font-size:11px;letter-spacing:.18em;color:var(--faint)}
+
+  /* ---------- hologram / near-future ---------- */
+  /* 揺れるホロ・グラデーション（グラデ系テキスト共通） */
+  .gtx,h1.hero-title .en,.prof-copy em,.proof .v,.marq .g,.rec .k,.prof-name-ja span,.intro-a{
+    background-image:linear-gradient(92deg,var(--c1),var(--c2),var(--c3),var(--c2),var(--c1));
+    background-size:240% 100%;
+    animation:holo 8s ease-in-out infinite;
+  }
+  .menu a.cta{
+    background-image:linear-gradient(92deg,var(--c1),var(--c2),var(--c3),var(--c2),var(--c1));
+    background-size:240% 100%;
+    animation:holo 8s ease-in-out infinite;
+  }
+  @keyframes holo{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+  /* 星屑 */
+  #stars{position:fixed;inset:0;z-index:1;pointer-events:none}
+
+  /* 走査線 */
+  .scan{
+    position:absolute;left:0;right:0;top:0;height:180px;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,transparent,rgba(103,232,249,.045) 42%,rgba(167,139,250,.09) 50%,rgba(103,232,249,.045) 58%,transparent);
+    animation:scan 9s cubic-bezier(.4,0,.6,1) infinite;
+  }
+  @keyframes scan{0%{transform:translateY(-220px)}100%{transform:translateY(110vh)}}
+
+  /* HUD */
+  .hud{
+    position:absolute;top:104px;right:48px;z-index:2;text-align:right;
+    font-family:var(--en);font-size:11px;letter-spacing:.3em;color:var(--faint);line-height:2.2;
+  }
+  .hud .dot{
+    display:inline-block;width:6px;height:6px;border-radius:50%;
+    background:var(--c1);box-shadow:0 0 8px var(--c1);
+    margin-right:10px;vertical-align:1px;
+    animation:blink 2.2s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+  @media(max-width:720px){.hud{right:24px}}
+  .hero::before{
+    content:"";position:absolute;top:100px;left:28px;width:26px;height:26px;z-index:2;
+    border-left:1px solid rgba(103,232,249,.35);border-top:1px solid rgba(103,232,249,.35);
+  }
+  .hero::after{
+    content:"";position:absolute;bottom:28px;right:28px;width:26px;height:26px;z-index:2;
+    border-right:1px solid rgba(244,114,182,.3);border-bottom:1px solid rgba(244,114,182,.3);
+  }
+
+  /* ロゴのホログラム投影リング */
+  .holo-ring{
+    position:absolute;inset:-2px;border-radius:50%;pointer-events:none;
+    background:conic-gradient(from 0deg,
+      transparent 0deg,rgba(103,232,249,.55) 70deg,transparent 130deg,
+      transparent 190deg,rgba(244,114,182,.45) 250deg,transparent 310deg);
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));
+    mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));
+    filter:blur(1.5px);
+    animation:spin 7s linear infinite;
+  }
+
+  /* グリッチ（Non-Linear） */
+  .glitching{animation:glitch .26s steps(2) 1}
+  @keyframes glitch{
+    0%{transform:none;text-shadow:none}
+    25%{transform:translate(-3px,1px) skewX(-5deg);text-shadow:3px 0 rgba(244,114,182,.75),-3px 0 rgba(103,232,249,.75)}
+    55%{transform:translate(2px,-1px) skewX(3deg);text-shadow:-3px 0 rgba(244,114,182,.75),3px 0 rgba(103,232,249,.75)}
+    100%{transform:none;text-shadow:none}
+  }
+
+  /* ホロフォイル（カーソル位置に虹の光沢） */
+  .holo{position:relative}
+  .holo::before{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    opacity:0;transition:opacity .45s;
+    background:
+      radial-gradient(420px circle at var(--mx,50%) var(--my,50%),
+        rgba(167,139,250,.2),rgba(103,232,249,.12) 38%,rgba(244,114,182,.07) 60%,transparent 75%);
+  }
+  .holo:hover::before{opacity:1}
+
+  /* ---------- watermark (巨大セクション番号) ---------- */
+  .wm{
+    position:absolute;top:44px;right:-30px;z-index:0;
+    font-family:var(--en);font-style:italic;font-weight:500;
+    font-size:clamp(140px,22vw,280px);line-height:1;
+    color:transparent;-webkit-text-stroke:1px rgba(150,168,200,.09);
+    pointer-events:none;user-select:none;
+  }
+  .wm.wm-l{right:auto;left:-30px}
+
+  /* ---------- marquee ---------- */
+  .marq{
+    overflow:hidden;padding:34px 0;position:relative;
+    border-bottom:1px solid var(--hairline-soft);
+  }
+  .marq-in{display:flex;width:max-content;will-change:transform;animation:marq 30s linear infinite}
+  .marq .grp{display:flex;gap:72px;padding-right:72px;align-items:baseline}
+  .marq span{
+    font-family:var(--en);font-style:italic;font-weight:500;
+    font-size:clamp(30px,4.2vw,54px);line-height:1;letter-spacing:.04em;flex:none;
+  }
+  .marq .o{color:transparent;-webkit-text-stroke:1px rgba(150,168,200,.42)}
+  .marq .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  @keyframes marq{to{transform:translateX(-50%)}}
+
+  /* ---------- hover演出 ---------- */
+  .svc{padding-right:64px}
+  .svc::after{
+    content:"→";position:absolute;right:14px;top:50%;margin-top:-14px;
+    font-family:var(--en);font-size:24px;color:var(--muted);
+    opacity:0;transform:translateX(-12px);
+    transition:opacity .4s,transform .4s;
+  }
+  .svc:hover::after{opacity:1;transform:none}
+  .svc .svc-no{transition:color .3s}
+  .svc:hover .svc-no{
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .proof>div{transition:background .4s}
+  .proof>div:hover{background:rgba(150,168,200,.05)}
+  .prof-photo img{transition:filter .7s,transform .7s cubic-bezier(.16,1,.3,1)}
+  .prof-photo:hover img{filter:none;transform:scale(1.015)}
+  .btn{animation:btnPulse 3.4s ease-in-out infinite}
+  @keyframes btnPulse{0%,100%{box-shadow:0 0 0 rgba(167,139,250,0)}50%{box-shadow:0 0 30px rgba(167,139,250,.26)}}
+
+  /* ---------- reveal ---------- */
+  .js .rv{opacity:0;transform:translateY(14px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .js .rv.in{opacity:1;transform:none}
+
+  /* 行ごとマスクリベール（見出し用） */
+  .js .rv.lines{opacity:1;transform:none;transition:none}
+  .ln{display:block;overflow:hidden}
+  .ln-in{display:inline-block;vertical-align:top}
+  .js .ln-in{transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .js .ln:nth-child(2) .ln-in{transition-delay:.14s}
+  .js .ln:nth-child(3) .ln-in{transition-delay:.28s}
+  .js .rv.lines.in .ln-in{transform:none}
+
+  @media(prefers-reduced-motion:reduce){
+    .js .rv,.js .ln-in{opacity:1;transform:none;transition:none}
+    .emblem::before,.emblem img,.marq-in,.btn,.scan,.hud .dot,.holo-ring,
+    .gtx,h1.hero-title .en,.prof-copy em,.proof .v,.marq .g,.rec .k,.prof-name-ja span,.intro-a,.menu a.cta{animation:none}
+  }
+</style>
 </head>
-<body class="antialiased selection:bg-brand-magenta selection:text-white">
-    <!-- Background Noise -->
-    <div class="bg-noise"></div>
-    <!-- Background Gradients -->
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-sky to-brand-base opacity-90"></div>
-        <div class="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-brand-sky rounded-full blur-[150px] animate-blob" style="animation-duration: 15s;"></div>
-        <div class="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-brand-purple/20 rounded-full blur-[120px] animate-blob" style="animation-delay: 5s; animation-duration: 18s; mix-blend-mode: screen;"></div>
-        <div class="absolute top-[40%] left-[30%] w-[40vw] h-[40vw] bg-brand-cyan/10 rounded-full blur-[100px] animate-blob" style="animation-delay: 2s; animation-duration: 20s; mix-blend-mode: screen;"></div>
+<body>
+<div class="sky">
+  <div class="sky-l sky-cyan"></div>
+  <div class="sky-l sky-violet"></div>
+  <div class="sky-l sky-pink"></div>
+</div>
+<canvas id="stars"></canvas>
+<div class="grain"></div>
+<div class="cur-dot"></div>
+<div class="cur-ring"></div>
+<div class="intro" id="intro">
+  <div class="intro-line"></div>
+  <div class="intro-a">α</div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <span class="en">Alpha Inc.</span>
+      <span class="ja">株式会社Alpha</span>
+    </a>
+    <nav class="menu">
+      <a href="#service">SERVICE</a>
+      <a href="#profile">PROFILE</a>
+      <a href="#recruit">RECRUIT</a>
+      <a href="#company">COMPANY</a>
+      <a href="#contact" class="cta">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+  <div class="aurora a3"></div>
+  <div class="hero-glow" id="heroGlow"></div>
+  <div class="scan"></div>
+  <div class="hud">
+    <div><span class="dot"></span>SYSTEM ONLINE</div>
+    <div>34.7025° N — 135.4959° E</div>
+  </div>
+  <div class="emblem"><div class="holo-ring"></div><img src="meisi.png" alt="Alpha Inc. ロゴ"></div>
+  <div class="wrap" id="heroTilt">
+    <div class="hero-label rv">ALPHA INC. — BUSINESS STRATEGY PARTNER</div>
+    <h1 class="hero-title rv lines">
+      <span class="ln"><span class="ln-in">領域を越境し、</span></span>
+      <span class="ln"><span class="ln-in"><span class="en">Non-Linear</span><span class="nb"> な成長へ。</span></span></span>
+    </h1>
+    <p class="hero-sub rv">
+      戦略、マーケティング、組織。事業の変数をひとつずつ潰すのではなく、
+      構造ごと設計し直す。最短距離で最適解を導く、ビジネス・ストラテジーパートナー。
+    </p>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <div class="scroll-cue">SCROLL</div>
+      <div class="hero-place">OSAKA / UMEDA<br>EST. 2026</div>
     </div>
-    <!-- Header -->
-    <header class="fixed w-full top-0 z-50 py-6 text-white backdrop-blur-sm bg-brand-base/30 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-            <div class="flex flex-col group cursor-pointer">
-                <h1 class="font-english text-2xl md:text-3xl font-bold tracking-wide leading-none group-hover:text-brand-cyanLight transition-colors duration-300">Alpha Inc.</h1>
-                <span class="text-[10px] md:text-xs font-serif tracking-widest opacity-70 mt-1 group-hover:text-brand-cyan transition-colors duration-300">株式会社Alpha</span>
-            </div>
+  </div>
+</div>
 
-            <nav class="hidden md:flex space-x-12 text-sm font-english tracking-widest uppercase">
-                <a href="#service" class="hover:text-brand-cyanLight transition-colors duration-300 relative group">
-                    Service
-                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-cyanLight shadow-[0_0_8px_#00E8FF] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#profile" class="hover:text-brand-magenta transition-colors duration-300 relative group">
-                    Profile
-                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-magenta shadow-[0_0_8px_#FF2BC8] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#recruit" class="hover:text-brand-purple transition-colors duration-300 relative group">
-                    Recruit
-                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-purple shadow-[0_0_8px_#C400FF] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#company" class="hover:text-white transition-colors duration-300 relative group">
-                    Company
-                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-white shadow-[0_0_8px_#ffffff] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
-        </div>
-    </header>
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20">
-        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
-            <div class="md:col-span-8 relative z-10">
-                <p class="font-english text-brand-cyanLight tracking-[0.3em] text-sm mb-6 animate-fade-in-up flex items-center" style="animation-delay: 0.1s;">
-                    <span class="w-8 h-[1px] bg-brand-cyan mr-3 shadow-[0_0_5px_#00E8FF]"></span>
-                    NEXT STRATEGY
-                </p>
-                <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.2] mb-10 gradient-text-subtle animate-fade-in-up" style="animation-delay: 0.2s;">
-                    領域を越境し、<br>
-                    <span class="italic font-english text-6xl md:text-8xl lg:text-9xl gradient-text-neon opacity-90 inline-block transform hover:scale-105 transition-transform duration-700">Non-Linear</span><br>
-                    な成長へ。
-                </h2>
-                <div class="h-[1px] w-24 bg-gradient-to-r from-brand-cyan to-transparent mb-10 animate-fade-in-up" style="animation-delay: 0.3s;"></div>
-                <p class="font-sans font-light text-brand-coolBlue text-sm md:text-base leading-loose max-w-xl animate-fade-in-up" style="animation-delay: 0.4s;">
-                    最短距離で最適解を導く。<br>
-                    ビジネス・ストラテジーパートナー。
-                </p>
-            </div>
-            <!-- Visual (Floating Logo) -->
-            <div class="md:col-span-4 relative h-full flex items-center justify-center opacity-0 animate-fade-in-up" style="animation-delay: 0.8s;">
-                <div class="relative w-64 h-64 md:w-96 md:h-96 flex items-center justify-center">
+<!-- ================= MARQUEE ================= -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-in">
+    <div class="grp">
+      <span class="o">NON-LINEAR GROWTH</span><span class="g">α</span>
+      <span class="o">MARKETING</span><span class="g">α</span>
+      <span class="o">CAREER</span><span class="g">α</span>
+      <span class="o">STRATEGY</span><span class="g">α</span>
+      <span class="o">AI</span><span class="g">α</span>
+    </div>
+    <div class="grp">
+      <span class="o">NON-LINEAR GROWTH</span><span class="g">α</span>
+      <span class="o">MARKETING</span><span class="g">α</span>
+      <span class="o">CAREER</span><span class="g">α</span>
+      <span class="o">STRATEGY</span><span class="g">α</span>
+      <span class="o">AI</span><span class="g">α</span>
+    </div>
+  </div>
+</div>
 
-                    <!-- Orbital Rings (Background) -->
-                    <div class="absolute inset-0 border border-brand-cyan/20 rounded-full animate-spin-slow"></div>
-                    <div class="absolute inset-8 border border-brand-purple/20 rounded-full animate-spin-reverse-slow"></div>
+<!-- ================= SERVICE ================= -->
+<section id="service">
+  <div class="aurora sv1"></div>
+  <div class="wm">01</div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no gtx">01 — EXPERTISE</div>
+      <h2 class="sec-title rv lines"><span class="ln"><span class="ln-in">Our Services</span></span></h2>
+      <div class="sec-title-ja">複合的なアプローチで、ビジネスを加速させる</div>
+    </div>
 
-                    <!-- Floating Logo Image (Updated Design) -->
-                    <!-- 透過PNG(meisi.png)を使用。filterで輝きを強調 -->
-                    <div class="relative z-10 w-48 h-48 md:w-80 md:h-80 animate-float flex items-center justify-center">
-                        <img src="meisi.png" alt="Alpha Inc. Logo" class="w-full h-full object-contain"
-                             style="filter: brightness(1.5) drop-shadow(0 0 10px rgba(0, 232, 255, 0.8)) drop-shadow(0 0 30px rgba(196, 0, 255, 0.6));">
-                    </div>
-                    <!-- Orbiting Particle -->
-                    <div class="absolute inset-0 animate-spin-slow">
-                        <div class="absolute top-0 left-1/2 w-2 h-2 bg-brand-cyan rounded-full shadow-[0_0_15px_#00E8FF] -translate-x-1/2 -translate-y-1/2"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="svc m1 rv">
+      <div class="svc-no">01</div>
+      <h3>マーケティング<br>支援事業</h3>
+      <div>
+        <div class="svc-lead">最初の1件から、ケタを変える成長まで。</div>
+        <p class="svc-body">
+          戦略設計から集客導線の構築、SNS・AIの活用まで一気通貫で支援。
+          立ち上げ期には売上をつくる導線を、成長期には利益を最大化する仕組みを。
+          事業のフェーズに合わせて、成果から逆算した打ち手を実行します。
+        </p>
+      </div>
+    </div>
 
-        <div class="absolute bottom-0 left-12 h-32 w-[1px] bg-gradient-to-b from-transparent to-brand-cyanLight hidden md:block animate-pulse-glow">
-            <span class="absolute -top-10 -left-3 font-english text-xs tracking-widest -rotate-90 text-brand-cyanLight/70">SCROLL</span>
-        </div>
-    </section>
-    <!-- Services Section -->
-    <section id="service" class="py-40 px-6 md:px-12 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-32 border-b border-brand-coolBlue/30 pb-8 reveal">
-                <div>
-                    <span class="font-english text-xs tracking-[0.2em] text-brand-magenta block mb-2 drop-shadow-[0_0_5px_rgba(255,43,200,0.8)]">01 / EXPERTISE</span>
-                    <h3 class="font-english text-5xl md:text-6xl text-white">Our Services</h3>
-                </div>
-                <p class="font-serif text-brand-coolBlue text-sm mt-4 md:mt-0 text-right">
-                    複合的なアプローチで<br>ビジネスを加速させる
-                </p>
-            </div>
-            <div class="space-y-32">
-                <!-- Service 01 -->
-                <div class="grid md:grid-cols-12 gap-12 items-center reveal group">
-                    <div class="md:col-span-5 relative">
-                        <span class="font-english text-[10rem] leading-none font-bold text-brand-cyan/5 absolute -top-20 -left-10 select-none group-hover:text-brand-cyan/10 transition-colors duration-700">01</span>
-                        <h4 class="font-serif text-3xl md:text-4xl font-bold text-white relative z-10 group-hover:text-brand-cyanLight transition-colors duration-500 drop-shadow-lg">
-                            マーケティング支援事業
-                        </h4>
-                        <div class="h-[2px] w-12 bg-brand-cyan mt-6 mb-8 scale-x-50 origin-left group-hover:scale-x-100 transition-transform duration-500 shadow-[0_0_10px_#00E8FF]"></div>
-                    </div>
-                    <div class="md:col-span-7 md:pl-12 md:border-l md:border-brand-coolBlue/20 group-hover:border-brand-cyan/50 transition-colors duration-500 group-hover:shadow-[inset_10px_0_20px_-10px_rgba(0,232,255,0.1)]">
-                         <p class="font-serif text-xl mb-6 text-brand-cyanLight">売上に直結する「攻め」のマーケティング。</p>
-                        <p class="font-sans text-sm text-gray-300 leading-loose text-justify">
-                            戦略設計から集客導線の構築、SNS・AIの活用まで一気通貫で支援。<br class="hidden md:block">売上・利益を最大化し、事業のトップラインを引き上げます。
-                        </p>
-                    </div>
-                </div>
-                <!-- Service 02 -->
-                <div class="grid md:grid-cols-12 gap-12 items-center reveal group" style="transition-delay: 0.2s;">
-                    <div class="md:col-span-5 relative">
-                        <span class="font-english text-[10rem] leading-none font-bold text-brand-purple/5 absolute -top-20 -left-10 select-none group-hover:text-brand-purple/10 transition-colors duration-700">02</span>
-                        <h4 class="font-serif text-3xl md:text-4xl font-bold text-white relative z-10 group-hover:text-brand-purple transition-colors duration-500 drop-shadow-lg">
-                            キャリア支援事業
-                        </h4>
-                         <div class="h-[2px] w-12 bg-brand-purple mt-6 mb-8 scale-x-50 origin-left group-hover:scale-x-100 transition-transform duration-500 shadow-[0_0_10px_#C400FF]"></div>
-                    </div>
-                    <div class="md:col-span-7 md:pl-12 md:border-l md:border-brand-coolBlue/20 group-hover:border-brand-purple/50 transition-colors duration-500 group-hover:shadow-[inset_10px_0_20px_-10px_rgba(196,0,255,0.1)]">
-                         <p class="font-serif text-xl mb-6 text-brand-purple">個の力を最大化する。</p>
-                        <p class="font-sans text-sm text-gray-300 leading-loose text-justify">
-                            フリーランス・経営者向け。単一スキルに依存せず、<br class="hidden md:block">市場価値を高めるための戦略的キャリアを提示し、強い個人を育成します。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Profile Section -->
-    <section id="profile" class="py-40 px-6 md:px-12 bg-brand-sky relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-base via-brand-sky to-brand-base opacity-90"></div>
+    <div class="svc m2 rv">
+      <div class="svc-no">02</div>
+      <h3>キャリア<br>支援事業</h3>
+      <div>
+        <div class="svc-lead">個の力を、最大化する。</div>
+        <p class="svc-body">
+          フリーランス・経営者向け。単一スキルに依存せず、
+          市場価値を高めるための戦略的キャリアを提示し、強い個人を育成します。
+        </p>
+      </div>
+    </div>
 
-        <div class="max-w-7xl mx-auto relative z-10">
+    <div class="proof rv" id="proof">
+      <div>
+        <div class="k">CORPORATE CLIENTS</div>
+        <div class="v"><span class="num" data-target="50">0</span><small>社以上の法人支援実績</small></div>
+      </div>
+      <div>
+        <div class="k">SNS AUDIENCE</div>
+        <div class="v"><span class="num" data-target="400" data-suffix="K">0</span><small>累計フォロワー運用</small></div>
+      </div>
+      <div>
+        <div class="k">CLIENT REVENUE</div>
+        <div class="v"><span class="num" data-target="1" data-suffix="億円" data-decimals="1">0</span><small>支援先売上 達成</small></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="grid md:grid-cols-12 gap-16 items-start">
-                <!-- Profile Header (Left Aligned, Smart Layout) -->
-                <div class="md:col-span-4 reveal md:sticky md:top-32">
-                    <span class="font-english text-xs tracking-[0.2em] text-brand-magenta block mb-4 drop-shadow-[0_0_5px_rgba(255,43,200,0.8)]">02 / REPRESENTATIVE</span>
-                    <h3 class="font-english text-6xl md:text-7xl text-white mb-12 tracking-tight">Profile</h3>
+<!-- ================= PROFILE ================= -->
+<section id="profile">
+  <div class="aurora pf1"></div>
+  <div class="aurora pf2"></div>
+  <div class="wm wm-l">02</div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no gtx">02 — REPRESENTATIVE</div>
+      <h2 class="sec-title rv lines"><span class="ln"><span class="ln-in">Profile</span></span></h2>
+    </div>
 
-                    <!-- Photo Frame (Neon Style) -->
-                    <div class="relative w-full max-w-xs group mb-8">
-                        <div class="absolute -inset-1 bg-gradient-to-br from-brand-magenta via-brand-purple to-brand-cyan rounded-sm blur opacity-40 group-hover:opacity-100 transition-opacity duration-700 animate-pulse-glow"></div>
-                        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-[#0f1218] border border-brand-coolBlue/30 group-hover:border-brand-cyan/50 transition-colors duration-500">
-                            <!-- Place 'pro.jpg' in the same folder -->
-                            <img src="pro.jpg" alt="Hiroki Shimada" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-500">
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-start space-y-2">
-                        <p class="font-english text-4xl font-bold text-white tracking-wide">Hiroki Shimada</p>
-                        <div class="flex items-baseline gap-4">
-                            <span class="font-serif text-xl text-gray-300">嶋田 博希</span>
-                            <span class="text-xs text-brand-cyan border border-brand-cyan/30 px-3 py-1 rounded-full tracking-widest">代表取締役</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Content Area -->
-                <div class="md:col-span-8 space-y-24 pt-10">
-                    <!-- Introduction -->
-                    <div class="reveal">
-                        <h5 class="font-serif text-3xl md:text-4xl leading-relaxed mb-12 text-white text-left">
-                            限界突破。<br>
-                            事業の<span class="gradient-text-neon">『ケタ』を変える成長</span>を。
-                        </h5>
+    <div class="prof">
+      <div class="rv">
+        <div class="prof-photo"><img src="pro.jpg" alt="嶋田博希 — 株式会社Alpha 代表取締役"></div>
+        <div class="prof-name-en">Hiroki Shimada</div>
+        <div class="prof-name-ja">嶋田 博希<span>代表取締役</span></div>
+      </div>
 
-                        <!-- Stats (High Contrast Neon) - Updated to 2 columns -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-10 border-y border-brand-coolBlue/30">
-                            <div class="text-center md:text-left md:border-r border-brand-coolBlue/30 md:pr-8">
-                                <span class="block text-brand-cyan text-xs font-english tracking-widest mb-3">SNS TOTAL FOLLOWER</span>
-                                <span class="font-english text-4xl lg:text-5xl text-white font-bold drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">400k+</span>
-                            </div>
-                            <div class="text-center md:text-left md:pl-8">
-                                <span class="block text-brand-magenta text-xs font-english tracking-widest mb-3">CLIENT REVENUE</span>
-                                <span class="font-english text-4xl lg:text-5xl text-white font-bold drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">1<span class="text-xl ml-1">億円達成</span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- History -->
-                    <div class="reveal">
-                        <div class="mb-12">
-                            <h6 class="font-english text-sm text-gray-500 tracking-widest inline-block relative pb-2">
-                                CAREER HISTORY
-                                <span class="absolute bottom-0 left-0 w-full h-[1px] bg-brand-cyan shadow-[0_0_5px_#00E8FF]"></span>
-                            </h6>
-                        </div>
+      <div>
+        <p class="prof-copy rv lines">
+          <span class="ln"><span class="ln-in">限界を、構造から超える。</span></span>
+          <span class="ln"><span class="ln-in">事業の<em>『ケタ』</em>を変える成長を。</span></span>
+        </p>
 
-                        <div class="space-y-12 border-l border-brand-coolBlue/20 pl-8 ml-2 md:ml-4">
-                            <div class="relative group">
-                                <span class="absolute -left-[37px] md:-left-[21px] top-2 w-2 h-2 rounded-full bg-brand-base border border-gray-600 group-hover:bg-brand-cyan group-hover:border-brand-cyan transition-colors shadow-[0_0_0_0_rgba(0,232,255,0)] group-hover:shadow-[0_0_10px_rgba(0,232,255,0.8)]"></span>
-                                <span class="font-english text-xs text-gray-500 block mb-2">2014 - 2018</span>
-                                <h4 class="font-serif text-lg mb-2 text-gray-300 group-hover:text-brand-cyanLight transition-colors">マツダ株式会社</h4>
-                                <p class="font-sans text-sm text-gray-500 leading-relaxed">
-                                    東証一部上場、資本金2,840億円、連結従業員数約4.8万人の巨大組織にて、管理職として品質管理・改善プロセスに従事。世界水準のモノづくりと組織運営を学ぶ。
-                                </p>
-                            </div>
-                            <div class="relative group">
-                                <span class="absolute -left-[37px] md:-left-[21px] top-2 w-2 h-2 rounded-full bg-brand-base border border-gray-600 group-hover:bg-brand-cyan group-hover:border-brand-cyan transition-colors shadow-[0_0_0_0_rgba(0,232,255,0)] group-hover:shadow-[0_0_10px_rgba(0,232,255,0.8)]"></span>
-                                <span class="font-english text-xs text-gray-500 block mb-2">2019 - 2021</span>
-                                <h4 class="font-serif text-lg mb-2 text-gray-300 group-hover:text-brand-cyanLight transition-colors">Web事業で起業</h4>
-                                <p class="font-sans text-sm text-gray-500">Webマーケティング、メディア運営事業を立ち上げ。</p>
-                            </div>
-                            <div class="relative group">
-                                <span class="absolute -left-[37px] md:-left-[21px] top-2 w-2 h-2 rounded-full bg-brand-purple shadow-[0_0_10px_rgba(196,0,255,0.8)]"></span>
-                                <span class="font-english text-xs text-brand-purple block mb-2">2021 - 2024</span>
-                                <h4 class="font-serif text-lg mb-2 text-white">教育事業 COO</h4>
-                                <p class="font-sans text-sm text-gray-400">年商1億規模の教育事業会社にて、財務・マネジメント・営業・CSなど事業運営に関わる全領域を統括。</p>
-                            </div>
-                            <div class="relative group">
-                                <span class="absolute -left-[37px] md:-left-[21px] top-2 w-2 h-2 rounded-full bg-brand-coolBlue shadow-[0_0_10px_rgba(74,169,249,0.8)]"></span>
-                                <span class="font-english text-xs text-brand-coolBlue block mb-2">2025</span>
-                                <h4 class="font-serif text-lg mb-2 text-white">AI会社 to C事業責任者</h4>
-                                <p class="font-sans text-sm text-gray-400">AI事業におけるコンシューマー向けサービスの戦略立案・事業推進を主導。</p>
-                            </div>
-                            <div class="relative group">
-                                <span class="absolute -left-[37px] md:-left-[21px] top-2 w-2 h-2 rounded-full bg-brand-magenta shadow-[0_0_10px_rgba(255,43,200,0.8)] animate-pulse-glow"></span>
-                                <span class="font-english text-xs text-brand-magenta block mb-2">2026 / NOW</span>
-                                <h4 class="font-serif text-lg mb-2 text-white">Alpha Inc. 代表取締役</h4>
-                                <p class="font-sans text-sm text-gray-400">法人向けマーケティング支援、キャリア支援事業を展開。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Recruit Section (Balanced Layout) -->
-    <section id="recruit" class="py-40 px-6 md:px-12 relative overflow-hidden">
-        <!-- Subtle Glow Divider Background -->
-        <div class="absolute inset-0 flex justify-center pointer-events-none">
-             <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-brand-cyan/20 to-transparent"></div>
-        </div>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-24 reveal">
-                 <span class="font-english text-xs tracking-[0.2em] text-brand-purple/70 block mb-4">03 / JOIN US</span>
-                 <h3 class="font-english text-6xl md:text-8xl text-white tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">Recruit</h3>
-            </div>
+        <div class="career-label rv">CAREER HISTORY</div>
+        <ul class="career">
+          <li class="rv">
+            <div class="yr">2014 — 2018</div>
+            <h4>マツダ株式会社</h4>
+            <p>東証一部上場・連結従業員数約4.8万人の組織にて、管理職として品質管理・改善プロセスに従事。世界水準のモノづくりと組織運営を学ぶ。</p>
+          </li>
+          <li class="rv">
+            <div class="yr">2019 — 2021</div>
+            <h4>Web事業で起業</h4>
+            <p>Webマーケティング、メディア運営事業を立ち上げ。</p>
+          </li>
+          <li class="rv">
+            <div class="yr">2021 — 2024</div>
+            <h4>教育事業 COO</h4>
+            <p>年商1億規模の教育事業会社にて、財務・マネジメント・営業・CSなど事業運営に関わる全領域を統括。</p>
+          </li>
+          <li class="rv">
+            <div class="yr">2025</div>
+            <h4>AI会社 toC事業責任者</h4>
+            <p>AI事業におけるコンシューマー向けサービスの戦略立案・事業推進を主導。</p>
+          </li>
+          <li class="now rv">
+            <div class="yr">2026 — NOW</div>
+            <h4>Alpha Inc. 代表取締役</h4>
+            <p>法人向けマーケティング支援、キャリア支援事業を展開。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="grid md:grid-cols-2 gap-12 md:gap-24 reveal">
-                <!-- Left Column: Desired Person (Centered content) -->
-                <div class="flex flex-col items-center group">
-                    <div class="text-left max-w-sm w-full">
-                        <h4 class="font-serif text-3xl mb-8 text-brand-cyanLight group-hover:text-brand-cyan transition-colors border-b border-brand-cyan/30 pb-4 inline-block">求める人物像</h4>
-                        <ul class="space-y-6 font-sans text-base text-gray-300">
-                            <li class="flex items-center">
-                                <span class="w-1.5 h-1.5 bg-brand-cyan mr-4 shadow-[0_0_5px_#00E8FF] flex-shrink-0"></span>現状に満足せず成長したい人
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-1.5 h-1.5 bg-brand-cyan mr-4 shadow-[0_0_5px_#00E8FF] flex-shrink-0"></span>誠実で嘘をつかない人
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-1.5 h-1.5 bg-brand-cyan mr-4 shadow-[0_0_5px_#00E8FF] flex-shrink-0"></span>変化を楽しめる人
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+<!-- ================= RECRUIT ================= -->
+<section id="recruit">
+  <div class="aurora rc1"></div>
+  <div class="wm">03</div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no gtx">03 — JOIN US</div>
+      <h2 class="sec-title rv lines"><span class="ln"><span class="ln-in">Recruit</span></span></h2>
+    </div>
 
-                <!-- Right Column: Atmosphere (Centered content) -->
-                <div class="flex flex-col items-center group">
-                    <div class="text-left max-w-sm w-full">
-                        <h4 class="font-serif text-3xl mb-8 text-brand-magenta group-hover:text-brand-magenta/80 transition-colors border-b border-brand-magenta/30 pb-4 inline-block">CORE VALUE / 価値提供</h4>
-                        <div class="flex flex-col space-y-4 mb-6">
-                             <span class="font-english text-2xl lg:text-3xl text-white">Client First</span>
-                             <span class="font-english text-2xl lg:text-3xl text-white">Essential Value</span>
-                        </div>
-                        <p class="font-sans text-sm text-gray-400 leading-loose group-hover:text-gray-300 transition-colors">
-                            社内事情や形式にとらわれず、顧客への本質的な価値提供を最優先する。<br>
-                            プロフェッショナルとして成果にコミットする組織です。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Company Section -->
-    <section id="company" class="py-40 px-6 md:px-12 bg-brand-base relative">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-brand-base opacity-90"></div>
+    <div class="rec rv">
+      <div>
+        <div class="k">WHO WE WANT</div>
+        <h3>求める人物像</h3>
+        <ul>
+          <li>現状に満足せず、成長したい人</li>
+          <li>誠実で、嘘をつかない人</li>
+          <li>変化を楽しめる人</li>
+        </ul>
+      </div>
+      <div>
+        <div class="k">CORE VALUE</div>
+        <h3>価値提供</h3>
+        <div class="value-en">Client First,<br>Essential Value.</div>
+        <p class="value-body">
+          社内事情や形式にとらわれず、顧客への本質的な価値提供を最優先する。
+          プロフェッショナルとして成果にコミットする組織です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center mb-20 reveal">
-                 <span class="font-english text-xs tracking-[0.2em] text-brand-cyan block mb-4 drop-shadow-[0_0_5px_rgba(0,232,255,0.8)]">04 / COMPANY</span>
-                 <h3 class="font-english text-5xl md:text-7xl text-white tracking-tight">Company Info</h3>
-            </div>
-            <div class="border-t border-brand-coolBlue/20 reveal">
-                <dl class="grid md:grid-cols-12 py-8 border-b border-brand-coolBlue/20 gap-4 md:gap-0 group hover:bg-white/5 transition-colors duration-300">
-                    <dt class="md:col-span-3 font-serif text-brand-cyanLight font-bold flex items-center">会社名</dt>
-                    <dd class="md:col-span-9 font-sans text-gray-300">Alpha Inc.</dd>
-                </dl>
-                <dl class="grid md:grid-cols-12 py-8 border-b border-brand-coolBlue/20 gap-4 md:gap-0 group hover:bg-white/5 transition-colors duration-300">
-                    <dt class="md:col-span-3 font-serif text-brand-cyanLight font-bold flex items-center">代表者</dt>
-                    <dd class="md:col-span-9 font-sans text-gray-300">代表取締役 嶋田 博希</dd>
-                </dl>
-                <dl class="grid md:grid-cols-12 py-8 border-b border-brand-coolBlue/20 gap-4 md:gap-0 group hover:bg-white/5 transition-colors duration-300">
-                    <dt class="md:col-span-3 font-serif text-brand-cyanLight font-bold flex items-center">所在地</dt>
-                    <dd class="md:col-span-9 font-sans text-gray-300">大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル12-12</dd>
-                </dl>
-                <dl class="grid md:grid-cols-12 py-8 border-b border-brand-coolBlue/20 gap-4 md:gap-0 group hover:bg-white/5 transition-colors duration-300">
-                    <dt class="md:col-span-3 font-serif text-brand-cyanLight font-bold flex items-center">資本金</dt>
-                    <dd class="md:col-span-9 font-sans text-gray-300">100万円</dd>
-                </dl>
-                <dl class="grid md:grid-cols-12 py-8 border-b border-brand-coolBlue/20 gap-4 md:gap-0 group hover:bg-white/5 transition-colors duration-300">
-                    <dt class="md:col-span-3 font-serif text-brand-cyanLight font-bold flex items-start pt-1">事業内容</dt>
-                    <dd class="md:col-span-9 font-sans text-gray-300 space-y-2">
-                        <div>マーケティング支援事業</div>
-                        <div>キャリア支援事業</div>
-                    </dd>
-                </dl>
-                <dl class="grid md:grid-cols-12 py-8 border-b border-brand-coolBlue/20 gap-4 md:gap-0 group hover:bg-white/5 transition-colors duration-300">
-                    <dt class="md:col-span-3 font-serif text-brand-cyanLight font-bold flex items-center">主要取引銀行</dt>
-                    <dd class="md:col-span-9 font-sans text-gray-300">三井住友銀行</dd>
-                </dl>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="py-12 px-6 md:px-12 border-t border-brand-coolBlue/10 bg-[#000810] text-center md:text-left">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-50 hover:opacity-100 transition-opacity duration-500">
-            <div class="mb-4 md:mb-0">
-                <span class="font-english font-bold text-lg tracking-wider text-brand-coolBlue">Alpha Inc.</span>
-            </div>
-            <p class="font-english text-xs tracking-widest text-gray-500">© 2025 Alpha Inc. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <!-- 外部JavaScript読み込み -->
-    <script src="script.js"></script>
+<!-- ================= COMPANY ================= -->
+<section id="company">
+  <div class="aurora cp1"></div>
+  <div class="wm wm-l">04</div>
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center">
+      <div class="sec-no gtx" style="justify-content:center">04 — COMPANY</div>
+      <h2 class="sec-title rv lines"><span class="ln"><span class="ln-in">Company Info</span></span></h2>
+    </div>
+
+    <dl class="co-table rv">
+      <div class="co-row"><dt>会社名</dt><dd>株式会社Alpha（Alpha Inc.）</dd></div>
+      <div class="co-row"><dt>代表者</dt><dd>代表取締役 嶋田 博希</dd></div>
+      <div class="co-row"><dt>所在地</dt><dd>大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル12-12</dd></div>
+      <div class="co-row"><dt>事業内容</dt><dd>マーケティング支援事業 / キャリア支援事業</dd></div>
+      <div class="co-row"><dt>主要取引銀行</dt><dd>三井住友銀行</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= MARQUEE 2 ================= -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-in">
+    <div class="grp">
+      <span class="g">LET'S TALK</span><span class="o">α</span>
+      <span class="o">GET IN TOUCH</span><span class="g">α</span>
+      <span class="g">LET'S TALK</span><span class="o">α</span>
+      <span class="o">GET IN TOUCH</span><span class="g">α</span>
+    </div>
+    <div class="grp">
+      <span class="g">LET'S TALK</span><span class="o">α</span>
+      <span class="o">GET IN TOUCH</span><span class="g">α</span>
+      <span class="g">LET'S TALK</span><span class="o">α</span>
+      <span class="o">GET IN TOUCH</span><span class="g">α</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact" style="border-bottom:1px solid var(--hairline-soft)">
+  <div class="aurora ct1"></div>
+  <div class="wrap">
+    <div class="sec-no gtx rv">05 — CONTACT</div>
+    <h2 class="rv lines"><span class="ln"><span class="ln-in">Let's talk<span class="dot">.</span></span></span></h2>
+    <p class="rv">
+      マーケティング支援・キャリア支援に関するご相談、採用へのご応募は
+      下記よりお気軽にご連絡ください。2営業日以内にご返信します。
+    </p>
+    <a class="btn rv" href="mailto:shima@alpha-a.net?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%EF%BC%88Alpha%20Inc.%EF%BC%89">GET IN TOUCH</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="en">Alpha Inc.</div>
+    <small>© 2026 Alpha Inc. All Rights Reserved.</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html = document.documentElement;
+  html.classList.add('js');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- reveal + counter ---------- */
+  function startReveal(){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.classList.add('in');
+        if(e.target.id === 'proof') runCounters();
+        io.unobserve(e.target);
+      });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }
+
+  /* ---------- counter ---------- */
+  var counted = false;
+  function runCounters(){
+    if(counted) return; counted = true;
+    document.querySelectorAll('.num').forEach(function(el){
+      var target = +el.dataset.target;
+      var pre = el.dataset.prefix || '';
+      var suf = el.dataset.suffix || '';
+      var dec = +(el.dataset.decimals || 0);
+      if(reduce){ el.textContent = pre + target + suf; return; }
+      var t0 = null, DUR = 1500;
+      function tick(t){
+        if(!t0) t0 = t;
+        var p = Math.min((t - t0) / DUR, 1);
+        var e = 1 - Math.pow(1 - p, 4);   /* easeOutQuart */
+        var v = target * e;
+        el.textContent = p < 1
+          ? pre + (dec ? v.toFixed(dec) : Math.round(v)) + suf
+          : pre + target + suf;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  /* ---------- intro ---------- */
+  var intro = document.getElementById('intro');
+  var seen = false;
+  try{ seen = sessionStorage.getItem('alphaIntro') === '1'; }catch(e){}
+  if(seen || reduce){
+    intro.parentNode.removeChild(intro);
+    startReveal();
+  }else{
+    intro.classList.add('play');
+    setTimeout(function(){
+      intro.classList.add('done');
+      try{ sessionStorage.setItem('alphaIntro','1'); }catch(e){}
+      startReveal();
+    },1250);
+    setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); },2000);
+  }
+
+  /* ---------- sky: スクロールで色相が旅する ---------- */
+  var lCyan = document.querySelector('.sky-cyan');
+  var lViolet = document.querySelector('.sky-violet');
+  var lPink = document.querySelector('.sky-pink');
+  var skyTick = false;
+  function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+  function updateSky(){
+    skyTick = false;
+    var max = document.documentElement.scrollHeight - innerHeight;
+    var p = max > 0 ? scrollY / max : 0;
+    /* hero(0)はほぼ素、service帯=シアン、profile帯=紫、recruit以降=ピンク */
+    var wC = clamp01((p - .04) / .14) * clamp01((.46 - p) / .18);
+    var wV = clamp01((p - .32) / .16) * clamp01((.74 - p) / .18);
+    var wP = clamp01((p - .62) / .2);
+    lCyan.style.opacity = wC;
+    lViolet.style.opacity = wV;
+    lPink.style.opacity = wP;
+  }
+  addEventListener('scroll', function(){
+    if(!skyTick){ skyTick = true; requestAnimationFrame(updateSky); }
+  }, {passive:true});
+  updateSky();
+
+  /* ---------- 星屑 ---------- */
+  var cv = document.getElementById('stars');
+  if(cv && !reduce){
+    var ctx = cv.getContext('2d');
+    var stars = [], W = 0, H = 0;
+    var COLS = ['232,237,246','103,232,249','167,139,250','244,114,182'];
+    function newStar(init){
+      var z = .35 + Math.random() * .65;
+      return {
+        x: Math.random() * W,
+        y: init ? Math.random() * H : H + 6,
+        z: z,
+        r: (.5 + Math.random() * 1.3) * z,
+        s: (.08 + Math.random() * .22) * z,
+        ph: Math.random() * 6.28,
+        c: COLS[Math.random() < .55 ? 0 : 1 + Math.floor(Math.random() * 3)]
+      };
+    }
+    function resize(){
+      W = cv.width = innerWidth; H = cv.height = innerHeight;
+      var n = Math.min(120, Math.round(W * H / 16000));
+      while(stars.length < n) stars.push(newStar(true));
+      stars.length = n;
+    }
+    addEventListener('resize', resize, {passive:true});
+    resize();
+    (function draw(t){
+      ctx.clearRect(0, 0, W, H);
+      for(var i = 0; i < stars.length; i++){
+        var st = stars[i];
+        st.y -= st.s;
+        st.x += Math.sin(t * .0004 + st.ph) * .1 * st.z;
+        if(st.y < -6) stars[i] = st = newStar(false);
+        var tw = .5 + .5 * Math.sin(t * .0012 + st.ph);
+        ctx.beginPath();
+        ctx.arc(st.x, st.y, st.r, 0, 6.283);
+        ctx.fillStyle = 'rgba(' + st.c + ',' + (.12 + .4 * tw * st.z).toFixed(3) + ')';
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    })(0);
+  }
+
+  /* ---------- 周期グリッチ（Non-Linear） ---------- */
+  var gl = document.querySelector('.hero-title .en');
+  if(gl && !reduce){
+    setInterval(function(){
+      gl.classList.add('glitching');
+      setTimeout(function(){ gl.classList.remove('glitching'); }, 280);
+    }, 3800);
+  }
+
+  /* ---------- custom cursor + hero glow (PCのみ) ---------- */
+  if(matchMedia('(pointer:fine)').matches && !reduce){
+    html.classList.add('has-cursor');
+    document.body.classList.add('has-cursor');
+    var dot = document.querySelector('.cur-dot');
+    var ring = document.querySelector('.cur-ring');
+    var glow = document.getElementById('heroGlow');
+    var tilt = document.getElementById('heroTilt');
+    var emb = document.querySelector('.emblem');
+    var mx = innerWidth/2, my = innerHeight/2;
+    var rx = mx, ry = my, gx = mx, gy = my, rs = 1;
+    addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; }, {passive:true});
+    (function loop(){
+      rx += (mx - rx) * .16;
+      ry += (my - ry) * .16;
+      gx += (mx - gx) * .05;
+      gy += (my - gy) * .05;
+      var targetScale = ring.classList.contains('on-link') ? 1.7 : 1;
+      rs += (targetScale - rs) * .18;
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) scale(' + rs + ')';
+      if(glow) glow.style.transform = 'translate(' + (gx - 230) + 'px,' + (gy - 230) + 'px)';
+      if(scrollY < innerHeight){
+        var nx = gx / innerWidth - .5, ny = gy / innerHeight - .5;
+        tilt.style.transform = 'perspective(1000px) rotateY(' + (nx * 4).toFixed(2) + 'deg) rotateX(' + (-ny * 3).toFixed(2) + 'deg)';
+        emb.style.transform = 'translateY(-50%) translate(' + (nx * -26).toFixed(1) + 'px,' + (ny * -20).toFixed(1) + 'px)';
+      }
+      requestAnimationFrame(loop);
+    })();
+    /* ホロフォイル：カーソル位置を各カードに伝える */
+    document.querySelectorAll('.proof>div,.prof-photo').forEach(function(el){
+      el.classList.add('holo');
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      }, {passive:true});
+    });
+    document.querySelectorAll('a,button').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ ring.classList.add('on-link'); });
+      el.addEventListener('mouseleave', function(){ ring.classList.remove('on-link'); });
+    });
+  }
+})();
+</script>
 </body>
 </html>
