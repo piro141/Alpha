@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>事業の人間ドック | 株式会社Alpha</title>
+<meta name="description" content="足りないのは、スキルじゃない。ひとり事業者のための無料の事業診断。5つの項目で原因を特定し、診断書と90日ロードマップをお渡しします。審査制。">
+<meta property="og:title" content="事業の人間ドック | 株式会社Alpha">
+<meta property="og:description" content="足りないのは、スキルじゃない。ひとり事業者のための無料の事業診断。審査制・オンライン60分。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dock.alpha-a.net/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Shippori+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "事業の人間ドック",
+  "serviceType": "事業診断",
+  "description": "ひとり事業者のための無料の事業診断。事業モデル・リソース・営業・マーケティング・AI活用の5つの項目で原因を特定し、診断書と90日ロードマップを提供する。",
+  "provider": {
+    "@type": "Organization",
+    "name": "株式会社Alpha",
+    "url": "https://www.alpha-a.net/",
+    "founder": {"@type": "Person", "name": "嶋田博希"}
+  },
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"},
+  "areaServed": "JP",
+  "url": "https://dock.alpha-a.net/"
+}
+</script>
+<style>
+:root {
+  --base: #030B16;
+  --sky: #071528;
+  --panel: rgba(255,255,255,0.03);
+  --line: rgba(125,211,232,0.14);
+  --line-soft: rgba(125,211,232,0.08);
+  --cyan: #00E8FF;
+  --cyanL: #7DD3E8;
+  --purple: #A98BE8;
+  --purpleD: #C478FF;
+  --pink: #E87DB8;
+  --pinkH: #FF2BC8;
+  --coral: #FF8A6B;
+  --txt: #DCE7F1;
+  --txt2: #9FB6CB;
+  --txt3: #66809B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Zen Kaku Gothic New", sans-serif; color: var(--txt); background: var(--base); line-height: 1.95; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 15px; }
+::selection { background: var(--pinkH); color: #fff; }
+.serif { font-family: "Shippori Mincho", serif; }
+.eng { font-family: "Cormorant Garamond", serif; letter-spacing: 0.28em; }
+.holo { background: linear-gradient(92deg, #00E8FF 5%, #A98BE8 50%, #FF2BC8 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.holo2 { background: linear-gradient(92deg, #C478FF 5%, #FF2BC8 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.bg-stage { position: fixed; inset: 0; z-index: -2; pointer-events: none; background: linear-gradient(180deg, var(--sky) 0%, var(--base) 60%); }
+.blob { position: absolute; border-radius: 50%; filter: blur(130px); opacity: 0.6; animation: drift 22s ease-in-out infinite alternate; }
+.blob.b1 { top: -18%; left: -12%; width: 55vw; height: 55vw; background: radial-gradient(circle, rgba(0,130,200,0.34), transparent 65%); }
+.blob.b2 { bottom: -22%; right: -14%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(196,60,200,0.18), transparent 65%); animation-delay: -8s; }
+.blob.b3 { top: 40%; left: 26%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(255,43,200,0.10), transparent 65%); animation-delay: -15s; }
+@keyframes drift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(4vw,-3vw) scale(1.12); } 100% { transform: translate(-3vw,3vw) scale(0.94); } }
+.noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"); }
+
+.sec { padding: 116px 24px; position: relative; }
+.wrap { max-width: 880px; margin: 0 auto; }
+.divider { height: 1px; max-width: 880px; margin: 0 auto; background: linear-gradient(90deg, transparent, rgba(0,232,255,0.25), rgba(196,120,255,0.3), rgba(255,43,200,0.25), transparent); }
+.label { font-family: "Cormorant Garamond", serif; letter-spacing: 0.32em; font-size: 13px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.label::before { content: ""; width: 36px; height: 1px; }
+.lb-c { color: var(--cyanL); text-shadow: 0 0 14px rgba(0,232,255,0.6); }
+.lb-c::before { background: linear-gradient(90deg, var(--cyan), transparent); box-shadow: 0 0 10px var(--cyan); }
+.lb-p { color: var(--purpleD); text-shadow: 0 0 14px rgba(196,120,255,0.6); }
+.lb-p::before { background: linear-gradient(90deg, var(--purpleD), transparent); box-shadow: 0 0 10px var(--purpleD); }
+.lb-k { color: #FF7BD1; text-shadow: 0 0 14px rgba(255,43,200,0.55); }
+.lb-k::before { background: linear-gradient(90deg, var(--pinkH), transparent); box-shadow: 0 0 10px var(--pinkH); }
+.h2 { font-family: "Shippori Mincho", serif; font-size: clamp(28px, 5.4vw, 40px); color: #F4F8FC; margin-bottom: 16px; font-weight: 600; letter-spacing: 0.02em; }
+.lead { font-size: 16px; color: var(--txt2); margin-bottom: 44px; max-width: 600px; }
+
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .blob { animation: none; } }
+.fadeup { opacity: 0; transform: translateY(32px); animation: fadeup 1.1s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes fadeup { to { opacity: 1; transform: none; } }
+
+.hero { min-height: 92vh; display: flex; align-items: center; padding: 120px 24px 90px; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; width: 100%; }
+@media (max-width: 760px) { .hero-grid { grid-template-columns: 1fr; } .hero-visual { display: none; } }
+
+.chip { position: relative; font-size: 13.5px; font-weight: 500; color: #F4F8FC; padding: 10px 22px; border-radius: 999px; border: 1px solid transparent; background: linear-gradient(rgba(7,21,40,0.92), rgba(7,21,40,0.92)) padding-box, linear-gradient(115deg, #00E8FF, #A98BE8, #FF2BC8) border-box; box-shadow: 0 0 22px rgba(120,100,220,0.22); display: inline-flex; align-items: center; gap: 9px; }
+.chip i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+.chip.c1 i { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+.chip.c2 i { background: var(--purpleD); box-shadow: 0 0 10px var(--purpleD); }
+.chip.c3 i { background: var(--pinkH); box-shadow: 0 0 10px var(--pinkH); }
+
+.orbit-wrap { position: relative; width: 300px; height: 300px; margin: 0 auto; animation: floaty 7s ease-in-out infinite; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+.ring { position: absolute; border-radius: 50%; border: 1px solid rgba(0,232,255,0.2); animation: spin 34s linear infinite; }
+.ring.r1 { inset: 0; }
+.ring.r2 { inset: 26px; border-color: rgba(255,43,200,0.18); animation: spin 26s linear infinite reverse; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.orbit-dot { position: absolute; inset: 0; animation: spin 12s linear infinite; }
+.orbit-dot::after { content: ""; position: absolute; top: -3px; left: 50%; width: 7px; height: 7px; border-radius: 50%; background: var(--pinkH); box-shadow: 0 0 16px var(--pinkH); transform: translateX(-50%); }
+
+.glass { background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px; backdrop-filter: blur(6px); }
+
+.q-head { font-size: 13px; letter-spacing: 0.12em; white-space: nowrap; display: flex; align-items: center; gap: 12px; margin: 0 0 12px; font-weight: 500; }
+.q-head.qc { color: var(--cyanL); }
+.q-head.qk { color: #FF7BD1; }
+.q-head::after { content: ""; flex: 1; height: 1px; }
+.q-head.qc::after { background: linear-gradient(90deg, rgba(0,232,255,0.35), transparent); }
+.q-head.qk::after { background: linear-gradient(90deg, rgba(255,43,200,0.35), transparent); }
+label.q { display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,0.025); border: 1px solid rgba(125,211,232,0.1); border-radius: 10px; padding: 13px 16px; font-size: 14.5px; color: var(--txt); cursor: pointer; margin-bottom: 8px; transition: all .25s ease; }
+label.q:hover { border-color: rgba(196,120,255,0.45); background: rgba(196,120,255,0.05); }
+label.q.on { border-color: transparent; background: linear-gradient(rgba(10,26,46,0.9), rgba(10,26,46,0.9)) padding-box, linear-gradient(115deg, rgba(0,232,255,0.7), rgba(196,120,255,0.7), rgba(255,43,200,0.7)) border-box; box-shadow: 0 0 20px rgba(160,90,220,0.15); }
+label.q input { appearance: none; -webkit-appearance: none; width: 19px; height: 19px; min-width: 19px; margin-top: 4px; border: 1px solid rgba(160,140,230,0.5); border-radius: 6px; background: transparent; cursor: pointer; position: relative; transition: all .2s; }
+label.q input:checked { background: linear-gradient(135deg, #00E8FF, #C478FF, #FF2BC8); border-color: transparent; box-shadow: 0 0 14px rgba(196,120,255,0.6); }
+label.q input:checked::after { content: ""; position: absolute; left: 5.5px; top: 2px; width: 5px; height: 9px; border: solid #04121F; border-width: 0 2px 2px 0; transform: rotate(42deg); }
+
+.hyp { margin-top: 14px; padding: 4px 0 4px 18px; font-size: 14px; line-height: 1.85; width: 100%; border-left: 2px solid rgba(125,211,232,0.3); color: var(--txt2); transition: all .4s; }
+.hyp.warn { border-left-color: var(--pinkH); color: #FFB3E2; }
+.hyp.mid { border-left-color: var(--purpleD); color: #D9C2F5; }
+
+.exam-row { display: flex; gap: 20px; align-items: center; border-bottom: 1px solid var(--line-soft); padding: 24px 8px; transition: background .3s; }
+.exam-row:hover { background: rgba(196,120,255,0.04); }
+.ic { width: 48px; height: 48px; min-width: 48px; display: flex; align-items: center; justify-content: center; border-radius: 14px; }
+.ic svg { filter: drop-shadow(0 0 6px currentColor); }
+.ic1 { color: var(--cyan); border: 1px solid rgba(0,232,255,0.3); background: rgba(0,232,255,0.06); }
+.ic2 { color: var(--purpleD); border: 1px solid rgba(196,120,255,0.3); background: rgba(196,120,255,0.06); }
+.ic3 { color: var(--pinkH); border: 1px solid rgba(255,43,200,0.3); background: rgba(255,43,200,0.06); }
+.ic4 { color: var(--coral); border: 1px solid rgba(255,138,107,0.3); background: rgba(255,138,107,0.06); }
+.ic5 { color: var(--cyanL); border: 1px solid rgba(125,211,232,0.3); background: rgba(125,211,232,0.06); }
+.exam-row .no { font-family: "Cormorant Garamond", serif; font-size: 34px; letter-spacing: 0.05em; white-space: nowrap; line-height: 1; min-width: 56px; }
+.no.n1 { color: var(--cyan); text-shadow: 0 0 16px rgba(0,232,255,0.6); }
+.no.n2 { color: var(--purpleD); text-shadow: 0 0 16px rgba(196,120,255,0.6); }
+.no.n3 { color: var(--pinkH); text-shadow: 0 0 16px rgba(255,43,200,0.55); }
+.no.n4 { color: var(--coral); text-shadow: 0 0 16px rgba(255,138,107,0.55); }
+.no.n5 { color: var(--cyanL); text-shadow: 0 0 16px rgba(125,211,232,0.6); }
+.exam-row .nm { font-family: "Shippori Mincho", serif; font-size: 19px; color: #F4F8FC; font-weight: 600; }
+.exam-row .ds { font-size: 14px; color: var(--txt2); margin-left: 14px; }
+@media (max-width: 560px) { .exam-row .ds { display: block; margin-left: 0; margin-top: 2px; } }
+
+.bene-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 16px; }
+.bene-card { padding: 28px 24px; transition: transform .3s, border-color .3s, box-shadow .3s; position: relative; overflow: hidden; }
+.bene-card:hover { transform: translateY(-4px); }
+.bene-card.bc1:hover { border-color: rgba(0,232,255,0.4); box-shadow: 0 0 30px rgba(0,232,255,0.1); }
+.bene-card.bc2:hover { border-color: rgba(196,120,255,0.4); box-shadow: 0 0 30px rgba(196,120,255,0.1); }
+.bene-card.bc3:hover { border-color: rgba(255,43,200,0.4); box-shadow: 0 0 30px rgba(255,43,200,0.1); }
+.bene-card .bic { width: 52px; height: 52px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.bene-card .bic svg { filter: drop-shadow(0 0 7px currentColor); }
+.bc1 .bic { color: var(--cyan); border: 1px solid rgba(0,232,255,0.3); background: rgba(0,232,255,0.06); }
+.bc2 .bic { color: var(--purpleD); border: 1px solid rgba(196,120,255,0.3); background: rgba(196,120,255,0.06); }
+.bc3 .bic { color: var(--pinkH); border: 1px solid rgba(255,43,200,0.3); background: rgba(255,43,200,0.06); }
+.bene-card .bt { font-family: "Shippori Mincho", serif; font-size: 17.5px; color: #F4F8FC; font-weight: 600; margin-bottom: 8px; }
+.bene-card .bd { font-size: 13.5px; color: var(--txt2); line-height: 1.85; }
+
+.flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 14px; }
+.flow-card { padding: 24px 20px; position: relative; overflow: hidden; transition: border-color .3s, transform .3s, box-shadow .3s; }
+.flow-card:hover { transform: translateY(-4px); }
+.flow-card.f1:hover { border-color: rgba(0,232,255,0.4); box-shadow: 0 0 26px rgba(0,232,255,0.1); }
+.flow-card.f2:hover { border-color: rgba(196,120,255,0.4); box-shadow: 0 0 26px rgba(196,120,255,0.1); }
+.flow-card.f3:hover { border-color: rgba(255,43,200,0.4); box-shadow: 0 0 26px rgba(255,43,200,0.1); }
+.flow-card.f4:hover { border-color: rgba(255,138,107,0.4); box-shadow: 0 0 26px rgba(255,138,107,0.1); }
+.flow-card .no { font-family: "Cormorant Garamond", serif; font-size: 38px; line-height: 1; margin-bottom: 12px; }
+.f1 .no { color: var(--cyan); text-shadow: 0 0 14px rgba(0,232,255,0.5); }
+.f2 .no { color: var(--purpleD); text-shadow: 0 0 14px rgba(196,120,255,0.5); }
+.f3 .no { color: var(--pinkH); text-shadow: 0 0 14px rgba(255,43,200,0.5); }
+.f4 .no { color: var(--coral); text-shadow: 0 0 14px rgba(255,138,107,0.5); }
+.flow-card .nm { font-family: "Shippori Mincho", serif; font-size: 16px; color: #F4F8FC; margin-bottom: 6px; font-weight: 600; }
+.flow-card .ds { font-size: 13px; color: var(--txt2); line-height: 1.75; }
+
+.stairs { display: flex; align-items: flex-end; gap: 16px; position: relative; padding-top: 24px; }
+.stair-line { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.step { flex: 1; position: relative; z-index: 1; padding: 24px 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--line-soft); border-radius: 16px; backdrop-filter: blur(6px); transition: transform .3s, border-color .3s, box-shadow .3s; }
+.step:hover { transform: translateY(-6px); }
+.step .stp { font-family: "Cormorant Garamond", serif; font-size: 10px; letter-spacing: 0.34em; color: var(--txt3); margin-bottom: 8px; }
+.step .no { font-family: "Cormorant Garamond", serif; font-size: 40px; line-height: 1; margin-bottom: 12px; }
+.step .nm { font-family: "Shippori Mincho", serif; font-size: 16px; color: #F4F8FC; margin-bottom: 6px; font-weight: 600; }
+.step .ds { font-size: 12.5px; color: var(--txt2); line-height: 1.75; }
+.step.s1 { margin-bottom: 0; }
+.step.s2 { margin-bottom: 36px; }
+.step.s3 { margin-bottom: 72px; }
+.step.s4 { margin-bottom: 108px; }
+.s1 .no { color: var(--cyan); text-shadow: 0 0 14px rgba(0,232,255,0.5); }
+.s2 .no { color: var(--purpleD); text-shadow: 0 0 14px rgba(196,120,255,0.5); }
+.s3 .no { color: var(--pinkH); text-shadow: 0 0 14px rgba(255,43,200,0.5); }
+.s4 .no { color: var(--coral); text-shadow: 0 0 14px rgba(255,138,107,0.5); }
+.s1:hover { border-color: rgba(0,232,255,0.4); box-shadow: 0 0 26px rgba(0,232,255,0.1); }
+.s2:hover { border-color: rgba(196,120,255,0.4); box-shadow: 0 0 26px rgba(196,120,255,0.1); }
+.s3:hover { border-color: rgba(255,43,200,0.4); box-shadow: 0 0 26px rgba(255,43,200,0.1); }
+.s4:hover { border-color: rgba(255,138,107,0.4); box-shadow: 0 0 26px rgba(255,138,107,0.1); }
+@media (max-width: 680px) { .stairs { flex-direction: column; align-items: stretch; padding-top: 0; } .step.s1, .step.s2, .step.s3, .step.s4 { margin-bottom: 0; } .stair-line { display: none; } }
+
+.paper2 { background: #FCFAF5; border-radius: 10px; color: #2B3440; box-shadow: 0 26px 80px rgba(0,0,0,0.6), 0 0 60px rgba(196,120,255,0.08), 0 0 0 1px rgba(255,255,255,0.07); padding: 30px 32px; display: grid; grid-template-columns: 250px 1fr; gap: 34px; text-align: left; }
+.paper2 .serif { color: #1B2733; }
+.pi { padding: 9px 0; border-bottom: 1px solid #F0EBDF; }
+.pi-head { display: flex; align-items: center; gap: 12px; }
+.pi-head .pin { min-width: 128px; font-size: 12.5px; font-weight: 700; color: #3D3D3A; }
+.pi .grade { width: 26px; height: 26px; min-width: 26px; font-size: 12.5px; }
+.pi-sub { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: #8A8070; margin-top: 5px; }
+.pi-sub b { font-weight: 700; }
+b.mg { color: #1D9E75; } b.mo { color: #3B82C4; } b.mx { color: #D8452F; }
+.pi-note { font-size: 11.5px; color: #5A5245; margin-top: 3px; line-height: 1.7; }
+@media (max-width: 680px) { .paper2 { grid-template-columns: 1fr; gap: 22px; padding: 24px 20px; } .pi-head .pin { min-width: 108px; font-size: 11.5px; } }
+
+.paper { background: #FCFAF5; border-radius: 8px; padding: 28px 28px 22px; color: #2B3440; box-shadow: 0 26px 80px rgba(0,0,0,0.6), 0 0 60px rgba(196,120,255,0.08), 0 0 0 1px rgba(255,255,255,0.07); position: relative; }
+.paper .serif { color: #1B2733; }
+.grade { display: inline-flex; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: #fff; font-family: "Cormorant Garamond", serif; letter-spacing: 0; }
+.gA { background: #1D9E75; box-shadow: 0 2px 8px rgba(29,158,117,0.35); }
+.gB { background: #3B82C4; box-shadow: 0 2px 8px rgba(59,130,196,0.35); }
+.gC { background: #DB9A26; box-shadow: 0 2px 8px rgba(219,154,38,0.35); }
+.gD { background: #D8452F; box-shadow: 0 2px 8px rgba(216,69,47,0.4); }
+.bar { flex: 1; height: 7px; border-radius: 4px; background: #EDE7DA; overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 4px; }
+.exam-line { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F0EBDF; font-size: 12.5px; color: #5A5245; }
+.exam-line .n { min-width: 108px; font-weight: 500; }
+@media (max-width: 420px) { .exam-line .n { min-width: 88px; font-size: 11.5px; } }
+
+.offer-box { border-radius: 20px; border: 1px solid transparent; background: linear-gradient(rgba(6,17,33,0.95), rgba(6,17,33,0.95)) padding-box, linear-gradient(115deg, rgba(0,232,255,0.55), rgba(196,120,255,0.55), rgba(255,43,200,0.55)) border-box; box-shadow: 0 0 60px rgba(196,120,255,0.14); padding: 40px 36px; }
+.offer-item { display: flex; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(125,211,232,0.1); font-size: 15px; color: var(--txt); }
+.offer-item .ck { width: 24px; height: 24px; min-width: 24px; border-radius: 50%; background: linear-gradient(135deg, #00E8FF, #C478FF, #FF2BC8); display: flex; align-items: center; justify-content: center; }
+.offer-item .ck::after { content: ""; width: 5px; height: 9px; border: solid #04121F; border-width: 0 2px 2px 0; transform: rotate(42deg); margin-top: -2px; }
+.nar-item { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--txt); padding: 10px 0; }
+.nar-item .dot { min-width: 8px; height: 8px; border-radius: 50%; margin-top: 10px; }
+
+.cta-btn { display: inline-block; position: relative; background: linear-gradient(92deg, #00E8FF, #C478FF, #FF2BC8); color: #04121F; font-size: 16px; font-weight: 700; padding: 18px 56px; border-radius: 999px; text-decoration: none; letter-spacing: 0.06em; transition: transform .25s, box-shadow .25s; box-shadow: 0 0 34px rgba(196,120,255,0.45); }
+.cta-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 60px rgba(255,43,200,0.55); }
+
+.stat-num { font-family: "Cormorant Garamond", serif; font-size: clamp(50px, 9vw, 72px); line-height: 1; letter-spacing: 0.02em; }
+.rev-slot { border: 1px dashed rgba(196,120,255,0.3); border-radius: 12px; padding: 24px; text-align: center; font-size: 13px; color: var(--txt3); }
+svg text { font-family: "Zen Kaku Gothic New", sans-serif; }
+.flag { font-family: "Shippori Mincho", serif; font-size: clamp(21px, 4vw, 27px); line-height: 1.9; color: #F4F8FC; border-left: 3px solid; border-image: linear-gradient(180deg, #00E8FF, #C478FF, #FF2BC8) 1; padding-left: 24px; }
+@media (max-width: 640px) { .sec { padding: 84px 20px; } .offer-box { padding: 30px 22px; } }
+</style>
+</head>
+<body>
+
+<div class="bg-stage"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="noise"></div>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="label lb-c fadeup" style="animation-delay:.1s;">JIGYO NINGEN DOCK</p>
+      <h1 class="serif fadeup" style="animation-delay:.25s; font-size: clamp(38px, 7.6vw, 64px); line-height: 1.5; color: #F4F8FC; font-weight: 600;">足りないのは、<br><span class="holo" style="font-weight:700;">スキルじゃない。</span></h1>
+      <div class="fadeup" style="animation-delay:.4s; height:1.5px; width:130px; background:linear-gradient(90deg, var(--cyan), var(--pinkH), transparent); margin:36px 0; box-shadow:0 0 12px rgba(196,120,255,0.7);"></div>
+      <p class="fadeup" style="animation-delay:.5s; font-size:17px; color:var(--txt); font-weight:300; line-height:2.1;">何からやればいいか、分からないまま走っていませんか。<br>ひとり事業者のための、<span class="holo2" style="font-weight:500;">無料の事業診断</span>です。</p>
+      <p class="fadeup" style="animation-delay:.65s; margin-top:38px; font-size:15px; letter-spacing:0.16em; color:#F4F8FC; font-weight:400;">無料<span style="color:var(--cyan); margin:0 14px;">/</span>審査制<span style="color:var(--purpleD); margin:0 14px;">/</span>オンライン60分</p>
+      <p class="fadeup" style="animation-delay:.8s; margin-top:46px; font-size:13.5px; letter-spacing:0.14em; color:var(--txt2);">すべてのひとり事業者に、年1回の事業ドックを。</p>
+    </div>
+    <div class="hero-visual fadeup" style="animation-delay:.9s;">
+      <div class="orbit-wrap">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="orbit-dot"></div>
+        <svg width="300" height="300" viewBox="0 0 200 200" role="img" aria-label="事業ドックのシンボル" style="position:absolute; inset:0;">
+          <defs>
+            <linearGradient id="hg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00E8FF"/><stop offset=".5" stop-color="#C478FF"/><stop offset="1" stop-color="#FF2BC8"/></linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <polygon points="100,38 158,80 136,148 64,148 42,80" fill="rgba(196,120,255,0.05)" stroke="url(#hg0)" stroke-width="1.8" filter="url(#glow)"/>
+          <polygon points="100,66 132,89 120,126 80,126 68,89" fill="none" stroke="url(#hg0)" stroke-width="0.8" opacity="0.5"/>
+          <circle cx="100" cy="38" r="2.6" fill="#00E8FF"/><circle cx="158" cy="80" r="2.6" fill="#7DA8F0"/><circle cx="136" cy="148" r="2.6" fill="#C478FF"/><circle cx="64" cy="148" r="2.6" fill="#E85ECF"/><circle cx="42" cy="80" r="2.6" fill="#FF2BC8"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; bottom:26px; left:50%; transform:translateX(-50%); font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.4em; color:var(--txt3);">SCROLL</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-p reveal">PROBLEM</p>
+    <h2 class="h2 reveal">こんな<span class="holo2">お悩み</span>、ありませんか。</h2>
+    <p class="lead reveal">あてはまるものに、いくつでもチェックしてください。あなたの事業の仮の形が、描かれていきます。</p>
+    <div style="display: flex; gap: 38px; flex-wrap: wrap;">
+      <div style="flex: 1.4; min-width: 290px;" class="reveal">
+        <p class="q-head qc">副業をはじめたい・はじめたばかりの方</p>
+        <label class="q"><input type="checkbox" data-a="0">何のスキルを身につければ稼げるのか、ずっと迷っている</label>
+        <label class="q"><input type="checkbox" data-a="0">稼げる人と自分の差が、何なのかわからない</label>
+        <label class="q"><input type="checkbox" data-a="0">教材や講座にお金を使ったのに、まだ回収できていない</label>
+        <label class="q"><input type="checkbox" data-a="2">案件の取り方がわからない。応募しても通らない</label>
+        <label class="q"><input type="checkbox" data-a="3">発信が大事と聞くけれど、何を発信すればいいかわからない</label>
+        <label class="q"><input type="checkbox" data-a="4">AIは触っているのに、収入につながっていない</label>
+        <p class="q-head qk" style="margin-top: 28px;">事業が回っている方</p>
+        <label class="q"><input type="checkbox" data-a="4">納期に追われて、毎日がパツパツになっている</label>
+        <label class="q"><input type="checkbox" data-a="1">特定のクライアントに切られたら、売上が一気に崩れる</label>
+        <label class="q"><input type="checkbox" data-a="0">時間を切り売りしている感覚から、抜け出せない</label>
+        <label class="q"><input type="checkbox" data-a="4">休んだら売上が止まる。自由な時間が、ずっとない</label>
+        <label class="q"><input type="checkbox" data-a="2">単価を上げたいのに、切られる気がして言い出せない</label>
+        <label class="q"><input type="checkbox" data-a="2">値引きや無料対応で、なんとか関係をつないでいる</label>
+        <label class="q"><input type="checkbox" data-a="1">紹介がなかなか生まれず、新規はいつも運まかせ</label>
+        <label class="q"><input type="checkbox" data-a="3">発信する時間がなくて、認知が積み上がらない</label>
+        <label class="q"><input type="checkbox" data-a="4">AIに仕事を奪われる気がして、漠然と不安</label>
+        <label class="q"><input type="checkbox" data-a="4">忙しすぎて、AI活用に手をつけられていない</label>
+      </div>
+      <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; position: sticky; top: 30px; align-self: flex-start;" class="reveal">
+        <svg width="270" viewBox="0 0 200 200" role="img" aria-label="あなたの事業の仮の形を示す五角形チャート">
+          <defs>
+            <linearGradient id="hgL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00E8FF"/><stop offset=".5" stop-color="#C478FF"/><stop offset="1" stop-color="#FF2BC8"/></linearGradient>
+            <filter id="glowL"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <polygon points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4" fill="none" stroke="rgba(160,140,230,0.28)" stroke-width="0.6"/>
+          <polygon points="100,53.3 144.4,85.6 127.5,137.8 72.5,137.8 55.6,85.6" fill="none" stroke="rgba(160,140,230,0.14)" stroke-width="0.5"/>
+          <polygon points="100,76.7 122.2,92.8 113.7,118.9 86.3,118.9 77.8,92.8" fill="none" stroke="rgba(160,140,230,0.14)" stroke-width="0.5"/>
+          <line x1="100" y1="100" x2="100" y2="30" stroke="rgba(160,140,230,0.12)" stroke-width="0.5"/><line x1="100" y1="100" x2="166.6" y2="78.4" stroke="rgba(160,140,230,0.12)" stroke-width="0.5"/><line x1="100" y1="100" x2="141.2" y2="156.6" stroke="rgba(160,140,230,0.12)" stroke-width="0.5"/><line x1="100" y1="100" x2="58.8" y2="156.6" stroke="rgba(160,140,230,0.12)" stroke-width="0.5"/><line x1="100" y1="100" x2="33.4" y2="78.4" stroke="rgba(160,140,230,0.12)" stroke-width="0.5"/>
+          <polygon id="livePoly" points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4" fill="rgba(196,120,255,0.09)" stroke="url(#hgL)" stroke-width="2" filter="url(#glowL)" style="transition: all .5s cubic-bezier(0.16,1,0.3,1);"/>
+          <text x="100" y="16" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">事業モデル</text>
+          <text x="180" y="74" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">リピート</text>
+          <text x="146" y="174" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">営業</text>
+          <text x="54" y="174" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">マーケ</text>
+          <text x="20" y="74" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">AI</text>
+        </svg>
+        <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 10px;">
+          <span style="font-size: 12px; color: var(--txt3); letter-spacing: 0.1em;">事業の仮スコア</span>
+          <span id="score" class="eng holo" style="font-size: 38px; letter-spacing: 0.02em;">100</span>
+          <span style="font-size: 12px; color: var(--txt3);">/100</span>
+        </div>
+        <div id="hyp" class="hyp">チェックすると、事業の仮の形がここに描かれます。</div>
+        <p style="margin-top: 14px; font-size: 13px; color: var(--txt3); line-height: 1.8; width: 100%;">五角形が小さくても、大丈夫です。診断書が、立て直す順番の地図になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-k reveal">REASON</p>
+    <h2 class="h2 reveal">原因は、<span class="holo">スキルの外</span>にある。</h2>
+    <div class="reveal" style="max-width: 620px; font-size: 15.5px; line-height: 2.2; color: #C9D7E4;">
+      <p style="margin-bottom: 26px;">スキルが上げてくれるのは、作業の質です。でも売上を決めるのは、<span class="holo2" style="font-weight:600;">何を売るか、誰に届けるか、いくらにするか、どう続けてもらうか</span>という設計のほうです。ここがズレていると、どれだけスキルを磨いても、売上には変わりません。</p>
+      <p style="margin-bottom: 26px;">厄介なのは、この設計のズレは自分では見えないことです。中にいる人ほど、見えません。だから正しい場所ではなく、見える場所を頑張ってしまう。</p>
+      <p>そして、見えないまま走る時間は、そのまま機会損失になります。原因探しに3ヶ月悩むのか、60分で特定して前に進むのか。<span class="holo" style="font-weight:600;">事業でいちばん高くつくのは、止まっている時間です。</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-c reveal">SOLUTION</p>
+    <h2 class="h2 reveal">だから、<span class="holo">事業の人間ドック</span>。</h2>
+    <p class="lead reveal">体に人間ドックがあるように、事業にも。オンライン60分、5つの項目であなたの事業をまるごと診断し、止まっている場所を特定します。</p>
+    <div class="reveal">
+      <div class="exam-row"><span class="no n1">01</span><span class="ic ic1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><polygon points="12,3 21,9.5 12,21 3,9.5"/><path d="M3 9.5h18M12 3l-4.5 6.5L12 21l4.5-11.5L12 3" stroke-width="0.9"/></svg></span><div><span class="nm">事業モデル</span><span class="ds">商品・単価・売上の器の大きさ</span></div></div>
+      <div class="exam-row"><span class="no n2">02</span><span class="ic ic2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.5-5.8"/><path d="M20 3v4h-4"/></svg></span><div><span class="nm">リピート・紹介</span><span class="ds">お客さまが続き、広がる仕組み</span></div></div>
+      <div class="exam-row"><span class="no n3">03</span><span class="ic ic3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></span><div><span class="nm">営業</span><span class="ds">見込みから成約までの取りこぼし</span></div></div>
+      <div class="exam-row"><span class="no n4">04</span><span class="ic ic4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 4h16l-6.5 8v6l-3 2.5v-8.5L4 4z"/></svg></span><div><span class="nm">マーケティング</span><span class="ds">集客導線と認知の設計</span></div></div>
+      <div class="exam-row" style="border-bottom: none;"><span class="no n5">05</span><span class="ic ic5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg></span><div><span class="nm">AI・仕組み化</span><span class="ds">AIを活用できているか</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-p reveal">BENEFIT</p>
+    <h2 class="h2 reveal">60分後、<span class="holo2">あなたはこう変わる</span>。</h2>
+    <p class="lead reveal">診断ルームを出るとき、入る前とは見えている景色が違います。</p>
+    <div class="bene-grid reveal">
+      <div class="bene-card glass bc1">
+        <div class="bic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/><path d="M11 8v6M8 11h6" stroke-width="1.2"/></svg></div>
+        <p class="bt">迷いが、消える</p>
+        <p class="bd">「何からやればいいか分からない」が、「今日これをやる」に変わります。もう情報収集だけで夜が終わりません。</p>
+      </div>
+      <div class="bene-card glass bc2">
+        <div class="bic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c4-1 5-4 5-7 0-3 2-8 11-8-1 9-5 11-8 11-3 0-6 1-7 5z" stroke-width="1.3"/><path d="M4 19c1-3 3-5 6-7"/></svg></div>
+        <p class="bt">遠回りが、終わる</p>
+        <p class="bd">頑張る場所を間違えなくなるので、同じ努力が最短距離に変わります。何ヶ月分の回り道が、60分で消えます。</p>
+      </div>
+      <div class="bene-card glass bc3">
+        <div class="bic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12,3 20.5,9 17.5,19 6.5,19 3.5,9"/><polygon points="12,8 16.2,11 14.7,16 9.3,16 7.8,11" stroke-width="1"/></svg></div>
+        <p class="bt">自分の武器が、わかる</p>
+        <p class="bd">弱点だけでなく、強みもスコアで見えます。自信を持って伸ばす場所と、勝ち筋が決まります。</p>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: center; margin-top: 64px;" class="reveal">
+      <svg width="250" viewBox="0 0 200 200" role="img" aria-label="初回診断と90日後の五角形の重ね絵">
+        <defs><linearGradient id="hg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00E8FF"/><stop offset=".5" stop-color="#C478FF"/><stop offset="1" stop-color="#FF2BC8"/></linearGradient><filter id="glowR"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <polygon points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4" fill="none" stroke="rgba(160,140,230,0.2)" stroke-width="0.5"/>
+        <polygon points="100,60 128,88 124,132 82,120 64,90" fill="none" stroke="#66809B" stroke-width="1.3" stroke-dasharray="4 3"/>
+        <polygon points="100,38 152,84 134,148 66,142 44,80" fill="rgba(196,120,255,0.1)" stroke="url(#hg4)" stroke-width="2" filter="url(#glowR)"/>
+        <text x="100" y="16" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">事業モデル</text>
+        <text x="180" y="74" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">リピート</text>
+        <text x="146" y="174" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">営業</text>
+        <text x="54" y="174" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">マーケ</text>
+        <text x="20" y="74" text-anchor="middle" style="font-size: 10.5px; fill: #9FB6CB;">AI</text>
+      </svg>
+      <div style="min-width: 210px; max-width: 300px;">
+        <p class="serif" style="font-size: 20px; color: #F4F8FC; font-weight: 600; margin-bottom: 12px;">90日後、<span class="holo">形が変わる</span>。</p>
+        <p style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;"><span style="display: inline-block; width: 28px; border-top: 1.5px dashed #66809B;"></span><span style="font-size: 14px; color: var(--txt2);">初回 54点</span></p>
+        <p style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;"><span style="display: inline-block; width: 28px; border-top: 2.5px solid var(--purpleD); box-shadow: 0 0 10px rgba(196,120,255,0.6);"></span><span style="font-size: 14px; color: #F4F8FC; font-weight: 500;">90日後 <span class="holo" style="font-weight:700;">76点</span></span></p>
+        <p style="font-size: 13px; color: var(--txt2); line-height: 1.85;">ロードマップどおりに動いた事業は、五角形の形が変わります。その変化も、一緒に確認できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-c reveal">EVIDENCE</p>
+    <h2 class="h2 reveal">診断を受けた方の声</h2>
+    <div class="reveal" style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 32px 0 14px;">
+      <span class="stat-num"><span class="holo">5</span><span style="font-size: 0.42em; color: var(--txt2);"> / 6名</span></span>
+    </div>
+    <p class="reveal" style="font-size: 15px; color: var(--txt2); margin-bottom: 36px; max-width: 540px;">これまで診断を受けた6名のうち5名が、そのあとの伴走での改善を選んでいます。</p>
+    <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 14px;">
+      <div class="rev-slot">診断を受けた方の声<br>順次掲載</div>
+      <div class="rev-slot">診断を受けた方の声<br>順次掲載</div>
+      <div class="rev-slot">診断を受けた方の声<br>順次掲載</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-k reveal">CONTENTS</p>
+    <h2 class="h2 reveal">診断の流れと、<span class="holo">お渡しするもの</span>。</h2>
+    <p class="lead reveal">申込みから診断書まで、すべてオンラインで完結します。</p>
+    <div class="stairs reveal" style="margin-bottom: 84px;">
+      <svg class="stair-line" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#00E8FF"/><stop offset=".5" stop-color="#C478FF"/><stop offset="1" stop-color="#FF2BC8"/></linearGradient></defs><polyline points="3,39 30,29 62,18 94,6" fill="none" stroke="url(#sg)" stroke-width="0.5" stroke-dasharray="1.8 1.4" opacity="0.65"/></svg>
+      <div class="step s1"><p class="stp">STEP</p><p class="no">01</p><p class="nm">申込み</p><p class="ds">フォームに5分で回答</p></div>
+      <div class="step s2"><p class="stp">STEP</p><p class="no">02</p><p class="nm">審査</p><p class="ds">通過のご案内が届く</p></div>
+      <div class="step s3"><p class="stp">STEP</p><p class="no">03</p><p class="nm">診断 60分</p><p class="ds">オンラインで5つの項目</p></div>
+      <div class="step s4"><p class="stp">STEP</p><p class="no">04</p><p class="nm">診断書</p><p class="ds">2枚の結果と90日の道順</p></div>
+    </div>
+    <p class="reveal" style="font-size: 15px; color: var(--txt2); margin-bottom: 28px;">診断のあと、この2枚をお渡しします。</p>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start; justify-content: center;">
+      <div style="flex-basis: 100%;" class="reveal">
+        <p style="font-size: 12px; color: var(--txt3); letter-spacing: 0.16em; margin-bottom: 10px; text-align: center;">本人用: 事業診断書</p>
+        <div class="paper2">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #1B2733; padding-bottom: 8px; margin-bottom: 10px;"><span class="serif" style="font-size: 17px; letter-spacing: 0.1em; font-weight: 700;">事業診断書</span><span style="font-size: 10.5px; color: #A89B7E; letter-spacing: 0.14em;">第0007号</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 10.5px; color: #8A8070; margin-bottom: 16px;"><span>オンライン 60分</span><span>SAMPLE</span></div>
+            <span style="font-size: 11.5px; color: #6B6255;">総合スコア</span>
+            <div style="display: flex; align-items: baseline; gap: 5px;"><span class="eng" style="font-size: 48px; color: #1B2733; letter-spacing: 0;">54</span><span style="font-size: 12px; color: #A89B7E;">/100</span></div>
+            <div class="bar" style="margin: 6px 0 18px;"><i style="width: 54%; background: linear-gradient(90deg, #3B82C4, #C478FF);"></i></div>
+            <svg width="100%" viewBox="0 0 200 200" role="img" aria-label="診断書内の五角形チャート" style="max-width: 210px; display: block; margin: 0 auto;">
+              <polygon points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4" fill="none" stroke="#DCD5C6" stroke-width="1"/>
+              <polygon points="100,53.3 144.4,85.6 127.5,137.8 72.5,137.8 55.6,85.6" fill="none" stroke="#EDE7DA" stroke-width="0.7"/>
+              <polygon points="100,76.7 122.2,92.8 113.7,118.9 86.3,118.9 77.8,92.8" fill="none" stroke="#EDE7DA" stroke-width="0.7"/>
+              <polygon points="100,44 130,91 138,152 86,119 62,88" fill="rgba(59,130,196,0.14)" stroke="#3B82C4" stroke-width="2"/>
+              <circle cx="86" cy="119" r="3.2" fill="#D8452F"/>
+              <text x="100" y="16" text-anchor="middle" style="font-size: 11px; fill: #8A8070;">事業</text>
+              <text x="180" y="76" text-anchor="middle" style="font-size: 11px; fill: #8A8070;">継続</text>
+              <text x="145" y="174" text-anchor="middle" style="font-size: 11px; fill: #8A8070;">営業</text>
+              <text x="55" y="174" text-anchor="middle" style="font-size: 11px; fill: #D8452F;">マーケ</text>
+              <text x="20" y="76" text-anchor="middle" style="font-size: 11px; fill: #8A8070;">AI</text>
+            </svg>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #EDE7DA; padding-top: 12px; margin-top: 14px;">
+              <span style="font-size: 10.5px; color: #8A8070;">次の診断 90日後</span>
+              <span class="serif" style="width: 34px; height: 34px; border: 1.5px solid #B0453A; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; color: #B0453A;">診</span>
+            </div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 10.5px; color: #8A8070; border-bottom: 1px solid #1B2733; padding-bottom: 6px; margin-bottom: 4px;"><span style="font-size: 12px; color: #3D3D3A; font-weight: 700;">項目別診断</span><span>◎ 強い　○ 標準　▲ 要改善</span></div>
+            <div class="pi">
+              <div class="pi-head"><span class="pin">01 事業モデル</span><span class="bar"><i style="width: 62%; background: #3B82C4;"></i></span><span class="grade gB">B</span></div>
+              <div class="pi-sub"><span>単価 <b class="mo">○</b></span><span>商品構成 <b class="mo">○</b></span><span>収益の再現性 <b class="mx">▲</b></span></div>
+              <p class="pi-note">単価は適正。単発仕事への依存が、伸びの上限になっています。</p>
+            </div>
+            <div class="pi">
+              <div class="pi-head"><span class="pin">02 リピート・紹介</span><span class="bar"><i style="width: 58%; background: #3B82C4;"></i></span><span class="grade gB">B</span></div>
+              <div class="pi-sub"><span>継続率 <b class="mo">○</b></span><span>顧客との関係 <b class="mg">◎</b></span><span>紹介の仕組み <b class="mx">▲</b></span></div>
+              <p class="pi-note">関係は良好。紹介がお客さまの好意頼みで、仕組みに余地があります。</p>
+            </div>
+            <div class="pi">
+              <div class="pi-head"><span class="pin">03 営業</span><span class="bar"><i style="width: 84%; background: #1D9E75;"></i></span><span class="grade gA">A</span></div>
+              <div class="pi-sub"><span>成約率 <b class="mg">◎</b></span><span>提案の質 <b class="mg">◎</b></span><span>単価交渉 <b class="mo">○</b></span></div>
+              <p class="pi-note">型ができています。この強みは、そのまま伸ばす一手。</p>
+            </div>
+            <div class="pi">
+              <div class="pi-head"><span class="pin" style="color: #D8452F;">04 マーケティング</span><span class="bar"><i style="width: 22%; background: #D8452F;"></i></span><span class="grade gD">D</span></div>
+              <div class="pi-sub"><span>集客導線 <b class="mx">▲</b></span><span>認知 <b class="mx">▲</b></span><span>発信の継続 <b class="mo">○</b></span></div>
+              <p class="pi-note" style="color: #B0453A;">集客が一本足。導線の設計が、最優先の一手です。</p>
+            </div>
+            <div class="pi" style="border-bottom: none;">
+              <div class="pi-head"><span class="pin">05 AI・仕組み化</span><span class="bar"><i style="width: 45%; background: #DB9A26;"></i></span><span class="grade gC">C</span></div>
+              <div class="pi-sub"><span>手作業の比率 <b class="mx">▲</b></span><span>AI活用 <b class="mo">○</b></span><span>外注化 <b class="mo">○</b></span></div>
+              <p class="pi-note">手作業が多め。90日で仕組みに移せる領域です。</p>
+            </div>
+            <div style="margin-top: 12px; background: #F5F1E8; border-radius: 6px; padding: 12px 16px;">
+              <p style="font-size: 11px; color: #A89B7E; letter-spacing: 0.12em; margin-bottom: 4px;">総合コメント</p>
+              <p style="font-size: 12.5px; line-height: 1.8;">原因は<span style="color: #D8452F; font-weight: 700;">マーケティングの導線</span>にあります。商品と営業は健全です。90日は集客導線の一本化に集中してください。進め方は別紙の90日ロードマップの通りです。</p>
+              <p style="font-size: 10.5px; color: #8A8070; margin-top: 6px;">90日ロードマップ 別紙</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 255px; max-width: 310px;" class="reveal">
+        <p style="font-size: 12px; color: var(--txt3); letter-spacing: 0.16em; margin-bottom: 10px; text-align: center;">公開用: 五角形カード</p>
+        <div style="padding: 26px 20px 20px; text-align: center; border-radius: 16px; border: 1px solid transparent; background: linear-gradient(rgba(6,17,33,0.94), rgba(6,17,33,0.94)) padding-box, linear-gradient(135deg, rgba(0,232,255,0.5), rgba(196,120,255,0.5), rgba(255,43,200,0.5)) border-box; box-shadow: 0 0 46px rgba(196,120,255,0.16);">
+          <p class="eng" style="font-size: 10px; color: var(--txt3); margin-bottom: 12px;">JIGYO NINGEN DOCK</p>
+          <svg width="185" viewBox="0 0 200 200" role="img" aria-label="公開用の五角形カードのサンプル" style="margin: 0 auto;">
+            <defs><linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00E8FF"/><stop offset=".5" stop-color="#C478FF"/><stop offset="1" stop-color="#FF2BC8"/></linearGradient><filter id="glowC"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <polygon points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4" fill="none" stroke="rgba(160,140,230,0.3)" stroke-width="0.7"/>
+            <polygon points="100,53.3 144.4,85.6 127.5,137.8 72.5,137.8 55.6,85.6" fill="none" stroke="rgba(160,140,230,0.14)" stroke-width="0.5"/>
+            <polygon points="100,76.7 122.2,92.8 113.7,118.9 86.3,118.9 77.8,92.8" fill="none" stroke="rgba(160,140,230,0.14)" stroke-width="0.5"/>
+            <polygon points="100,44 130,91 138,152 86,119 62,88" fill="rgba(196,120,255,0.1)" stroke="url(#hg2)" stroke-width="2" filter="url(#glowC)"/>
+            <text x="100" y="16" text-anchor="middle" style="font-size: 10px; fill: #9FB6CB;">事業モデル</text>
+            <text x="180" y="74" text-anchor="middle" style="font-size: 10px; fill: #9FB6CB;">リピート</text>
+            <text x="146" y="174" text-anchor="middle" style="font-size: 10px; fill: #9FB6CB;">営業</text>
+            <text x="54" y="174" text-anchor="middle" style="font-size: 10px; fill: #9FB6CB;">マーケ</text>
+            <text x="20" y="74" text-anchor="middle" style="font-size: 10px; fill: #9FB6CB;">AI</text>
+          </svg>
+          <div style="display: flex; justify-content: center; align-items: baseline; gap: 7px; margin-top: 8px;"><span class="eng holo" style="font-size: 32px; letter-spacing: 0;">54</span><span style="font-size: 11px; color: var(--txt3);">/100</span></div>
+          <p style="margin-top: 12px; font-size: 9.5px; letter-spacing: 0.22em; color: var(--txt3);">事業の人間ドック 第0007号</p>
+        </div>
+        <p style="font-size: 13px; color: var(--txt2); line-height: 1.8; margin-top: 14px; text-align: center;">悩みの中身は載っていません。<br>形だけ、自由にシェアできます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-p reveal">OFFER</p>
+    <h2 class="h2 reveal">料金は、<span class="holo">無料</span>です。</h2>
+    <div class="reveal" style="max-width: 620px; font-size: 15.5px; line-height: 2.2; color: #C9D7E4; margin-bottom: 44px;">
+      <p style="margin-bottom: 26px;">私たちにとっても、ひとり事業者のリアルな悩みを深く知れることが、サービスを磨くいちばんの材料になります。お話しいただくだけで、こちらにもちゃんとメリットがある。だから、遠慮なく受けてください。</p>
+      <p>そしてもうひとつ。体に年1回の人間ドックがあるように、<span class="holo" style="font-weight:600;">事業にも年1回、診てもらう日があっていい</span>。その文化をつくることが、私たちの目標だからです。</p>
+    </div>
+    <div class="reveal" style="max-width: 560px;">
+      <div class="offer-item"><span class="ck"></span>オンライン診断 60分（5つの項目をまるごと）</div>
+      <div class="offer-item"><span class="ck"></span>事業診断書（スコア・五角形・総合コメント）</div>
+      <div class="offer-item"><span class="ck"></span>公開用の五角形カード</div>
+      <div class="offer-item"><span class="ck"></span>90日ロードマップ（やること・やめることの順番）</div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 22px;">
+        <span style="font-size: 14px; color: var(--txt2); letter-spacing: 0.1em;">料金</span>
+        <span><span class="eng holo" style="font-size: 44px; letter-spacing: 0.02em;">0</span><span style="font-size: 14px; color: var(--txt2); margin-left: 6px;">円</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="label lb-k reveal">FOR YOU</p>
+    <h2 class="h2 reveal">ただし、<span class="holo2">審査制</span>です。</h2>
+    <p class="lead reveal">ひとりずつ本気で診るため、毎月診断できる数に限りがあります。申込みフォームの内容を見て、いま診断が力になれる方からご案内しています。</p>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap;" class="reveal">
+      <div style="flex: 1; min-width: 270px;">
+        <p style="font-size: 14px; color: var(--cyanL); letter-spacing: 0.1em; margin-bottom: 10px; font-weight: 500;">こんな方に来てほしい</p>
+        <div class="nar-item"><span class="dot" style="background: var(--cyan); box-shadow: 0 0 8px var(--cyan);"></span>本気で副業・事業をなんとかしたい方</div>
+        <div class="nar-item"><span class="dot" style="background: var(--purpleD); box-shadow: 0 0 8px var(--purpleD);"></span>診断結果を、ちゃんと行動に移すつもりがある方</div>
+        <div class="nar-item"><span class="dot" style="background: var(--pinkH); box-shadow: 0 0 8px var(--pinkH);"></span>ひとりで悩む時間を、もう終わりにしたい方</div>
+      </div>
+      <div style="flex: 1; min-width: 270px;">
+        <div class="glass" style="padding: 24px 26px; border-color: rgba(196,120,255,0.2);">
+          <p style="font-size: 15px; color: #F4F8FC; font-weight: 500; margin-bottom: 8px;">ご紹介でお越しの方へ</p>
+          <p style="font-size: 13.5px; color: var(--txt2); line-height: 1.9;">紹介者のお名前をフォームにご記入ください。審査を優先し、<span class="holo" style="font-weight:600;">優先枠</span>でご案内します。この診断は、人から人へ手渡しで広がっています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding: 96px 24px 84px; text-align: center; position: relative; border-top: 1px solid var(--line-soft); background: linear-gradient(180deg, transparent, rgba(0,15,35,0.75));">
+  <svg width="42" height="42" viewBox="0 0 100 100" role="img" aria-label="事業ドックのロゴ" style="margin-bottom: 18px;"><defs><linearGradient id="hg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00E8FF"/><stop offset=".5" stop-color="#C478FF"/><stop offset="1" stop-color="#FF2BC8"/></linearGradient></defs><polygon points="50,8 90,37 75,84 25,84 10,37" fill="none" stroke="url(#hg3)" stroke-width="2.5"/></svg>
+  <p class="serif" style="font-size: clamp(24px, 5.2vw, 34px); line-height: 1.85; color: #F4F8FC; font-weight: 600;">ひとりで抱えてきた事業を、<br><span class="holo">まるごと診てもらう日</span>。</p>
+  <p style="margin-top: 24px; font-size: 14px; color: var(--txt2); line-height: 2;">悩みが深くなる前に。<br>まず、診てもらうことから。</p>
+  <p style="margin-top: 36px;"><a class="cta-btn" href="FORM_URL_HERE">無料診断にすすむ</a></p>
+  <p style="margin-top: 18px; font-size: 12px; color: var(--txt3);">診断は無料です。審査のうえ、ご案内します。</p>
+  <p style="margin-top: 64px; font-size: 12px; color: var(--txt3);">運営 <a href="https://www.alpha-a.net/" style="color: var(--txt2); text-decoration: none; border-bottom: 1px solid var(--line);">株式会社Alpha</a></p>
+</footer>
+
+<script>
+(function () {
+  var dirs = [[0, -1], [0.951, -0.309], [0.588, 0.809], [-0.588, 0.809], [-0.951, -0.309]];
+  var names = ['事業モデル', 'リピート・紹介', '営業', 'マーケティング', 'AI・仕組み化'];
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('label.q input'));
+  var poly = document.getElementById('livePoly');
+  var hyp = document.getElementById('hyp');
+  var score = document.getElementById('score');
+  function update() {
+    var cnt = [0, 0, 0, 0, 0];
+    boxes.forEach(function (b) {
+      b.closest('label').classList.toggle('on', b.checked);
+      if (b.checked) cnt[+b.dataset.a]++;
+    });
+    var pts = dirs.map(function (d, i) {
+      var r = 70 - 55 * Math.min(1, cnt[i] / 3);
+      return (100 + r * d[0]).toFixed(1) + ',' + (100 + r * d[1]).toFixed(1);
+    }).join(' ');
+    poly.setAttribute('points', pts);
+    var n = cnt.reduce(function (a, b) { return a + b; }, 0);
+    score.textContent = Math.max(20, 100 - n * 5);
+    hyp.classList.remove('warn', 'mid');
+    if (n === 0) {
+      hyp.textContent = 'チェックすると、事業の仮の形がここに描かれます。';
+      return;
+    }
+    var mx = Math.max.apply(null, cnt);
+    var worst = names.filter(function (_, i) { return cnt[i] === mx; }).join(' と ');
+    var t = 'チェック' + n + '個。いちばん大きな原因は ' + worst + ' にありそうです。';
+    t += n >= 5 ? '一度、診てもらうことをおすすめします。' : '正確な形と順番は、本診断でわかります。';
+    hyp.textContent = t;
+    hyp.classList.add(n >= 5 ? 'warn' : 'mid');
+  }
+  boxes.forEach(function (b) { b.addEventListener('change', update); });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
