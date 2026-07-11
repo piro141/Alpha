@@ -75,12 +75,12 @@
   @media(max-width:720px){.wrap{padding:0 22px}}
 
   /* グラデ文字（ホロ揺れ共通） */
-  .gtx,.stat .v,.yr,.free-band .fw,.script,.rec .k,.contact h2 .dot,.menu a.cta,.intro-a{
+  .gtx,.stat .v,.yr,.free-band .fw,.script,.rec .k,.contact h2 .dot,.menu a.cta,.intro-a,.hero-name{
     background-image:linear-gradient(92deg,var(--c1),var(--c2),var(--c3),var(--c2),var(--c1));
     background-size:240% 100%;
     animation:holo 8s ease-in-out infinite;
   }
-  .gtx,.stat .v,.yr,.free-band .fw,.script,.rec .k,.contact h2 .dot,.intro-a{
+  .gtx,.stat .v,.yr,.free-band .fw,.script,.rec .k,.contact h2 .dot,.intro-a,.hero-name{
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   @keyframes holo{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -304,7 +304,7 @@
   .svc.m1 .svc-no{background-image:linear-gradient(120deg,var(--c1),var(--cb),var(--c1))}
   .svc.m2 .svc-no{background-image:linear-gradient(120deg,var(--cb),var(--c2),var(--cb))}
   .svc.m3 .svc-no{background-image:linear-gradient(120deg,var(--c2),var(--c3),var(--c2))}
-  .svc h3{font-family:var(--gothic);font-weight:700;font-size:clamp(20px,2.2vw,25px);letter-spacing:.08em;line-height:1.8;word-break:keep-all}
+  .svc h3{font-family:var(--mincho);font-weight:600;font-size:clamp(20px,2.2vw,25px);letter-spacing:.08em;line-height:1.8;word-break:keep-all}
   .svc-lead{font-family:var(--mincho);font-weight:700;font-size:clamp(16px,1.8vw,20px);letter-spacing:.08em;color:var(--ink);margin-bottom:14px;line-height:1.9}
   .svc-body{color:var(--muted);font-size:14.5px;line-height:2.15}
   .svc-more{
@@ -577,7 +577,7 @@
 
   @media(prefers-reduced-motion:reduce){
     .js .rv,.js .ln-in{opacity:1;transform:none;transition:none}
-    .scan,.btn,.menu a.cta,.gtx,.stat .v,.yr,.free-band .fw,.script,.rec .k,.svc-no,.prof-copy em,.intro-a,.rail-section::before{animation:none}
+    .scan,.btn,.menu a.cta,.gtx,.stat .v,.yr,.free-band .fw,.script,.rec .k,.svc-no,.prof-copy em,.intro-a,.hero-name,.rail-section::before{animation:none}
   }
   @media(max-width:920px){
     .profile-bridge{
