@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ひとり起業診断｜あなたの働き方の強みが1分でわかる</title>
+<meta name="description" content="8つの質問に答えるだけ。ひとりで仕事を受けている人の強みと、つまずきやすいポイントが1分でわかる無料タイプ診断。">
+<meta name="facebook-domain-verification" content="ymltj2vm1605vxti6wmknvtduuqrf5" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+
+<!-- ================================================== -->
+<!-- ▼▼ Metaピクセル ▼▼ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1435406345060552');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1435406345060552&ev=PageView&noscript=1" alt="" /></noscript>
+<!-- ▲▲ Metaピクセルここまで ▲▲ -->
+<!-- ================================================== -->
+
+<style>
+  :root{
+    /* 事業ドックLPと同一パレット */
+    --bg:#03050a;
+    --card:#0b0f1a;
+    --line:rgba(132,151,185,.26);
+    --cyan:#54d7ff;
+    --violet:#8d7cff;
+    --accent:#ed67b8;
+    --accent-deep:#c74e98;
+    --text:#f4f5fb;
+    --sub:#a9afc1;
+    --craft:#54d7ff;   /* 職人 */
+    --create:#ffc46b;  /* クリエイター */
+    --support:#6fe3b8; /* サポーター */
+    --attack:#ed67b8;  /* アタッカー */
+    --serif:"Shippori Mincho","Yu Mincho",serif;
+    --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans",-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    color:var(--text);
+    background:
+      linear-gradient(90deg, rgba(84,215,255,.018) 1px, transparent 1px),
+      linear-gradient(rgba(141,124,255,.016) 1px, transparent 1px),
+      var(--bg);
+    background-size:96px 96px;
+    font-family:var(--sans);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    /* スマホ最適化: タップ時の青い矩形を消し、ダブルタップズームの遅延をなくす */
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    overflow-x:hidden;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:480px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- FV ---------- */
+  .fv{padding:30px 0 24px;text-align:center;}
+  .fv-badge{
+    display:inline-block;
+    background:rgba(84,215,255,.10);
+    border:1px solid rgba(84,215,255,.32);
+    color:var(--cyan);
+    font-size:12.5px;font-weight:700;
+    padding:6px 16px;border-radius:100px;
+    margin-bottom:18px;letter-spacing:.04em;
+  }
+  .fv-lead{font-size:14px;font-weight:700;color:var(--sub);margin-bottom:6px;letter-spacing:.1em;}
+  .fv h1{
+    font-family:var(--serif);
+    font-size:38px;font-weight:800;line-height:1.28;
+    letter-spacing:.04em;margin-bottom:14px;
+  }
+  .fv h1 .pink{
+    background:linear-gradient(100deg,var(--cyan),var(--violet) 55%,var(--accent));
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+  .fv-sub{font-size:13.5px;color:var(--sub);margin-bottom:12px;line-height:1.65;}
+  .fv-sub b{color:var(--text);}
+  .fv-target{
+    font-size:12px;color:var(--sub);line-height:1.7;
+    border-left:2px solid rgba(141,124,255,.5);
+    padding-left:12px;text-align:left;
+    max-width:340px;margin:0 auto 20px;
+  }
+
+  /* ---------- タイプカード ---------- */
+  .types{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px;}
+  .tcard{
+    border-radius:14px;padding:13px 10px;text-align:center;
+    background:var(--card);border-top:4px solid;
+  }
+  .tcard .ic{display:block;margin:0 auto 6px;width:26px;height:26px;}
+  .tcard .ic svg{width:100%;height:100%;}
+  .tcard.craft .ic{color:var(--craft);}
+  .tcard.create .ic{color:var(--create);}
+  .tcard.support .ic{color:var(--support);}
+  .tcard.attack .ic{color:var(--attack);}
+  .tcard .tname{font-size:15px;font-weight:800;}
+  .tcard .tsub{font-size:11px;color:var(--sub);margin-top:2px;}
+  .tcard.craft{border-color:var(--craft);}
+  .tcard.create{border-color:var(--create);}
+  .tcard.support{border-color:var(--support);}
+  .tcard.attack{border-color:var(--attack);}
+
+  /* ---------- CTAボタン ---------- */
+  .btn{
+    display:block;width:100%;
+    background:linear-gradient(120deg,var(--cyan),var(--violet) 52%,var(--accent));
+    color:#05070d;font-size:18px;font-weight:900;
+    text-align:center;text-decoration:none;
+    padding:18px 20px;border-radius:100px;border:none;
+    cursor:pointer;letter-spacing:.04em;
+    box-shadow:0 8px 30px rgba(141,124,255,.35);
+    transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-note{font-size:12px;color:var(--sub);text-align:center;margin-top:10px;}
+
+  /* ---------- 診断エリア(全問を縦に並べる) ---------- */
+  .quiz{display:none;padding:0 0 56px;}
+  .progress-wrap{
+    position:sticky;top:0;z-index:20;
+    background:rgba(3,5,10,.92);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    padding:14px 0 12px;margin-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .progress-label{font-size:12px;color:var(--sub);text-align:center;margin-bottom:8px;font-weight:700;}
+  .progress-label span{color:var(--cyan);font-size:14px;}
+  .progress-bar{height:5px;background:rgba(132,151,185,.18);border-radius:100px;overflow:hidden;}
+  .progress-fill{
+    height:100%;border-radius:100px;width:0%;
+    background:linear-gradient(90deg,var(--cyan),var(--violet),var(--accent));
+    transition:width .35s ease;
+  }
+
+  .qitem{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:18px 16px;margin-bottom:12px;
+    transition:border-color .2s ease;
+  }
+  .qitem.done{border-color:rgba(84,215,255,.4);}
+  .qnum{
+    font-family:var(--serif);font-size:12px;font-weight:800;
+    letter-spacing:.1em;color:var(--cyan);margin-bottom:6px;
+  }
+  .qtext{
+    font-size:15.5px;font-weight:700;line-height:1.6;
+    margin-bottom:14px;
+  }
+  .qans{display:flex;gap:7px;}
+  .qans button{
+    flex:1;min-height:52px;
+    background:transparent;color:var(--sub);
+    border:1.5px solid rgba(132,151,185,.3);border-radius:10px;
+    font-size:12.5px;font-weight:700;padding:8px 4px;
+    font-family:inherit;cursor:pointer;
+    transition:all .15s ease;line-height:1.35;
+  }
+  .qans button:active{transform:scale(.97);}
+  .qans button.on{
+    color:#05070d;border-color:transparent;
+    background:linear-gradient(120deg,var(--cyan),var(--violet));
+    box-shadow:0 3px 14px rgba(141,124,255,.35);
+  }
+  .btn[disabled]{
+    opacity:.35;cursor:not-allowed;
+    box-shadow:none;filter:saturate(.4);
+  }
+  #submitBtn{margin-top:22px;}
+
+  /* ---------- 結果 ---------- */
+  .result{display:none;padding:40px 0 60px;text-align:center;}
+  .r-label{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.1em;margin-bottom:12px;}
+  .r-card{
+    background:var(--card);border-radius:20px;
+    padding:32px 22px;margin-bottom:24px;
+    border-top:6px solid var(--accent);
+  }
+  .r-emoji{display:block;width:52px;height:52px;margin:0 auto 12px;}
+  .r-emoji svg{width:100%;height:100%;}
+  .r-type{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:.04em;margin-bottom:4px;}
+  .r-catch{font-size:14px;color:var(--accent);font-weight:700;margin-bottom:20px;}
+  .r-sec{text-align:left;margin-bottom:18px;}
+  .r-sec h3{
+    font-size:13px;font-weight:800;color:var(--sub);
+    letter-spacing:.08em;margin-bottom:8px;
+    padding-left:10px;border-left:3px solid var(--accent);
+  }
+  .r-sec p{font-size:14.5px;}
+  /* ---------- 診断完了(結果は伏せる) ---------- */
+  .sealed{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:20px;padding:34px 22px 30px;margin-bottom:26px;
+    position:relative;overflow:hidden;
+  }
+  .sealed::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:3px;
+    background:linear-gradient(90deg,var(--cyan),var(--violet),var(--accent));
+  }
+  .sealed-ic{
+    display:block;width:44px;height:44px;margin:0 auto 16px;
+    color:var(--cyan);
+  }
+  .sealed-ic svg{width:100%;height:100%;}
+  .sealed-lead{font-size:13px;color:var(--sub);letter-spacing:.12em;margin-bottom:2px;}
+  .r-num{
+    display:block;font-family:var(--serif);
+    font-size:52px;font-weight:800;line-height:1.05;margin-bottom:2px;
+    background:linear-gradient(120deg,var(--cyan),var(--violet) 55%,var(--accent));
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+  .sealed-h{
+    font-family:var(--serif);font-size:27px;font-weight:800;
+    line-height:1.4;letter-spacing:.04em;margin-bottom:16px;
+  }
+  .sealed-p{font-size:13px;color:var(--sub);margin-bottom:14px;}
+  .sealed-note{
+    font-size:12px;color:var(--sub);
+    border-top:1px solid var(--line);padding-top:13px;
+  }
+  .sealed-note b{color:var(--cyan);font-size:15px;}
+
+  .r-lock{
+    background:rgba(141,124,255,.07);
+    border:1px dashed rgba(141,124,255,.45);
+    border-radius:14px;padding:18px 16px;
+    font-size:14px;text-align:left;margin-bottom:24px;
+  }
+  .r-lock b{color:var(--accent);}
+  .r-lock ul{list-style:none;margin-top:10px;}
+  .r-lock li{padding-left:1.4em;position:relative;margin-bottom:6px;font-size:13.5px;}
+  .r-lock li::before{content:"▸";position:absolute;left:0;color:var(--cyan);font-weight:900;}
+
+  /* ---------- 落とし穴3つ ---------- */
+  .pit{text-align:left;margin-bottom:24px;}
+  .pit h3{
+    font-family:var(--serif);font-size:17px;font-weight:800;
+    line-height:1.5;letter-spacing:.03em;
+    text-align:center;margin-bottom:16px;
+  }
+  .pit ol{list-style:none;counter-reset:p;}
+  .pit li{
+    counter-increment:p;
+    background:var(--card);border-radius:12px;
+    padding:14px 16px 14px 46px;margin-bottom:10px;
+    position:relative;font-size:13.5px;color:var(--sub);
+  }
+  .pit li::before{
+    content:counter(p);
+    position:absolute;left:14px;top:14px;
+    width:22px;height:22px;border-radius:50%;
+    background:linear-gradient(120deg,var(--cyan),var(--violet));
+    color:#05070d;font-size:12px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .pit b{display:block;color:var(--text);font-size:14.5px;margin-bottom:2px;}
+
+  /* ---------- LINE 3ステップ ---------- */
+  .steps{display:flex;gap:6px;margin-bottom:14px;}
+  .steps div{
+    flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:10px 8px;text-align:center;
+    font-size:11px;color:var(--sub);line-height:1.5;
+  }
+  .steps span{
+    display:block;font-family:var(--serif);font-size:15px;font-weight:800;
+    background:linear-gradient(120deg,var(--cyan),var(--violet));
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;margin-bottom:2px;
+  }
+
+  /* ---------- 運営者(証明) ---------- */
+  .who{
+    text-align:left;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;
+    padding:20px 18px;margin-top:26px;position:relative;overflow:hidden;
+  }
+  .who::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,var(--cyan),var(--violet),var(--accent));
+  }
+  .who-label{font-size:11px;color:#697084;letter-spacing:.12em;margin-bottom:6px;}
+  .who-name{
+    font-family:var(--serif);font-size:19px;font-weight:800;
+    letter-spacing:.03em;margin-bottom:14px;
+  }
+  .who ul{list-style:none;}
+  .who li{
+    font-size:13px;color:var(--sub);
+    padding-left:1.2em;position:relative;margin-bottom:7px;
+  }
+  .who li:last-child{margin-bottom:0;}
+  .who li::before{
+    content:"";position:absolute;left:0;top:.65em;
+    width:7px;height:1px;background:var(--violet);
+  }
+  .retry{
+    display:inline-block;margin-top:20px;
+    color:var(--sub);font-size:13px;text-decoration:underline;
+    background:none;border:none;cursor:pointer;
+  }
+
+  /* ---------- 下層セクション ---------- */
+  .sec{padding:36px 0;border-top:1px solid rgba(132,151,185,.16);}
+  .sec h2{font-family:var(--serif);font-size:22px;font-weight:800;letter-spacing:.04em;text-align:center;margin-bottom:20px;}
+  .sec h2 .pink{color:var(--accent);}
+  .sec p{font-size:14.5px;color:var(--sub);}
+  .flow{list-style:none;}
+  .flow li{
+    display:flex;gap:14px;align-items:flex-start;
+    background:var(--card);border-radius:14px;
+    padding:16px;margin-bottom:10px;
+  }
+  .flow .num{
+    flex-shrink:0;width:32px;height:32px;border-radius:50%;
+    background:var(--accent);color:#fff;font-weight:900;
+    display:flex;align-items:center;justify-content:center;font-size:15px;
+  }
+  .flow b{display:block;font-size:15px;color:var(--text);}
+  .flow span{font-size:13px;color:var(--sub);}
+  .promise{list-style:none;}
+  .promise li{
+    display:flex;align-items:center;gap:11px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:13px 16px;margin-bottom:9px;
+    font-size:14px;font-weight:700;
+  }
+  .promise li svg{flex-shrink:0;width:17px;height:17px;color:var(--cyan);}
+  footer{
+    padding:32px 20px calc(40px + env(safe-area-inset-bottom));text-align:center;
+    font-size:11.5px;color:#697084;border-top:1px solid rgba(132,151,185,.16);
+    line-height:1.9;
+  }
+
+  /* ==========================================================
+     スマホ最適化
+     ① 縦が短い端末(iPhone SE 667px等)でFVのCTAを1画面目に収める
+     ② 横幅が狭い端末(320px)で文字と余白を詰める
+     ========================================================== */
+  @media (max-height:700px){
+    .fv{padding:18px 0 18px;}
+    .fv-badge{margin-bottom:12px;font-size:11.5px;}
+    .fv h1{font-size:32px;margin-bottom:10px;}
+    .fv-lead{font-size:13px;margin-bottom:4px;}
+    .fv-sub{font-size:12.5px;margin-bottom:10px;}
+    .fv-target{font-size:11.5px;margin-bottom:14px;}
+    .types{gap:7px;margin-bottom:16px;}
+    .tcard{padding:10px 8px;}
+    .tcard .ic{width:22px;height:22px;margin-bottom:4px;}
+    .tcard .tname{font-size:13.5px;}
+    .tcard .tsub{font-size:10px;}
+    .btn{padding:15px 20px;font-size:16.5px;}
+    .qitem{padding:14px 13px;margin-bottom:10px;}
+    .qtext{font-size:14.5px;margin-bottom:11px;}
+    .qans button{min-height:46px;font-size:12px;}
+  }
+  @media (max-width:360px){
+    .wrap{padding:0 16px;}
+    .fv h1{font-size:32px;}
+    .tcard .tname{font-size:13.5px;}
+    .tcard .tsub{font-size:10px;}
+    .btn{font-size:16px;letter-spacing:0;}
+    .steps div{font-size:10.5px;padding:9px 5px;}
+    .sealed-h{font-size:22px;}
+    .qtext{font-size:14.5px;}
+    .qans{gap:5px;}
+    .qans button{font-size:11.5px;padding:8px 2px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== FV ==================== -->
+<section class="fv wrap" id="fv">
+  <span class="fv-badge">会社員をしながらでも ／ 1分・8問・無料</span>
+  <p class="fv-lead">あなたはどのタイプ？</p>
+  <h1>ひとり<span class="pink">起業診断</span></h1>
+  <p class="fv-sub">8つの質問に答えるだけで、<b>あなたの働き方の強み</b>と<br><b>つまずきやすいポイント</b>がわかります。</p>
+  <p class="fv-target">これから始める人向けではありません。すでに動き出したのに、進んでいる実感がない人のための診断です。</p>
+
+  <div class="types">
+    <div class="tcard craft"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="15" width="16" height="5" rx="1"/><rect x="6.5" y="9.5" width="11" height="5" rx="1"/><rect x="9" y="4" width="6" height="5" rx="1"/></svg></span><span class="tname">職人タイプ</span><div class="tsub">品質と継続で信頼を積む</div></div>
+    <div class="tcard create"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 5.9 5.9 2.3-5.9 2.3L12 19.2l-2.3-5.9L3.8 11l5.9-2.3z"/><path d="M19 17.5v3M17.5 19h3"/></svg></span><span class="tname">クリエイタータイプ</span><div class="tsub">発想と瞬発力で形にする</div></div>
+    <div class="tcard support"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.5" r="3.2"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.2 19.5c0-3.2 2.6-5.8 5.8-5.8s5.8 2.6 5.8 5.8"/><path d="M17 14.2c2.2 0 3.8 1.8 3.8 4"/></svg></span><span class="tname">サポータータイプ</span><div class="tsub">気配りと伴走で支える</div></div>
+    <div class="tcard attack"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13.5"/><path d="M12.5 6L19 12l-6.5 6"/><path d="M3 6.5h3.5M3 17.5h3.5"/></svg></span><span class="tname">アタッカータイプ</span><div class="tsub">対人突破力で切り拓く</div></div>
+  </div>
+
+  <button class="btn" onclick="startQuiz()">1分で診断をはじめる</button>
+  <p class="btn-note">8つの質問に答えるだけ。結果はLINEでお届けします。</p>
+</section>
+
+<!-- ==================== 診断 ==================== -->
+<section class="quiz" id="quiz">
+  <div class="progress-wrap">
+    <div class="wrap">
+      <div class="progress-label"><span id="answeredCount">0</span> / 8 問 回答済み</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div id="qList"></div>
+    <button class="btn" id="submitBtn" onclick="submitQuiz()" disabled>結果を見る</button>
+    <p class="btn-note" id="submitNote">すべての質問に答えると押せます</p>
+  </div>
+</section>
+
+<!-- ==================== 結果 ==================== -->
+<section class="result wrap" id="result">
+  <p class="r-label">＼ 診断完了 ／</p>
+  <div class="sealed" id="sealed">
+    <span class="sealed-ic" id="rIcon"></span>
+    <p class="sealed-lead">あなたは</p>
+    <span class="r-num" id="rNum"></span>
+    <h2 class="sealed-h" id="rType"></h2>
+    <p class="sealed-p">強みと、遠回りしやすい順番は<br>このあとLINEでお届けします</p>
+    <p class="sealed-note">LINEでは、上の<b id="rNumInline"></b>の数字だけ送ってください</p>
+  </div>
+
+  <a class="btn" id="lineBtn" href="https://lin.ee/zSaLG2M" onclick="trackLead()">診断結果を受け取る</a>
+  <p class="btn-note">登録するとすぐ届きます。<br>ブロックでいつでも解除できます。</p>
+</section>
+
+<!-- ==================== 診断の流れ ==================== -->
+<section class="sec">
+  <div class="wrap">
+    <h2>この診断で<span class="pink">わかること</span></h2>
+    <ul class="flow">
+      <li><span class="num">1</span><div><b>あなたの働き方タイプ</b><span>4タイプの中から、あなたの強みの源泉と動き方のクセを判定します。</span></div></li>
+      <li><span class="num">2</span><div><b>つまずきやすいポイント</b><span>タイプごとに、遠回りしやすいパターンは決まっています。先に知っておくだけで避けられます。</span></div></li>
+      <li><span class="num">3</span><div><b>次の一歩の方向</b><span>あなたのタイプが最初に整えるべきことを、LINEのレポートでお伝えします。</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  本診断は自己理解を目的としたものであり、成果を保証するものではありません。
+</footer>
+
+<script>
+/* ================================================
+   設定: LINE友だち追加URLを差し替える
+   ================================================ */
+const LINE_URL = "https://lin.ee/zSaLG2M";
+
+/* 質問設計:
+   axis "make"  … +1=作る寄り / -1=人寄り
+   axis "steady"… +1=コツコツ寄り / -1=ひらめき寄り
+   reverse=true の質問は符号を反転して加算する          */
+const QUESTIONS = [
+  {text:"作業に集中している時間のほうが、人と話している時間より気がラクだ", axis:"make", reverse:false},
+  {text:"人と話しているうちに、やることや方向が決まっていくほうだ", axis:"make", reverse:true},
+  {text:"言葉で説明するより、作ったものを見せたほうが早い", axis:"make", reverse:false},
+  {text:"相手の困りごとを聞くと、頼まれる前に解決策を考えてしまう", axis:"make", reverse:true},
+  {text:"やることを書き出しておかないと落ち着かない", axis:"steady", reverse:false},
+  {text:"気になったものは、調べ切る前にとりあえず触ってみる", axis:"steady", reverse:true},
+  {text:"代わり映えのしない作業を毎日続けるのは、わりと平気だ", axis:"steady", reverse:false},
+  {text:"途中まで進めて止まっているものが、今もいくつかある", axis:"steady", reverse:true},
+];
+
+const TYPES = {
+  craft: {
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="15" width="16" height="5" rx="1"/><rect x="6.5" y="9.5" width="11" height="5" rx="1"/><rect x="9" y="4" width="6" height="5" rx="1"/></svg>',
+    num:"①", name:"職人タイプ", color:"var(--craft)",
+    catch:"質を積み上げて、静かに信頼される人",
+    strength:"引き受けた仕事を最後まで丁寧に仕上げる。だから一度組んだ相手から、何度も声がかかります。派手さで勝つタイプではありませんが、いちばん長持ちする強みです。",
+    pitfall:"手を動かすほど時間が足りなくなり、引き受けられる量も任される幅も、自分の作業時間で頭打ちになる。忙しいのに、前へ進んでいる感じがしない。これは頑張りの量で解決する問題ではありません。",
+    lock:"作業量を増やさずに、任される仕事を変える順番"
+  },
+  create: {
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 5.9 5.9 2.3-5.9 2.3L12 19.2l-2.3-5.9L3.8 11l5.9-2.3z"/><path d="M19 17.5v3M17.5 19h3"/></svg>',
+    num:"②", name:"クリエイタータイプ", color:"var(--create)",
+    catch:"ゼロから形にする、立ち上げの人",
+    strength:"思いついたその日に手が動く。ほとんどの人が準備で止まるところを、あなたは一歩目で追い抜きます。何かを始める場面では、この速さがそのまま武器になります。",
+    pitfall:"新しいものに目が向くたび、前のものが途中で止まる。手元には形になりかけたものが、いくつも残っているはずです。飽きたわけではなく、続く形にする前に次へ行っているだけです。",
+    lock:"途中で止まっているものを、続く形に変える順番"
+  },
+  support: {
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.5" r="3.2"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.2 19.5c0-3.2 2.6-5.8 5.8-5.8s5.8 2.6 5.8 5.8"/><path d="M17 14.2c2.2 0 3.8 1.8 3.8 4"/></svg>',
+    num:"③", name:"サポータータイプ", color:"var(--support)",
+    catch:"隣で支えて、長く任される人",
+    strength:"相手が言葉にする前に、困っていることに気づける。だから一度組んだ相手は、あなたを手放したがりません。信頼の深さは4タイプでいちばんです。",
+    pitfall:"頼まれると断れず、気づけば何でも屋になっている。感謝はされているのに、受け取るものが見合っていない。原因は優しさではありません。どこまでやるかを決めていないことです。",
+    lock:"何でも屋から抜けるための、線の引き方"
+  },
+  attack: {
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13.5"/><path d="M12.5 6L19 12l-6.5 6"/><path d="M3 6.5h3.5M3 17.5h3.5"/></svg>',
+    num:"④", name:"アタッカータイプ", color:"var(--attack)",
+    catch:"前に出て、道をこじ開ける人",
+    strength:"話す相手を見つけて、その場で決めてくる。チャンスを待たずに取りに行けるのは、4タイプの中であなただけです。",
+    pitfall:"勢いで取れるぶん、毎月ゼロから走り直すことになる。取れた月と取れない月の落差が大きく、走り続けないと不安が消えません。ここで要るのは体力ではなく、勝ち方を固定することです。",
+    lock:"毎月ゼロから走らなくて済む形の作り方"
+  }
+};
+
+/* 回答は配列で保持する。全問を縦に並べるため、後から答え直せる必要がある */
+const answers = new Array(QUESTIONS.length).fill(null);
+const CHOICES = [
+  {label:"はい", value:1},
+  {label:"どちらでも<br>ない", value:0},
+  {label:"いいえ", value:-1}
+];
+
+function startQuiz(){
+  document.getElementById("fv").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+  // 回答中は下層セクションを隠して診断に集中させる
+  document.querySelectorAll(".sec, footer").forEach(function(el){ el.style.display = "none"; });
+  renderQuestions();
+  window.scrollTo(0,0);
+  if (typeof fbq === "function") fbq("trackCustom", "StartQuiz");
+}
+
+function renderQuestions(){
+  const list = document.getElementById("qList");
+  list.innerHTML = QUESTIONS.map(function(q, i){
+    const btns = CHOICES.map(function(c){
+      return '<button type="button" onclick="selectAnswer(' + i + ',' + c.value + ',this)">' + c.label + '</button>';
+    }).join("");
+    return '<div class="qitem" id="q' + i + '">' +
+             '<p class="qnum">Q' + (i+1) + '</p>' +
+             '<p class="qtext">' + q.text + '</p>' +
+             '<div class="qans">' + btns + '</div>' +
+           '</div>';
+  }).join("");
+}
+
+function selectAnswer(idx, val, el){
+  answers[idx] = val;
+  const item = document.getElementById("q" + idx);
+  item.querySelectorAll(".qans button").forEach(function(b){ b.classList.remove("on"); });
+  el.classList.add("on");
+  item.classList.add("done");
+  updateProgress();
+}
+
+function updateProgress(){
+  const done = answers.filter(function(a){ return a !== null; }).length;
+  document.getElementById("answeredCount").textContent = done;
+  document.getElementById("progressFill").style.width = (done / QUESTIONS.length * 100) + "%";
+
+  const btn = document.getElementById("submitBtn");
+  const note = document.getElementById("submitNote");
+  if (done === QUESTIONS.length) {
+    if (btn.disabled) {
+      btn.disabled = false;
+      note.textContent = "結果はLINEでお届けします";
+      // 最後の1問を答えた時だけ、押し忘れ防止でボタンまで運ぶ
+      btn.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+  } else {
+    btn.disabled = true;
+    note.textContent = "すべての質問に答えると押せます";
+  }
+}
+
+function submitQuiz(){
+  let scoreMake = 0;
+  let scoreSteady = 0;
+  QUESTIONS.forEach(function(q, i){
+    const signed = q.reverse ? -answers[i] : answers[i];
+    if (q.axis === "make") scoreMake += signed;
+    else scoreSteady += signed;
+  });
+  showResult(scoreMake, scoreSteady);
+}
+
+function showResult(scoreMake, scoreSteady){
+  // 同点はタイプの偏りが出やすい側に倒す(作る/コツコツ優先)
+  const isMake = scoreMake >= 0;
+  const isSteady = scoreSteady >= 0;
+  let key;
+  if (isMake && isSteady) key = "craft";
+  else if (isMake && !isSteady) key = "create";
+  else if (!isMake && isSteady) key = "support";
+  else key = "attack";
+
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("result").style.display = "block";
+  // 結果画面でも下層セクションとフッターは出さない(離脱経路を作らないため)
+
+  // タイプ名と番号だけ出す。強み・つまずきの中身はLINEで渡す
+  const t = TYPES[key];
+  const icon = document.getElementById("rIcon");
+  icon.innerHTML = t.icon;
+  icon.style.color = t.color;
+  document.getElementById("rNum").textContent = t.num;
+  document.getElementById("rType").textContent = t.name;
+  document.getElementById("rNumInline").textContent = t.num;
+
+  // LINEの友だち追加URLはパラメータを受け取れないため、番号は本人に送ってもらう
+  const btn = document.getElementById("lineBtn");
+  btn.textContent = t.num + " " + t.name + "の結果を受け取る";
+
+  window.scrollTo(0,0);
+  if (typeof fbq === "function") fbq("trackCustom", "FinishQuiz", {type:key});
+}
+
+function trackLead(){
+  if (typeof fbq === "function") fbq("track", "Lead");
+}
+</script>
+</body>
+</html>
