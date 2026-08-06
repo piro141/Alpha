@@ -440,11 +440,11 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
     <span class="r-num" id="rNum"></span>
     <h2 class="sealed-h" id="rType"></h2>
     <p class="sealed-p">強みと、遠回りしやすい順番は<br>このあとLINEでお届けします</p>
-    <p class="sealed-note">LINEでは、上の<b id="rNumInline"></b>の数字だけ送ってください</p>
+       <p class="sealed-note">友だち追加すると、そのまま結果が届きます</p>
   </div>
 
   <a class="btn" id="lineBtn" href="https://lin.ee/zSaLG2M" onclick="trackLead()">診断結果を受け取る</a>
-  <p class="btn-note">登録するとすぐ届きます。<br>ブロックでいつでも解除できます。</p>
+  <p class="btn-note">結果が届かない場合は<b id="rNumInline"></b>とだけ送ってください。<br>ブロックでいつでも解除できます。</p>
 </section>
 
 <!-- ==================== 診断の流れ ==================== -->
@@ -468,7 +468,12 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
    設定: LINE友だち追加URLを差し替える
    ================================================ */
 const LINE_URL = "https://lin.ee/zSaLG2M";
-
+const LINE_URL_BY_TYPE = {
+  craft:   "https://line-harness.alpha-a.workers.dev/t/e51d68c2-ce46-46e1-9bd4-888848673df1",
+  create:  "https://line-harness.alpha-a.workers.dev/t/dc9903d7-7856-4018-9ae1-718d387418e0",
+  support: "https://line-harness.alpha-a.workers.dev/t/ce2322f2-b23f-4bd6-b4d1-b3d52ac21190",
+  attack:  "https://line-harness.alpha-a.workers.dev/t/eea5bd24-3d87-4be2-ade1-c2a40b5881ab"
+};
 /* 質問設計:
    axis "make"  … +1=作る寄り / -1=人寄り
    axis "steady"… +1=コツコツ寄り / -1=ひらめき寄り
@@ -617,6 +622,7 @@ function showResult(scoreMake, scoreSteady){
   // LINEの友だち追加URLはパラメータを受け取れないため、番号は本人に送ってもらう
   const btn = document.getElementById("lineBtn");
   btn.textContent = t.num + " " + t.name + "の結果を受け取る";
+      btn.href = LINE_URL_BY_TYPE[key] || LINE_URL;
 
   window.scrollTo(0,0);
   if (typeof fbq === "function") fbq("trackCustom", "FinishQuiz", {type:key});
