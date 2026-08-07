@@ -142,8 +142,17 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
   .btn:active{transform:scale(.97);}
   .btn-note{font-size:12px;color:var(--sub);text-align:center;margin-top:10px;}
 
-  /* ---------- 診断エリア(全問を縦に並べる) ---------- */
-  .quiz{display:none;padding:0 0 56px;}
+  /* ---------- 診断エリア(全問を縦に並べる・最初から表示) ---------- */
+  .quiz{display:block;padding:0 0 56px;}
+  .fv-start{
+    font-size:13px;font-weight:700;color:var(--cyan);
+    letter-spacing:.08em;margin-top:2px;
+  }
+  .types-lead{
+    font-size:12.5px;font-weight:700;color:var(--sub);
+    text-align:center;letter-spacing:.06em;
+    margin:26px 0 10px;
+  }
   .progress-wrap{
     position:sticky;top:0;z-index:20;
     background:rgba(3,5,10,.92);
@@ -394,26 +403,55 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
     .qans{gap:5px;}
     .qans button{font-size:11.5px;padding:8px 2px;}
   }
+
+  /* ==========================================================
+     淡色テーマ(theme-soft)
+     50/50の出し分け用。構造はダーク版と完全に同一で、色と質感だけを差し替える。
+     生成りベース×淡ブルー×コーラル。男女どちらにも寄せないための中間トーン
+     ========================================================== */
+  body.theme-soft{
+    --bg:#faf7f1;
+    --card:#ffffff;
+    --line:rgba(90,105,140,.18);
+    --cyan:#3d96bd;
+    --violet:#7b7fd0;
+    --accent:#e07a63;
+    --accent-deep:#c9654f;
+    --text:#2b2f3a;
+    --sub:#6d7382;
+    --craft:#3d96bd;
+    --create:#d9962e;
+    --support:#3aa87f;
+    --attack:#e07a63;
+    background:
+      linear-gradient(90deg, rgba(61,150,189,.035) 1px, transparent 1px),
+      linear-gradient(rgba(123,127,208,.03) 1px, transparent 1px),
+      var(--bg);
+    background-size:96px 96px;
+  }
+  body.theme-soft .fv-badge{background:rgba(61,150,189,.08);border-color:rgba(61,150,189,.35);}
+  body.theme-soft .btn{color:#fff;box-shadow:0 8px 24px rgba(224,122,99,.28);}
+  body.theme-soft .qans button.on{color:#fff;box-shadow:0 3px 12px rgba(123,127,208,.3);}
+  body.theme-soft .qitem,
+  body.theme-soft .tcard,
+  body.theme-soft .sealed{box-shadow:0 2px 14px rgba(43,47,58,.06);}
+  body.theme-soft .progress-wrap{background:rgba(250,247,241,.94);}
+  body.theme-soft .progress-bar{background:rgba(90,105,140,.14);}
+  body.theme-soft .flow .num{color:#fff;}
+  body.theme-soft footer{color:#8a8f9c;}
 </style>
 </head>
 <body>
 
 <!-- ==================== FV ==================== -->
+<!-- 開始ボタンを置かず、FV直下にQ1を直置きする。
+     FVはタイトル＋約束の1行だけに絞り、最初のタップ=Q1の回答にする -->
 <section class="fv wrap" id="fv">
   <span class="fv-badge">会社員をしながらでも ／ 1分・8問・無料</span>
   <p class="fv-lead">あなたはどのタイプ？</p>
   <h1>ひとり<span class="pink">起業診断</span></h1>
-  <p class="fv-sub">8つの質問に答えるだけで、<b>あなたの働き方の強み</b>と<br><b>つまずきやすいポイント</b>がわかります。</p>
-
-  <div class="types">
-    <div class="tcard craft"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="15" width="16" height="5" rx="1"/><rect x="6.5" y="9.5" width="11" height="5" rx="1"/><rect x="9" y="4" width="6" height="5" rx="1"/></svg></span><span class="tname">職人タイプ</span><div class="tsub">品質と継続で信頼を積む</div></div>
-    <div class="tcard create"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 5.9 5.9 2.3-5.9 2.3L12 19.2l-2.3-5.9L3.8 11l5.9-2.3z"/><path d="M19 17.5v3M17.5 19h3"/></svg></span><span class="tname">クリエイタータイプ</span><div class="tsub">発想と瞬発力で形にする</div></div>
-    <div class="tcard support"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.5" r="3.2"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.2 19.5c0-3.2 2.6-5.8 5.8-5.8s5.8 2.6 5.8 5.8"/><path d="M17 14.2c2.2 0 3.8 1.8 3.8 4"/></svg></span><span class="tname">サポータータイプ</span><div class="tsub">気配りと伴走で支える</div></div>
-    <div class="tcard attack"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13.5"/><path d="M12.5 6L19 12l-6.5 6"/><path d="M3 6.5h3.5M3 17.5h3.5"/></svg></span><span class="tname">アタッカータイプ</span><div class="tsub">対人突破力で切り拓く</div></div>
-  </div>
-
-  <button class="btn" onclick="startQuiz()">1分で診断をはじめる</button>
-  <p class="btn-note">8つの質問に答えるだけ。結果はLINEでお届けします。</p>
+  <p class="fv-sub"><b>あなたの働き方の強み</b>×<b>つまずく順番</b>が<br>たった1分の回答でわかります。</p>
+  <p class="fv-start">＼ そのまま答えてください ／</p>
 </section>
 
 <!-- ==================== 診断 ==================== -->
@@ -426,6 +464,16 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
   </div>
   <div class="wrap">
     <div id="qList"></div>
+
+    <!-- タイプカードは結果の予告として質問の後ろに置く -->
+    <p class="types-lead">＼ 判定されるのはこの4タイプ ／</p>
+    <div class="types">
+      <div class="tcard craft"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="15" width="16" height="5" rx="1"/><rect x="6.5" y="9.5" width="11" height="5" rx="1"/><rect x="9" y="4" width="6" height="5" rx="1"/></svg></span><span class="tname">職人タイプ</span><div class="tsub">品質と継続で信頼を積む</div></div>
+      <div class="tcard create"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 5.9 5.9 2.3-5.9 2.3L12 19.2l-2.3-5.9L3.8 11l5.9-2.3z"/><path d="M19 17.5v3M17.5 19h3"/></svg></span><span class="tname">クリエイタータイプ</span><div class="tsub">発想と瞬発力で形にする</div></div>
+      <div class="tcard support"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7.5" r="3.2"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.2 19.5c0-3.2 2.6-5.8 5.8-5.8s5.8 2.6 5.8 5.8"/><path d="M17 14.2c2.2 0 3.8 1.8 3.8 4"/></svg></span><span class="tname">サポータータイプ</span><div class="tsub">気配りと伴走で支える</div></div>
+      <div class="tcard attack"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13.5"/><path d="M12.5 6L19 12l-6.5 6"/><path d="M3 6.5h3.5M3 17.5h3.5"/></svg></span><span class="tname">アタッカータイプ</span><div class="tsub">対人突破力で切り拓く</div></div>
+    </div>
+
     <button class="btn" id="submitBtn" onclick="submitQuiz()" disabled>結果を見る</button>
     <p class="btn-note" id="submitNote">すべての質問に答えると押せます</p>
   </div>
@@ -440,11 +488,12 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
     <span class="r-num" id="rNum"></span>
     <h2 class="sealed-h" id="rType"></h2>
     <p class="sealed-p">強みと、遠回りしやすい順番は<br>このあとLINEでお届けします</p>
-    <p class="sealed-note">友だち追加すると、そのまま結果が届きます</p>
+       <p class="sealed-note">友だち追加すると、そのまま結果が届きます</p>
   </div>
 
   <a class="btn" id="lineBtn" href="https://lin.ee/zSaLG2M" onclick="trackLead()">診断結果を受け取る</a>
    <p class="btn-note">タップすると、すぐに結果が届きます。<b id="rNumInline" style="display:none"></b></p>
+</section>
 
 <!-- ==================== 診断の流れ ==================== -->
 <section class="sec">
@@ -477,13 +526,15 @@ const LINE_URL_BY_TYPE = {
    axis "make"  … +1=作る寄り / -1=人寄り
    axis "steady"… +1=コツコツ寄り / -1=ひらめき寄り
    reverse=true の質問は符号を反転して加算する          */
+/* 並び順: 日常の習慣で即答できる質問を前半に置き、
+   働き方寄りの質問を後半に回す(判定ロジックは順不同で不変) */
 const QUESTIONS = [
+  {text:"やることを書き出しておかないと落ち着かない", axis:"steady", reverse:false},
+  {text:"気になったものは、調べ切る前にとりあえず触ってみる", axis:"steady", reverse:true},
   {text:"作業に集中している時間のほうが、人と話している時間より気がラクだ", axis:"make", reverse:false},
   {text:"人と話しているうちに、やることや方向が決まっていくほうだ", axis:"make", reverse:true},
   {text:"言葉で説明するより、作ったものを見せたほうが早い", axis:"make", reverse:false},
   {text:"相手の困りごとを聞くと、頼まれる前に解決策を考えてしまう", axis:"make", reverse:true},
-  {text:"やることを書き出しておかないと落ち着かない", axis:"steady", reverse:false},
-  {text:"気になったものは、調べ切る前にとりあえず触ってみる", axis:"steady", reverse:true},
   {text:"代わり映えのしない作業を毎日続けるのは、わりと平気だ", axis:"steady", reverse:false},
   {text:"途中まで進めて止まっているものが、今もいくつかある", axis:"steady", reverse:true},
 ];
@@ -531,15 +582,24 @@ const CHOICES = [
   {label:"いいえ", value:-1}
 ];
 
-function startQuiz(){
-  document.getElementById("fv").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
-  // 回答中は下層セクションを隠して診断に集中させる
-  document.querySelectorAll(".sec, footer").forEach(function(el){ el.style.display = "none"; });
-  renderQuestions();
-  window.scrollTo(0,0);
-  if (typeof fbq === "function") fbq("trackCustom", "StartQuiz");
+/* ================================================
+   トーンの50/50出し分け(dark / soft)
+   同じ人には同じ版を出し続ける(localStorageで固定)。
+   ?v=soft / ?v=dark を付けると強制表示(確認用)
+   ================================================ */
+const forced = new URLSearchParams(location.search).get("v");
+let VARIANT = (forced === "soft" || forced === "dark") ? forced : localStorage.getItem("lp_variant");
+if (VARIANT !== "soft" && VARIANT !== "dark") {
+  VARIANT = Math.random() < 0.5 ? "dark" : "soft";
 }
+try { localStorage.setItem("lp_variant", VARIANT); } catch(e) {}
+if (VARIANT === "soft") document.body.classList.add("theme-soft");
+if (typeof clarity === "function") clarity("set", "variant", VARIANT);
+
+/* Q1直置きのため質問はページ表示と同時に描画する。
+   StartQuizの発火は「最初の回答タップ」に付け替え(定義変更2026-08-07) */
+let quizStarted = false;
+document.addEventListener("DOMContentLoaded", renderQuestions);
 
 function renderQuestions(){
   const list = document.getElementById("qList");
@@ -556,6 +616,10 @@ function renderQuestions(){
 }
 
 function selectAnswer(idx, val, el){
+  if (!quizStarted) {
+    quizStarted = true;
+    if (typeof fbq === "function") fbq("trackCustom", "StartQuiz", {variant: VARIANT});
+  }
   answers[idx] = val;
   const item = document.getElementById("q" + idx);
   item.querySelectorAll(".qans button").forEach(function(b){ b.classList.remove("on"); });
@@ -585,6 +649,9 @@ function updateProgress(){
 }
 
 function submitQuiz(){
+  // 結果画面ではFV・下層セクション・フッターを隠して離脱経路を作らない
+  document.getElementById("fv").style.display = "none";
+  document.querySelectorAll(".sec, footer").forEach(function(el){ el.style.display = "none"; });
   let scoreMake = 0;
   let scoreSteady = 0;
   QUESTIONS.forEach(function(q, i){
@@ -624,7 +691,7 @@ function showResult(scoreMake, scoreSteady){
       btn.href = LINE_URL_BY_TYPE[key] || LINE_URL;
 
   window.scrollTo(0,0);
-  if (typeof fbq === "function") fbq("trackCustom", "FinishQuiz", {type:key});
+  if (typeof fbq === "function") fbq("trackCustom", "FinishQuiz", {type:key, variant: VARIANT});
 }
 
 function trackLead(){
