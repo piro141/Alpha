@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診断結果の続き｜ひとり起業診断</title>
+<meta name="description" content="あなたのタイプが遠回りしやすい順番と、次に整える1つをお伝えします。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+
+<!-- ▼▼ Metaピクセル ▼▼ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1785863469090461');
+fbq('track', 'PageView');
+</script>
+<!-- ▲▲ Metaピクセルここまで ▲▲ -->
+
+<!-- ▼▼ Microsoft Clarity ▼▼ -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xy1g80ff8e");
+</script>
+<!-- ▲▲ Clarityここまで ▲▲ -->
+
+<style>
+  :root{
+    --bg:#faf7f1;
+    --card:#ffffff;
+    --line:rgba(90,105,140,.18);
+    --text:#2b2f3a;
+    --sub:#6d7382;
+    --accent:#e07a63;
+    --serif:"Shippori Mincho","Yu Mincho",serif;
+    --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Hiragino Sans",-apple-system,sans-serif;
+    /* タイプ色。JSで上書きする */
+    --type:#3d96bd;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    color:var(--text);
+    background:
+      linear-gradient(90deg, rgba(61,150,189,.035) 1px, transparent 1px),
+      linear-gradient(rgba(123,127,208,.03) 1px, transparent 1px),
+      var(--bg);
+    background-size:96px 96px;
+    font-family:var(--sans);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    overflow-x:hidden;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:480px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- FV: タイプ別 ---------- */
+  .fv{padding-top:0;text-align:center;}
+  .fv-img{width:100%;max-width:480px;display:block;margin:0 auto;}
+  .fv-body{padding:26px 0 8px;}
+  .fv-label{font-size:12.5px;color:var(--sub);letter-spacing:.12em;}
+  .fv h1{
+    font-family:var(--serif);
+    font-size:31px;font-weight:800;line-height:1.35;
+    letter-spacing:.03em;margin:4px 0 10px;
+  }
+  .fv-catch{font-size:14px;font-weight:700;color:var(--type);}
+
+  /* ---------- セクション ---------- */
+  .sec{padding:34px 0;border-top:1px solid var(--line);}
+  .sec:first-of-type{border-top:none;}
+  .sec h2{
+    font-family:var(--serif);font-size:21px;font-weight:800;
+    line-height:1.5;letter-spacing:.03em;margin-bottom:16px;
+  }
+  .sec h2 em{font-style:normal;color:var(--type);}
+  .sec p{font-size:15px;margin-bottom:14px;}
+  .sec p:last-child{margin-bottom:0;}
+  .lead{
+    background:var(--card);border-radius:14px;
+    padding:18px 18px;margin-bottom:18px;
+    box-shadow:0 2px 14px rgba(43,47,58,.06);
+    font-size:15px;font-weight:700;line-height:1.8;
+  }
+  .lead span{color:var(--type);}
+
+  /* ---------- 落とし穴リスト ---------- */
+  .pit{list-style:none;counter-reset:p;margin:6px 0 18px;}
+  .pit li{
+    counter-increment:p;
+    background:var(--card);border-radius:12px;
+    padding:15px 16px 15px 48px;margin-bottom:10px;
+    position:relative;font-size:14.5px;
+    box-shadow:0 2px 12px rgba(43,47,58,.05);
+  }
+  .pit li::before{
+    content:counter(p);
+    position:absolute;left:15px;top:15px;
+    width:23px;height:23px;border-radius:50%;
+    background:var(--type);color:#fff;
+    font-size:12.5px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- 実例 ---------- */
+  .case{
+    background:var(--card);border-radius:14px;
+    padding:20px 18px;margin-bottom:12px;
+    box-shadow:0 2px 14px rgba(43,47,58,.06);
+    border-left:4px solid var(--type);
+  }
+  .case b{display:block;font-size:15.5px;margin-bottom:6px;}
+  .case p{font-size:14px;color:var(--sub);margin:0;}
+  .case-note{font-size:11.5px;color:var(--sub);margin-top:10px;}
+
+  /* ---------- 個別診断の中身 ---------- */
+  .flow{list-style:none;counter-reset:f;}
+  .flow li{
+    counter-increment:f;
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--card);border-radius:14px;
+    padding:16px;margin-bottom:10px;
+    box-shadow:0 2px 12px rgba(43,47,58,.05);
+  }
+  .flow li::before{
+    content:counter(f);
+    flex-shrink:0;width:30px;height:30px;border-radius:50%;
+    background:var(--type);color:#fff;font-weight:900;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .flow b{display:block;font-size:15px;line-height:1.6;}
+  .flow span{font-size:13.5px;color:var(--sub);}
+
+  .spec{list-style:none;margin-top:6px;}
+  .spec li{
+    display:flex;gap:10px;
+    font-size:14.5px;padding:10px 2px;
+    border-bottom:1px dashed var(--line);
+  }
+  .spec li:last-child{border-bottom:none;}
+  .spec i{font-style:normal;color:var(--sub);min-width:5.5em;}
+
+  /* ---------- CTA ---------- */
+  .cta{padding:34px 0 44px;border-top:1px solid var(--line);text-align:center;}
+  .btn{
+    display:block;width:100%;
+    background:var(--type);
+    color:#fff;font-size:17.5px;font-weight:900;
+    text-align:center;text-decoration:none;
+    padding:19px 20px;border-radius:100px;
+    letter-spacing:.03em;
+    box-shadow:0 8px 24px rgba(43,47,58,.16);
+    transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-note{font-size:12.5px;color:var(--sub);margin-top:12px;line-height:1.75;}
+  footer{
+    padding:26px 20px calc(36px + env(safe-area-inset-bottom));
+    text-align:center;font-size:11.5px;color:#8a8f9c;
+    border-top:1px solid var(--line);line-height:1.9;
+  }
+  @media (max-width:360px){
+    .wrap{padding:0 16px;}
+    .fv h1{font-size:27px;}
+    .sec h2{font-size:19px;}
+    .btn{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== FV: タイプ別に出し分け ==================== -->
+<section class="fv">
+  <img class="fv-img" id="fvImg" src="" alt="">
+  <div class="wrap fv-body">
+    <p class="fv-label">あなたのタイプ</p>
+    <h1 id="fvName"></h1>
+    <p class="fv-catch" id="fvCatch"></p>
+  </div>
+</section>
+
+<!-- ==================== 1. いま起きていること ==================== -->
+<section class="sec wrap">
+  <h2 id="s1Title"></h2>
+  <div class="lead" id="s1Lead"></div>
+  <p id="s1Body"></p>
+</section>
+
+<!-- ==================== 2. つまずきが起きる仕組み ==================== -->
+<section class="sec wrap">
+  <h2>これは<em>やる気の問題ではありません</em></h2>
+  <p>頑張っている人ほど、量を増やす方向へ進みます。目の前の仕事に応えようとするからです。</p>
+  <p>ただ、量を増やしても金額が変わらない場面があります。受け方の設計が変わっていないためです。同じ設計のまま数だけ増やすと、忙しさだけが増えて手元に残るものが変わりません。</p>
+  <p>変えるべきなのは努力の量ではなく、手をつける順番です。順番を1つ入れ替えるだけで、同じ作業量のまま受け取る金額が変わることがあります。</p>
+  <h2 style="margin-top:26px;">あなたのタイプが<em>遠回りしやすい3つのこと</em></h2>
+  <ol class="pit" id="pitList"></ol>
+  <p id="pitAfter"></p>
+</section>
+
+<!-- ==================== 3. 実例 ==================== -->
+<section class="sec wrap" id="caseSec">
+  <h2>順番を入れ替えた人に<em>起きたこと</em></h2>
+  <div id="caseBox"></div>
+  <p class="case-note">実際の受講者の事例です。本人の許可を得て、名前と会社名を伏せて掲載しています。成果を保証するものではありません。</p>
+</section>
+
+<!-- ==================== 4. 個別診断で何をやるか ==================== -->
+<section class="sec wrap">
+  <h2>60分の<em>個別診断でやること</em></h2>
+  <ol class="flow">
+    <li><div><b>いまの状況を聞きます</b><span>やっている仕事、受け方、1件あたりの時間と金額を並べます。</span></div></li>
+    <li><div><b>止まっている1箇所を特定します</b><span>タイプごとに詰まる場所は決まっています。どこで止まっているかをその場でお伝えします。</span></div></li>
+    <li><div><b>次に整える順番をお伝えします</b><span>何から手をつけるかを、順番つきでお渡しします。</span></div></li>
+  </ol>
+  <ul class="spec">
+    <li><i>時間</i>60分</li>
+    <li><i>方法</i>Zoom</li>
+    <li><i>費用</i>無料</li>
+    <li><i>準備</i>不要。そのまま参加できます</li>
+  </ul>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="cta wrap">
+  <a class="btn" id="ctaBtn" href="#" onclick="trackApply()">個別診断に申し込む</a>
+  <p class="btn-note">日時を選ぶだけで完了します。<br>その場で確定して、当日のZoomのURLをお送りします。</p>
+</section>
+
+<footer>
+  本診断は自己理解を目的としたものであり、成果を保証するものではありません。
+</footer>
+
+<script>
+/* ================================================
+   設定: 申し込みの飛び先。ハーネスの予約画面(2026-08-08確定)
+   メニュー「事業診断セッション」の専用URL
+   ================================================ */
+const APPLY_URL = "https://line-harness.alpha-a.workers.dev/o?liffId=2011002602-hNWLjMWA&page=salon-book&menu_id=63bfea9e-288c-4f6e-b6ce-849b59c0edbc";
+
+/* 実例。本人の許可が取れたものだけをここに入れる。
+   空の配列にすると実例のセクションごと非表示になる */
+const CASES = [];
+
+const TYPES = {
+  craft: {
+    name:"職人タイプ", color:"#3d96bd",
+    img:"/shindan/img/craft.jpg",
+    catch:"質を積み上げて、静かに信頼される人。",
+    s1Title:"働ける時間が、そのまま<em>収入の上限</em>になっています",
+    s1Lead:"あなたが遠回りしやすい順番は<br><span>単価を上げる前に、量を増やそうとする</span>ことです。",
+    s1Body:"引き受けた仕事を最後まで丁寧に仕上げるので、一度組んだ相手から何度も声がかかります。この信頼は4つのタイプでいちばん長持ちします。ただ、丁寧に仕上げるほど1件にかかる時間が伸びます。受けられる件数が自分の作業時間で決まるので、忙しくなるほど収入の伸びが止まります。忙しいのに前へ進んでいる感じがしないのは、この構造が原因です。",
+    pits:[
+      "単価を上げる前に、引き受ける量を増やしてしまう",
+      "丁寧に仕上げるほど、1件にかかる時間が伸びる",
+      "作業で埋まるので、任される範囲を上げる話ができない"
+    ],
+    pitAfter:"この3つを放置すると、働ける時間の上限がそのまま収入の上限になります。どれだけ丁寧に仕上げても、受け取る金額が変わらないままになります。"
+  },
+  create: {
+    name:"クリエイタータイプ", color:"#d9962e",
+    img:"/shindan/img/create.jpg",
+    catch:"ゼロから形にする、立ち上げの人。",
+    s1Title:"作れる力はあるのに、<em>見せられる実績</em>がありません",
+    s1Body:"思いついたその日に手が動きます。ほとんどの人が準備の段階で止まるところを、あなたは一歩目で追い抜きます。ただ、新しいものに目が向くたび、前のものが途中で止まります。手元には形になりかけたものがいくつも残っているはずです。飽きたわけではありません。続く形にする前に次へ行っているだけです。完成していないものは実績として見せられないので、力があるのに単価が上がりません。",
+    s1Lead:"あなたが遠回りしやすい順番は<br><span>終わらせる前に、次を始める</span>ことです。",
+    pits:[
+      "終わらせる前に、次のものを始めてしまう",
+      "手を広げるほど、どれも8割で止まる",
+      "完成していないので、実績として見せられない"
+    ],
+    pitAfter:"この3つを放置すると、作れる力はあるのに実績がない状態が続きます。単価も、任される範囲も変わらないままになります。"
+  },
+  support: {
+    name:"サポータータイプ", color:"#3aa87f",
+    img:"/shindan/img/support.jpg",
+    catch:"隣で支えて、長く任される人。",
+    s1Title:"感謝は増えているのに、<em>報酬が変わりません</em>",
+    s1Lead:"あなたが遠回りしやすい順番は<br><span>範囲を決める前に、引き受ける</span>ことです。",
+    s1Body:"相手が言葉にする前に、困っていることに気づけます。だから一度組んだ相手は、あなたを手放したがりません。信頼の深さは4つのタイプでいちばんです。ただ、頼まれると断れず、気づけば何でも屋になっています。感謝はされているのに、受け取るものが見合っていない。原因は優しさではありません。どこまでやるかを決めていないことです。",
+    pits:[
+      "範囲を決める前に引き受けてしまう",
+      "頼まれると断れず、何でも屋になる",
+      "喜ばれているぶん、金額の話を切り出せない"
+    ],
+    pitAfter:"この3つを放置すると、感謝はされるのに報酬が変わらないまま、時間だけが先に埋まっていきます。"
+  },
+  attack: {
+    name:"アタッカータイプ", color:"#e07a63",
+    img:"/shindan/img/attack.jpg",
+    catch:"前に出て、道をこじ開ける人。",
+    s1Title:"取れる月と取れない月の<em>落差が消えません</em>",
+    s1Lead:"あなたが遠回りしやすい順番は<br><span>仕組みを作る前に、次を取りに行く</span>ことです。",
+    s1Body:"話す相手を見つけて、その場で決めてきます。チャンスを待たずに取りに行けるのは、4つのタイプであなただけです。ただ、勢いで取れるぶん、毎月ゼロから走り直すことになります。取れた月と取れない月の落差が大きく、走り続けないと不安が消えません。ここで要るのは体力ではなく、勝ち方を固定することです。",
+    pits:[
+      "仕組みを作る前に、次の案件を取りに行く",
+      "単発で終わらせて、継続に変えない",
+      "取れた月の勢いのまま、取れない月の準備をしない"
+    ],
+    pitAfter:"この3つを放置すると、毎月ゼロから走り直すことになります。走り続けないと不安が消えない状態が続きます。"
+  }
+};
+
+function render(){
+  const key = new URLSearchParams(location.search).get("type");
+  const t = TYPES[key] || TYPES.craft;
+
+  document.documentElement.style.setProperty("--type", t.color);
+  document.getElementById("fvImg").src = t.img;
+  document.getElementById("fvImg").alt = t.name;
+  document.getElementById("fvName").textContent = t.name;
+  document.getElementById("fvCatch").textContent = t.catch;
+  document.getElementById("s1Title").innerHTML = t.s1Title;
+  document.getElementById("s1Lead").innerHTML = t.s1Lead;
+  document.getElementById("s1Body").textContent = t.s1Body;
+  document.getElementById("pitList").innerHTML =
+    t.pits.map(function(p){ return "<li>" + p + "</li>"; }).join("");
+  document.getElementById("pitAfter").textContent = t.pitAfter;
+
+  // 実例。許可済みのものが無い場合はセクションごと隠す
+  if (CASES.length) {
+    document.getElementById("caseBox").innerHTML = CASES.map(function(c){
+      return '<div class="case"><b>' + c.title + '</b><p>' + c.body + '</p></div>';
+    }).join("");
+  } else {
+    document.getElementById("caseSec").style.display = "none";
+  }
+
+  document.getElementById("ctaBtn").href = APPLY_URL;
+  if (typeof fbq === "function") fbq("trackCustom", "ViewResultLP", {type: key || "craft"});
+  if (typeof clarity === "function") clarity("set", "result_type", key || "craft");
+}
+
+function trackApply(){
+  if (typeof fbq === "function") fbq("trackCustom", "ClickApply");
+}
+
+render();
+</script>
+</body>
+</html>
