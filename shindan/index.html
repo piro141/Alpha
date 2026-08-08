@@ -583,16 +583,11 @@ const CHOICES = [
 ];
 
 /* ================================================
-   トーンの50/50出し分け(dark / soft)
-   同じ人には同じ版を出し続ける(localStorageで固定)。
-   ?v=soft / ?v=dark を付けると強制表示(確認用)
+   トーンは淡色(soft)に一本化(2026-08-08 Piro決定)。
+   ?v=dark を付けた時だけ旧ダーク配色で表示(確認用)
    ================================================ */
 const forced = new URLSearchParams(location.search).get("v");
-let VARIANT = (forced === "soft" || forced === "dark") ? forced : localStorage.getItem("lp_variant");
-if (VARIANT !== "soft" && VARIANT !== "dark") {
-  VARIANT = Math.random() < 0.5 ? "dark" : "soft";
-}
-try { localStorage.setItem("lp_variant", VARIANT); } catch(e) {}
+const VARIANT = (forced === "dark") ? "dark" : "soft";
 if (VARIANT === "soft") document.body.classList.add("theme-soft");
 if (typeof clarity === "function") clarity("set", "variant", VARIANT);
 
