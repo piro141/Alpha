@@ -57,6 +57,25 @@ fbq('track', 'PageView');
   .btn:active{transform:scale(.97);}
   .fallback{font-size:11.5px;color:#8a8f9c;margin-top:12px;line-height:1.8;}
   .nosell{font-size:12.5px;color:#6f7683;margin-top:12px;line-height:1.8;}
+  /* 画像ブロックと同じ見た目のHTML文字セクション。色は元画像から採取した実測値 */
+  .sec{padding:40px 8% 10px;}
+  .sec .h{font-weight:800;color:#181a27;font-size:clamp(20px,5.8vw,28px);line-height:1.5;letter-spacing:.01em;}
+  .sec .h .ac{color:#4a90ac;}
+  .sec .lead{color:#595959;font-size:clamp(13px,3.7vw,17px);line-height:2;margin-top:16px;}
+  .card{position:relative;background:#f4f5f7;border-radius:14px;padding:20px 88px 20px 22px;margin-top:18px;overflow:hidden;}
+  .card .t{font-weight:800;color:#181a27;font-size:clamp(14px,4.2vw,19px);line-height:1.6;}
+  .card .d{color:#595959;font-size:clamp(12px,3.4vw,15px);line-height:1.8;margin-top:6px;}
+  .card .num{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:800;color:#c5d6e2;font-size:clamp(44px,13vw,64px);line-height:1;}
+  .step{border-bottom:1px solid #e5e1da;padding:18px 0;}
+  .step:last-of-type{border-bottom:none;}
+  .step .sl{color:#4a90ac;font-weight:800;font-size:clamp(12px,3.4vw,15px);letter-spacing:.08em;}
+  .step .st{color:#181a27;font-weight:800;font-size:clamp(15px,4.4vw,20px);line-height:1.6;margin-top:4px;}
+  .step .sn{color:#8a8f9c;font-size:clamp(11.5px,3.2vw,14px);line-height:1.7;margin-top:4px;}
+  .boldink{font-weight:800;color:#181a27;font-size:clamp(16px,4.8vw,23px);line-height:1.8;}
+  .sokode{color:#4a90ac;font-weight:800;font-size:clamp(24px,7vw,33px);margin-top:26px;}
+  .graybody{color:#595959;font-size:clamp(13px,3.8vw,17px);line-height:2.1;margin-top:14px;}
+  .vh{padding:44px 8% 6px;}
+  .vh .h{border-bottom:1px solid #d9d5cd;padding-bottom:22px;}
   @media (max-width:360px){ .btn{font-size:15.5px;} }
   /* 画面下に貼り付く申し込みバー。読み進めている途中でも押せるようにする */
   .fixbar{
@@ -88,14 +107,32 @@ fbq('track', 'PageView');
   <img class="b" src="./img/block_prob2.jpg" width="820" height="1036" loading="lazy" decoding="async" alt="">
   <img class="b" src="./img/block_prob3.jpg" width="820" height="877" loading="lazy" decoding="async" alt="">
 
-  <!-- そこで！ -->
-  <img class="b" src="./img/block_soshite.jpg" width="820" height="1161" loading="lazy" decoding="async" alt="">
+  <!-- そこで！（文字はHTML・イラストだけ画像） -->
+  <section class="sec">
+    <p class="boldink">方向性が間違っていることが原因で<br>挫折してしまうことが一番もったいないです</p>
+    <p class="sokode">そこで！</p>
+    <p class="graybody">フリーランスのスペシャリストが<br>あなた専用のロードマップを一緒に作る<br>個別ロードマップ作成会を<br>無料でさせていただきます！</p>
+  </section>
+  <img class="b" src="./img/soshite_illust.jpg" width="820" height="650" loading="lazy" decoding="async" alt="">
 
-  <!-- 60分の個別診断で話すこと -->
-  <img class="b" src="./img/block_talk.jpg" width="820" height="982" loading="lazy" decoding="async" alt="">
+  <!-- 個別ロードマップ作成会でやること -->
+  <section class="sec">
+    <h2 class="h">個別ロードマップ作成会で<br><span class="ac">やること</span></h2>
+    <p class="lead">60分であなたのいまの状況を聞いて、次に進む順番を一緒に決めます。</p>
+    <div class="card"><p class="t">いま持っているものの棚卸し</p><p class="d">使える時間、これまでの経験、強みを整理します</p><span class="num">01</span></div>
+    <div class="card"><p class="t">前に進めなくしている原因の特定</p><p class="d">スキルか案件獲得か時間の使い方かを一緒に話しながら特定します</p><span class="num">02</span></div>
+    <div class="card"><p class="t">ロードマップの提供</p><p class="d">話しながら具体的にどの順番で何をやるかを整理していきます</p><span class="num">03</span></div>
+  </section>
 
   <!-- 申し込みの流れ -->
-  <img class="b" src="./img/block_flow.jpg" width="820" height="884" loading="lazy" decoding="async" alt="">
+  <section class="sec">
+    <h2 class="h">申し込みの<br><span class="ac">流れ</span></h2>
+    <div class="step"><p class="sl">STEP 01</p><p class="st">下のボタンを押す</p></div>
+    <div class="step"><p class="sl">STEP 02</p><p class="st">「LINEで開く」をタップ</p></div>
+    <div class="step"><p class="sl">STEP 03</p><p class="st">「個別ロードマップ作成会」をタップ</p></div>
+    <div class="step"><p class="sl">STEP 04</p><p class="st">希望の時間帯をタップ</p><p class="sn">13時〜18時は上、19時以降は下を選びます</p></div>
+    <div class="step"><p class="sl">STEP 05</p><p class="st">日時を選んで予約する</p><p class="sn">LINEで予約確定とZoomリンクの連絡が届きます</p></div>
+  </section>
 
   <!-- CTA 1 -->
   <div class="cta">
@@ -103,8 +140,10 @@ fbq('track', 'PageView');
     <p class="nosell">売り込みは一切ありません。ロードマップだけ受け取って終わりでも大丈夫です。</p>
   </div>
 
-  <!-- 受けた方の声 -->
-  <img class="b" src="./img/voice_h.jpg" width="820" height="276" loading="lazy" decoding="async" alt="">
+  <!-- 参加した方の声 -->
+  <section class="sec vh">
+    <h2 class="h">個別ロードマップ作成会に<br><span class="ac">参加した方の声</span></h2>
+  </section>
   <img class="b" src="./img/voice1.jpg" width="820" height="806" loading="lazy" decoding="async" alt="">
   <img class="b" src="./img/voice2.jpg" width="820" height="806" loading="lazy" decoding="async" alt="">
   <img class="b" src="./img/voice3.jpg" width="820" height="806" loading="lazy" decoding="async" alt="">
@@ -173,21 +212,20 @@ function trackApply(){
   if (typeof fbq === "function") fbq("trackCustom", "ClickApply");
 }
 
-/* 1画面ぶん読み進めたら下のバーを出す。最後の申し込みボタンが見えたら引っ込める */
+/* 1画面ぶん読み進めたら下のバーを出す。ページ内の申し込みボタンが見えている間は引っ込める */
 function watchFixbar(){
   const bar = document.getElementById("fixbar");
-  const last = document.querySelectorAll(".cta")[document.querySelectorAll(".cta").length - 1];
-  let ticking = false;
+  const ctas = document.querySelectorAll(".cta .cta-btn");
   function update(){
-    ticking = false;
     const passed = window.scrollY > window.innerHeight * 0.8;
-    const lastTop = last.getBoundingClientRect().top;
-    const lastVisible = lastTop < window.innerHeight - 60;
-    bar.classList.toggle("on", passed && !lastVisible);
+    let ctaVisible = false;
+    for (let i = 0; i < ctas.length; i++) {
+      const r = ctas[i].getBoundingClientRect();
+      if (r.top < window.innerHeight - 20 && r.bottom > 90) { ctaVisible = true; break; }
+    }
+    bar.classList.toggle("on", passed && !ctaVisible);
   }
-  window.addEventListener("scroll", function(){
-    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
-  }, {passive:true});
+  window.addEventListener("scroll", update, {passive:true});
   update();
 }
 
