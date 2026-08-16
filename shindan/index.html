@@ -439,6 +439,15 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
   body.theme-soft .progress-bar{background:rgba(90,105,140,.14);}
   body.theme-soft .flow .num{color:#fff;}
   body.theme-soft footer{color:#8a8f9c;}
+.btn-fallback{text-align:center;font-size:12px;margin-top:10px}
+.btn-fallback a{color:#8a8f9c;text-decoration:underline}
+.btn-line{display:flex;align-items:center;justify-content:center;gap:14px}
+.btn-line-icon{flex:none;width:40px;height:40px}
+.btn-line-icon svg{width:40px;height:40px;display:block}
+.btn-line-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.35;text-align:left}
+.btn-line-top{font-size:13px;font-weight:600;opacity:.92}
+.btn-line-main{font-size:19px;font-weight:800}
+.btn-line-main b{font-size:22px}
 </style>
 </head>
 <body>
@@ -483,16 +492,18 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
 <section class="result wrap" id="result">
   <p class="r-label">＼ 診断完了 ／</p>
   <div class="sealed" id="sealed">
-    <span class="sealed-ic" id="rIcon"></span>
-    <p class="sealed-lead">あなたは</p>
-    <span class="r-num" id="rNum"></span>
-    <h2 class="sealed-h" id="rType"></h2>
-    <p class="sealed-p">強みと、遠回りしやすい順番は<br>このあとLINEでお届けします</p>
+    <span class="sealed-ic" id="rIcon" style="display:none"></span>
+    <p class="sealed-lead" style="display:none"></p>
+    <span class="r-num" id="rNum" style="display:none"></span>
+    <h2 class="sealed-h" id="rType" style="display:none">あなたのタイプが判明しました</h2>
+    <h2 class="sealed-h">あなたのタイプが<br>判明しました</h2>
+    <p class="sealed-p">強みと起業をする上で<br>何を意識すればいいかを<br>このあとLINEでお届けします</p>
        <p class="sealed-note">友だち追加すると、そのまま結果が届きます</p>
   </div>
 
-  <a class="btn" id="lineBtn" href="https://lin.ee/zSaLG2M" onclick="trackLead()">診断結果を受け取る</a>
-   <p class="btn-note">タップすると、すぐに結果が届きます。<b id="rNumInline" style="display:none"></b></p>
+  <a class="btn btn-line" id="lineBtn" href="https://lin.ee/zSaLG2M" onclick="trackLead()"><span class="btn-line-icon"><svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#06C755"/><path d="M24 12C17.37 12 12 16.58 12 22.2c0 3.54 2.35 6.65 5.86 8.47-.2.74-.76 2.75-.87 3.17-.14.55.2.54.42.39.18-.12 2.84-1.88 4-2.65.84.13 1.7.22 2.59.22 6.63 0 12-4.58 12-10.2S30.63 12 24 12z" fill="#fff"/></svg></span><span class="btn-line-text"><span class="btn-line-top">LINEに登録して</span><span class="btn-line-main"><b>無料</b>で診断結果を見る</span></span></a>
+   <p class="btn-note">LINEが開きます。友だち追加すると、結果がすぐ届きます。<b id="rNumInline" style="display:none"></b></p>
+   <p class="btn-fallback"><a id="lineFallback" href="https://lin.ee/zSaLG2M">LINEが開かない場合はこちら</a></p>
 </section>
 
 <!-- ==================== 診断の流れ ==================== -->
@@ -516,12 +527,31 @@ src="https://www.facebook.com/tr?id=1785863469090461&ev=PageView&noscript=1" alt
    設定: LINE友だち追加URLを差し替える
    ================================================ */
 const LINE_URL = "https://lin.ee/zSaLG2M";
+/* 1タップ化(2026-08-16): ボタンは直接LIFFのUniversal Linkに飛ばし、
+   タップ1回でLINEアプリを開く。/r/の中間ページは開けない端末の保険に降格 */
+const LIFF_BY_TYPE = {
+  craft:   "https://liff.line.me/2011002602-hNWLjMWA?liffId=2011002602-hNWLjMWA&ref=shokunin",
+  create:  "https://liff.line.me/2011002602-hNWLjMWA?liffId=2011002602-hNWLjMWA&ref=creative",
+  support: "https://liff.line.me/2011002602-hNWLjMWA?liffId=2011002602-hNWLjMWA&ref=support",
+  attack:  "https://liff.line.me/2011002602-hNWLjMWA?liffId=2011002602-hNWLjMWA&ref=attack"
+};
 const LINE_URL_BY_TYPE = {
   craft:   "https://line-harness.alpha-a.workers.dev/r/shokunin",
   create:  "https://line-harness.alpha-a.workers.dev/r/creative",
   support: "https://line-harness.alpha-a.workers.dev/r/support",
   attack:  "https://line-harness.alpha-a.workers.dev/r/attack"
 };
+/* Androidはintent形式でLINEアプリを直接起動する(中間ページと同じ方式)。
+   起動できない時はS.browser_fallback_urlで/r/の中間ページへ落ちる */
+function lineHref(key){
+  const liff = LIFF_BY_TYPE[key] || LINE_URL;
+  if (/android/i.test(navigator.userAgent)) {
+    const path = liff.replace(/^https:\/\//, "");
+    const fb = encodeURIComponent(LINE_URL_BY_TYPE[key] || liff);
+    return "intent://" + path + "#Intent;scheme=https;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=jp.naver.line.android;S.browser_fallback_url=" + fb + ";end";
+  }
+  return liff;
+}
 /* 質問設計:
    axis "make"  … +1=作る寄り / -1=人寄り
    axis "steady"… +1=コツコツ寄り / -1=ひらめき寄り
@@ -680,10 +710,11 @@ function showResult(scoreMake, scoreSteady){
   document.getElementById("rType").textContent = t.name;
   document.getElementById("rNumInline").textContent = t.num;
 
-  // LINEの友だち追加URLはパラメータを受け取れないため、番号は本人に送ってもらう
+  // タイプ情報はLIFF経由でタグ付けされ、追加した瞬間に結果が自動で届く
   const btn = document.getElementById("lineBtn");
-  btn.textContent = t.num + " " + t.name + "の結果を受け取る";
-      btn.href = LINE_URL_BY_TYPE[key] || LINE_URL;
+  btn.href = lineHref(key);
+  const fallbackLink = document.getElementById("lineFallback");
+  if (fallbackLink) fallbackLink.href = LINE_URL_BY_TYPE[key] || LINE_URL;
 
   window.scrollTo(0,0);
   if (typeof fbq === "function") fbq("trackCustom", "FinishQuiz", {type:key, variant: VARIANT});
