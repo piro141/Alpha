@@ -197,9 +197,10 @@ fbq('track', 'PageView');
 </div>
 
 <script>
-/* 申し込みの飛び先。ハーネスの計測用リンクを経由して予約画面へ飛ばす。
-   経由させると「行動_予約画面へ進んだ」のタグが自動で付く */
-const APPLY_URL = "https://line-harness.alpha-a.workers.dev/t/e52d31fb-7119-464c-b72b-ec800a5218ae";
+/* 申し込みの飛び先。LIFFで包んでから計測用リンクを経由して予約画面へ飛ばす。
+   liff.line.meで始まるのでLINE内で直接ひらき、「LINEで開く」の中継ページを通らない。
+   計測リンク経由なので「行動_予約画面へ進んだ」のタグは今までどおり付く（2026-08-17変更） */
+const APPLY_URL = "https://liff.line.me/2011002602-hNWLjMWA?redirect=https%3A%2F%2Fline-harness.alpha-a.workers.dev%2Ft%2Fe52d31fb-7119-464c-b72b-ec800a5218ae";
 
 const TYPES = {
   craft:   {name:"こつこつ積み上げる職人",       color:"#3d96bd"},
