@@ -541,13 +541,16 @@ const LINE_URL_BY_TYPE = {
   support: "https://line-harness.alpha-a.workers.dev/r/support",
   attack:  "https://line-harness.alpha-a.workers.dev/r/attack"
 };
+/* 入口別計測(2026-08-20): 広告URLに ?src=2034 が付いていたら
+   refコードの末尾に34を足す(shokunin→shokunin34)。見た目と動きは一切変えない */
+const REF_SUFFIX = new URLSearchParams(location.search).get("src") === "2034" ? "34" : "";
 /* Androidはintent形式でLINEアプリを直接起動する(中間ページと同じ方式)。
    起動できない時はS.browser_fallback_urlで/r/の中間ページへ落ちる */
 function lineHref(key){
-  const liff = LIFF_BY_TYPE[key] || LINE_URL;
+  const liff = (LIFF_BY_TYPE[key] || LINE_URL) + REF_SUFFIX;
   if (/android/i.test(navigator.userAgent)) {
     const path = liff.replace(/^https:\/\//, "");
-    const fb = encodeURIComponent(LINE_URL_BY_TYPE[key] || liff);
+    const fb = encodeURIComponent((LINE_URL_BY_TYPE[key] || liff) + REF_SUFFIX);
     return "intent://" + path + "#Intent;scheme=https;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=jp.naver.line.android;S.browser_fallback_url=" + fb + ";end";
   }
   return liff;
