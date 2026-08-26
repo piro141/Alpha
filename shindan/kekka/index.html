@@ -82,6 +82,24 @@ fbq('track', 'PageView');
   .card .t{font-weight:800;color:#181a27;font-size:clamp(14px,4.2vw,19px);line-height:1.6;}
   .card .d{color:#595959;font-size:clamp(12px,3.4vw,15px);line-height:1.8;margin-top:6px;}
   .card .num{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:800;color:#c5d6e2;font-size:clamp(44px,13vw,64px);line-height:1;}
+  /* 参加特典。左に表紙、右に説明を並べる。番号は表紙が代わりを果たすため置かない */
+  .tk-card{
+    display:flex;gap:14px;align-items:flex-start;
+    background:#f4f5f7;border-radius:14px;
+    padding:16px 14px;margin-top:14px;
+  }
+  .tk-th{
+    width:88px;height:auto;flex-shrink:0;border-radius:4px;
+    box-shadow:0 3px 10px rgba(0,0,0,.16);
+  }
+  .tk-body{flex:1;min-width:0;}
+  .tk-t{font-weight:800;color:#181a27;font-size:clamp(14px,4vw,17px);line-height:1.5;}
+  .tk-d{color:#595959;font-size:clamp(12px,3.3vw,14px);line-height:1.75;margin-top:7px;}
+  .tk-note{
+    margin-top:22px;padding:16px 18px;border-radius:12px;
+    background:#eef4f7;color:#2b3540;
+    font-weight:800;font-size:clamp(13px,3.7vw,16px);line-height:1.85;
+  }
   .step{border-bottom:1px solid #e5e1da;padding:18px 0;}
   .step:last-of-type{border-bottom:none;}
   .step .sl{color:#4a90ac;font-weight:800;font-size:clamp(12px,3.4vw,15px);letter-spacing:.08em;}
@@ -150,6 +168,38 @@ fbq('track', 'PageView');
     <div class="card"><p class="t">いま持っているものの棚卸し</p><p class="d">使える時間、これまでの経験、強みを整理します</p><span class="num">01</span></div>
     <div class="card"><p class="t">前に進めなくしている原因の特定</p><p class="d">スキルか案件獲得か時間の使い方かを一緒に話しながら特定します</p><span class="num">02</span></div>
     <div class="card"><p class="t">ロードマップの提供</p><p class="d">話しながら具体的にどの順番で何をやるかを整理していきます</p><span class="num">03</span></div>
+  </section>
+
+  <!-- 参加特典（2026-08-25追加・参加した人だけに渡す3点） -->
+  <section class="sec">
+    <h2 class="h">参加した方だけが<br><span class="ac">受け取れる3つの特典</span></h2>
+    <p class="lead">作成会の最後にお渡しします。予約した時点では受け取れません。</p>
+
+    <div class="tk-card">
+      <img class="tk-th" src="./img/tokuten_01.png" width="900" height="1200" loading="lazy" decoding="async" alt="">
+      <div class="tk-body">
+        <p class="tk-t">会社員のためのAI副業ランキング15</p>
+        <p class="tk-d">AIを使う副業15個の単価と月収の目安、始めるまでの日数、最初の1件の取り方。全9ページ</p>
+      </div>
+    </div>
+
+    <div class="tk-card">
+      <img class="tk-th" src="./img/tokuten_02.png" width="900" height="1200" loading="lazy" decoding="async" alt="">
+      <div class="tk-body">
+        <p class="tk-t">ChatGPT・Codex・Claude Codeの実践事例20</p>
+        <p class="tk-d">毎日動いている自動化の仕組みを20件。前の作業時間といまの状態を並べています。全7ページ</p>
+      </div>
+    </div>
+
+    <div class="tk-card">
+      <img class="tk-th" src="./img/tokuten_03.png" width="900" height="1200" loading="lazy" decoding="async" alt="">
+      <div class="tk-body">
+        <p class="tk-t">非売品　AI起業テンプレート</p>
+        <p class="tk-d">なにを売るか、誰に売るか、AIに任せる作業、最初の30日。作成会で一緒に埋める記入式4枚</p>
+      </div>
+    </div>
+
+    <p class="tk-note">3つとも作成会の最後にお渡しします。当日いらっしゃった方だけが受け取れます。</p>
   </section>
 
   <!-- 申し込みの流れ -->
