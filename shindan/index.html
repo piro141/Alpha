@@ -544,13 +544,32 @@ const LINE_URL_BY_TYPE = {
 /* 入口別計測(2026-08-20): 広告URLに ?src=2034 が付いていたら
    refコードの末尾に34を足す(shokunin→shokunin34)。見た目と動きは一切変えない */
 const REF_SUFFIX = new URLSearchParams(location.search).get("src") === "2034" ? "34" : "";
+/* 広告クリックID引き継ぎ(2026-08-28): 広告→LP到着時のfbclid等を保持し、
+   LINEリンクに付け直す。友だち追加をMetaのCAPIへ送る時の照合に必要。
+   診断中のリロードに備えてsessionStorageにも控える */
+const AD_CLICK_IDS = (() => {
+  const q = new URLSearchParams(location.search);
+  const out = new URLSearchParams();
+  ["fbclid","gclid","ttclid","twclid"].forEach(k => {
+    let v = q.get(k);
+    try {
+      if (v) sessionStorage.setItem("adclick_" + k, v);
+      else v = sessionStorage.getItem("adclick_" + k);
+    } catch(e){}
+    if (v) out.set(k, v);
+  });
+  return out.toString();
+})();
+function withClickIds(url){
+  return AD_CLICK_IDS ? url + (url.includes("?") ? "&" : "?") + AD_CLICK_IDS : url;
+}
 /* Androidはintent形式でLINEアプリを直接起動する(中間ページと同じ方式)。
    起動できない時はS.browser_fallback_urlで/r/の中間ページへ落ちる */
 function lineHref(key){
-  const liff = (LIFF_BY_TYPE[key] || LINE_URL) + REF_SUFFIX;
+  const liff = withClickIds((LIFF_BY_TYPE[key] || LINE_URL) + REF_SUFFIX);
   if (/android/i.test(navigator.userAgent)) {
     const path = liff.replace(/^https:\/\//, "");
-    const fb = encodeURIComponent((LINE_URL_BY_TYPE[key] || liff) + REF_SUFFIX);
+    const fb = encodeURIComponent(withClickIds((LINE_URL_BY_TYPE[key] || (LIFF_BY_TYPE[key] || LINE_URL)) + REF_SUFFIX));
     return "intent://" + path + "#Intent;scheme=https;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=jp.naver.line.android;S.browser_fallback_url=" + fb + ";end";
   }
   return liff;
