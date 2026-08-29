@@ -542,8 +542,17 @@ const LINE_URL_BY_TYPE = {
   attack:  "https://line-harness.alpha-a.workers.dev/r/attack"
 };
 /* 入口別計測(2026-08-20): 広告URLに ?src=2034 が付いていたら
-   refコードの末尾に34を足す(shokunin→shokunin34)。見た目と動きは一切変えない */
-const REF_SUFFIX = new URLSearchParams(location.search).get("src") === "2034" ? "34" : "";
+   refコードの末尾に34を足す(shokunin→shokunin34)。見た目と動きは一切変えない。
+   2026-08-29追記: 50-65+キャンペーン用に ?src=5065 → 末尾65を追加。
+   診断中のリロードでクエリが消えても効くようにsessionStorageへ控える */
+const REF_SUFFIX = (() => {
+  let s = new URLSearchParams(location.search).get("src");
+  try {
+    if (s) sessionStorage.setItem("adclick_src", s);
+    else s = sessionStorage.getItem("adclick_src");
+  } catch(e){}
+  return s === "2034" ? "34" : s === "5065" ? "65" : "";
+})();
 /* 広告クリックID引き継ぎ(2026-08-28): 広告→LP到着時のfbclid等を保持し、
    LINEリンクに付け直す。友だち追加をMetaのCAPIへ送る時の照合に必要。
    診断中のリロードに備えてsessionStorageにも控える */
