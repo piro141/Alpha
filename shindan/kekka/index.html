@@ -576,7 +576,7 @@ fbq('track', 'PageView');
         </div>
       </div>
       <div class="aw">
-        <p class="awlabel">マーケティングを<br>支援した法人</p>
+        <p class="awlabel">法人との<br>取引実績</p>
         <div class="awrow">
           <svg class="lf" viewBox="0 0 44 104"><use href="#leaf"/></svg>
           <p class="awnum">50<span class="u">社以上</span></p>
@@ -584,7 +584,7 @@ fbq('track', 'PageView');
         </div>
       </div>
       <div class="aw">
-        <p class="awlabel">自分の事業を<br>経営してきた</p>
+        <p class="awlabel">起業歴</p>
         <div class="awrow">
           <svg class="lf" viewBox="0 0 44 104"><use href="#leaf"/></svg>
           <p class="awnum">8<span class="u">年目</span></p>
@@ -779,8 +779,9 @@ function render(){
   const k = TYPES[key] ? key : "craft";
   const t = TYPES[k];
 
-  /* 既定はLINEの緑。?btn=type を付けた時だけタイプごとの色にする（2026-08-25 Piro確定） */
-  const base = params.get("btn") === "type" ? t.color : "#4ca62e";
+  /* 2026-08-30変更: 既定をタイプ色にする（緑は誘導感が出る仮説の検証。8/25の緑既定を反転）。
+     ?btn=green を付けた時だけLINEの緑に戻せる */
+  const base = params.get("btn") === "green" ? "#4ca62e" : t.color;
   /* --type はボタンの色に使われているため、カードにはタイプ色を別の変数で渡す */
 
   const root = document.documentElement.style;
@@ -833,7 +834,10 @@ function watchFixbar(){
       const r = ctas[i].getBoundingClientRect();
       if (r.top < window.innerHeight - 20 && r.bottom > 90) { ctaVisible = true; break; }
     }
-    bar.classList.toggle("on", !ctaVisible);
+    /* 2026-08-30: 常時表示をやめて8/25以前のスクロール条件に戻す。
+       開いた瞬間に予約バーが見えると、診断結果を見に来た人に誘導と受け取られるため */
+    const passed = window.scrollY > window.innerHeight * 0.8;
+    bar.classList.toggle("on", passed && !ctaVisible);
   }
   window.addEventListener("scroll", update, {passive:true});
   update();
